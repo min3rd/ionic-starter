@@ -1,0 +1,28 @@
+<ion-content>
+    <ion-list class="py-6">
+        <ion-item lines="none">
+            <ion-avatar>
+                <img src="assets/icon/favicon.png" alt="" srcset="">
+            </ion-avatar>
+        </ion-item>
+        <ion-item lines="none">
+            <h1 class="text-2xl font-semibold py-4">
+                {{'welcome back' | transloco | capitalize}}
+            </h1>
+        </ion-item>
+        <ion-item>
+            <ion-input type="email" placeholder="email@email.com"
+                label="{{'email' | transloco | capitalize}}"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-input type="password" label="{{'password' | transloco | capitalize}}">
+                <ion-input-password-toggle slot="end"></ion-input-password-toggle>
+            </ion-input>
+        </ion-item>
+        <ion-item lines="none" class="py-4">
+            <ion-button expand="block" class="w-full" size="default">
+                {{'sign in' | transloco | capitalize}}
+            </ion-button>
+        </ion-item>
+    </ion-list>
+</ion-content>

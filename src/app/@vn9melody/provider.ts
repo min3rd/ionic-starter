@@ -16,7 +16,7 @@ export const provideVn9Melody = (): Array<Provider | EnvironmentProviders> => {
             provide: APP_INITIALIZER,
             deps: [...mockApi],
             useFactory: () => () => null,
-            multi: true
+            multi: true,
         },
     ];
 }

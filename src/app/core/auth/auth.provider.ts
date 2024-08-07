@@ -8,7 +8,7 @@ export const provideAuth = (): Array<Provider | EnvironmentProviders> => {
         {
             provide: ENVIRONMENT_INITIALIZER,
             useValue: () => inject(AuthService),
-            multi: true
+            multi: true,
         },
         provideHttpClient(withInterceptors([authInterceptor])),
     ];

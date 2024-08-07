@@ -1,9 +1,10 @@
 import { inject, Injectable } from '@angular/core';
-import { StorageService } from '../storage/storage.service';
 import { Observable, of, switchMap } from 'rxjs';
 import { AuthUtils } from './auth.utils';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { StorageService } from '../services/storage.service';
+import { StorageKeys } from '../constants/storage.keys';
 
 @Injectable({
   providedIn: 'root'
@@ -12,11 +13,26 @@ export class AuthService {
   private _storageService = inject(StorageService);
   private _httpClient = inject(HttpClient);
   private _router = inject(Router);
-  get accessToken(): string | undefined {
-    return this._storageService.get('access_token');
+  private _accessToken: string | undefined;
+
+  constructor() {
+    this._storageService.storage.subscribe((storage) => {
+      if (!storage) {
+        return;
+      }
+      storage.get(StorageKeys.accessToken).then((accessToken) => {
+        this._accessToken = accessToken;
+        console.log(accessToken);
+      });
+    });
   }
+  get accessToken(): string | undefined {
+    return this._accessToken;
+  }
+
   set accessToken(value: string) {
-    this._storageService.set('access_token', value);
+    this._accessToken = value;
+    this._storageService.set(StorageKeys.accessToken, value);
   }
 
   signIn(credentials: { email: string; password: string; rememberme: boolean; }): Observable<boolean> {

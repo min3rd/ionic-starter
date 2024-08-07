@@ -27,6 +27,7 @@
     "@capacitor/keyboard": "6.0.1",
     "@capacitor/status-bar": "6.0.0",
     "@ionic/angular": "^8.0.0",
+    "@ionic/storage-angular": "^4.0.0",
     "@jsverse/transloco": "^7.4.3",
     "ionicons": "^7.2.1",
     "lodash-es": "^4.17.21",
