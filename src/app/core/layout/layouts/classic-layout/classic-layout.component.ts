@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { BaseComponent } from '../../../base/base.component';
 import { ShareModule } from '../../../share/share.module';
-import { IonApp, IonHeader, IonRouterOutlet, IonToolbar, IonTitle, IonFooter } from "@ionic/angular/standalone";
+import { IonApp, IonHeader, IonRouterOutlet, IonToolbar, IonTitle } from "@ionic/angular/standalone";
 import { UserComponent } from '../../components/user/user.component';
 
 @Component({
@@ -13,7 +13,6 @@ import { UserComponent } from '../../components/user/user.component';
     ShareModule,
     IonApp,
     IonHeader,
-    IonFooter,
     IonRouterOutlet,
     IonToolbar,
     IonTitle,

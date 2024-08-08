@@ -4,7 +4,8 @@ import { Subject } from 'rxjs';
 import { ShareModule } from '../share/share.module';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UntypedFormBuilder, UntypedFormGroup } from '@angular/forms';
-
+import { addIcons } from 'ionicons';
+import * as allIcons from 'ionicons/icons';
 @Component({
   selector: 'app-base',
   standalone: true,
@@ -23,7 +24,7 @@ export class BaseComponent implements OnInit, OnDestroy {
   changeDetectorRef: ChangeDetectorRef = inject(ChangeDetectorRef);
   unsubscribeAll: Subject<any> = new Subject();
   ngOnInit(): void {
-
+    addIcons(allIcons);
   }
   ngOnDestroy(): void {
     this.unsubscribeAll.next(null);

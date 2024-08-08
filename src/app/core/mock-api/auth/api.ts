@@ -9,7 +9,7 @@ import { Base64 } from "crypto-es/lib/enc-base64";
 @Injectable({
     providedIn: 'root'
 })
-export class authMockApi extends MockApi {
+export class AuthMockApi extends MockApi {
     private _secret: string = "THIS IS SECRET KEY";
     override registerHandlers(): void {
         this.mockupApiService.onPost(Endpoint.auth_signin()).reply(({ request }) => {

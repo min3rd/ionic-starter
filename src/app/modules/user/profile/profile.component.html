@@ -1,0 +1,25 @@
+<ion-content [fullscreen]="true">
+    @if (user) {
+    <ion-item>
+        <div class="flex py-2 items-start gap-2">
+            @if (user.avatar) {
+            <ion-avatar>
+                <img class="max-h-full" [src]="user.avatar" [alt]="user.email" />
+            </ion-avatar>
+            }
+            <div class="">
+                @if (user.fullname) {
+                <div class="text-xl font-semibold truncate">
+                    {{user.fullname}}
+                </div>
+                }
+                @if (user.email) {
+                <div class="text-sm font-thin truncate">
+                    {{user.email}}
+                </div>
+                }
+            </div>
+        </div>
+    </ion-item>
+    }
+</ion-content>

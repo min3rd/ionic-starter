@@ -2,6 +2,7 @@ import { Routes } from '@angular/router';
 import { noAuthGuard } from './core/auth/no-auth.guard';
 import { authGuard } from './core/auth/auth.guard';
 import { LayoutComponent } from './core/layout/layout.component';
+import { metaDataResolver } from './app.resolver';
 
 export const routes: Routes = [
     { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
@@ -24,5 +25,17 @@ export const routes: Routes = [
             layout: 'classic',
         },
         loadChildren: () => import('./modules/admin/admin.routes').then((m) => m.routes),
+    },
+
+    // User
+    {
+        path: '',
+        canActivateChild: [authGuard],
+        component: LayoutComponent,
+        data: {
+            layout: 'classic',
+        },
+        resolve: [metaDataResolver],
+        loadChildren: () => import('./modules/user/user.routes').then((m) => m.routes),
     }
 ];

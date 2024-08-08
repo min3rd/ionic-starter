@@ -1,5 +1,7 @@
-import { authMockApi } from "./auth/api";
+import { AuthMockApi } from "./auth/api";
+import { UserMockApi } from "./common/user/api";
 
 export const mockApi = [
-    authMockApi,
+    AuthMockApi,
+    UserMockApi,
 ];

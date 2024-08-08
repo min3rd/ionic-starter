@@ -2,8 +2,9 @@ import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { BaseComponent } from 'src/app/core/base/base.component';
 import { ShareModule } from 'src/app/core/share/share.module';
+
 @Component({
-  selector: 'user',
+  selector: 'app-user',
   standalone: true,
   imports: [
     CommonModule,
@@ -12,8 +13,4 @@ import { ShareModule } from 'src/app/core/share/share.module';
   templateUrl: './user.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class UserComponent extends BaseComponent {
-  override ngOnInit(): void {
-    super.ngOnInit();
-  }
-}
+export class UserComponent extends BaseComponent { }
