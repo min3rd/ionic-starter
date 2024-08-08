@@ -21,14 +21,19 @@
     "@angular/platform-browser": "^18.0.0",
     "@angular/platform-browser-dynamic": "^18.0.0",
     "@angular/router": "^18.0.0",
+    "@capacitor/android": "6.1.1",
     "@capacitor/app": "6.0.0",
     "@capacitor/core": "6.1.1",
     "@capacitor/haptics": "6.0.0",
     "@capacitor/keyboard": "6.0.1",
+    "@capacitor/local-notifications": "^6.0.0",
+    "@capacitor/push-notifications": "^6.0.1",
     "@capacitor/status-bar": "6.0.0",
+    "@capacitor/toast": "^6.0.1",
     "@ionic/angular": "^8.0.0",
     "@ionic/storage-angular": "^4.0.0",
     "@jsverse/transloco": "^7.4.3",
+    "crypto-es": "^2.1.0",
     "ionicons": "^7.2.1",
     "lodash-es": "^4.17.21",
     "rxjs": "~7.8.0",
@@ -67,5 +72,13 @@
     "tailwindcss": "^3.4.7",
     "typescript": "~5.4.0"
   },
-  "description": "An Ionic project"
+  "description": "An Ionic project",
+  "browserslist": [
+    "Chrome >=79",
+    "ChromeAndroid >=79",
+    "Firefox >=70",
+    "Edge >=79",
+    "Safari >=14",
+    "iOS >=14"
+  ]
 }

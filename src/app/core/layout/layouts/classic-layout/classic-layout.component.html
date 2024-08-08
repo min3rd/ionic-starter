@@ -1,0 +1,16 @@
+<ion-app>
+    <ion-header [translucent]="true">
+        <ion-toolbar>
+            @if (title) {
+            <ion-title>{{title | transloco | capitalize}}</ion-title>
+            }
+            <!-- <user slot="end"></user> -->
+        </ion-toolbar>
+    </ion-header>
+    <ion-router-outlet></ion-router-outlet>
+    <ion-footer [translucent]="true">
+        <ion-toolbar>
+            <ion-title>Footer</ion-title>
+        </ion-toolbar>
+    </ion-footer>
+</ion-app>

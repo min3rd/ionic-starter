@@ -1,1 +1,6 @@
-<p>layout works!</p>,
+@if (layout == 'empty') {
+<empty-layout></empty-layout>
+}
+@else if (layout == 'classic') {
+<classic-layout></classic-layout>
+}

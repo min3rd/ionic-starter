@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Ionic Starter Pack</string>
+    <string name="title_activity_main">Ionic Starter Pack</string>
+    <string name="package_name">com.vn9melody.IonicStarter</string>
+    <string name="custom_url_scheme">com.vn9melody.IonicStarter</string>
+</resources>

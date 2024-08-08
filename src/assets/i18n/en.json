@@ -2,5 +2,7 @@
   "sign in": "sign in",
   "email": "email",
   "welcome back": "welcome back",
-  "password": "password"
+  "password": "password",
+  "sign up": "sign up",
+  "remember me": "remember me"
 }
