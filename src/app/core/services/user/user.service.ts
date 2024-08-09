@@ -20,4 +20,13 @@ export class UserService extends BaseService {
     }));
   }
 
+  update(user: User) {
+    return this.httpClient.put<User>(Endpoint.common_user(), user).pipe(tap(user => {
+      this._user.next(user);
+    }));
+  }
+
+  changePassword(values: { currentPassword: string, newPassword: string, confirmNewPassword: string }) {
+    return this.httpClient.put(Endpoint.common_user_change_password(), values).pipe(tap());
+  }
 }

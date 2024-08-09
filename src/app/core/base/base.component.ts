@@ -6,6 +6,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { UntypedFormBuilder, UntypedFormGroup } from '@angular/forms';
 import { addIcons } from 'ionicons';
 import * as allIcons from 'ionicons/icons';
+import { Platform } from '@ionic/angular';
 @Component({
   selector: 'app-base',
   standalone: true,
@@ -17,11 +18,13 @@ import * as allIcons from 'ionicons/icons';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class BaseComponent implements OnInit, OnDestroy {
+  isModalOpen: boolean = false;
   form!: UntypedFormGroup;
   formBuilder: UntypedFormBuilder = inject(UntypedFormBuilder);
   activatedRoute: ActivatedRoute = inject(ActivatedRoute);
   router: Router = inject(Router);
   changeDetectorRef: ChangeDetectorRef = inject(ChangeDetectorRef);
+  platform: Platform = inject(Platform);
   unsubscribeAll: Subject<any> = new Subject();
   ngOnInit(): void {
     addIcons(allIcons);

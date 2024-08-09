@@ -1,0 +1,136 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-back-button></ion-back-button>
+        </ion-buttons>
+        <ion-title>
+            {{'profile' | transloco | capitalize}}
+        </ion-title>
+        <ion-button (click)="update()" slot="end" fill="clear">
+            {{'save' | transloco | capitalize}}
+        </ion-button>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+    <ion-list>
+        <ion-item>
+            <div class="flex items-center w-full py-2">
+                <ion-avatar>
+                    @if (form.get('avatar')?.value) {
+                    <img [src]="form.get('avatar')?.value" [alt]="form.get('avatar')?.value" class="h-full">
+                    }
+                    @else {
+                    <ion-skeleton-text [animated]="true">
+                    </ion-skeleton-text>
+                    }
+                </ion-avatar>
+
+                <ion-button (click)="requestPhoto()">
+                    {{'choose' | transloco | capitalize}}
+                </ion-button>
+
+                @if (isMobile) {
+                <ion-button (click)="requestCamera()">
+                    {{'take photo' | transloco | capitalize}}
+                </ion-button>
+                }
+            </div>
+            <ion-modal [isOpen]="isModalOpen">
+                <ng-template>
+                    <ion-header>
+                        <ion-toolbar>
+                            <ion-buttons slot="start">
+                                <ion-button (click)="isModalOpen = false;">
+                                    {{'cancel' | transloco | capitalize}}
+                                </ion-button>
+                            </ion-buttons>
+                            <ion-title>
+                                {{'edit avatar' | transloco | capitalize}}
+                            </ion-title>
+                            <ion-buttons slot="end">
+                                <ion-button (click)="isModalOpen = false; changeAvatar();">
+                                    {{'save' | transloco | capitalize}}
+                                </ion-button>
+                            </ion-buttons>
+                        </ion-toolbar>
+                    </ion-header>
+                    <ion-content>
+                        <div class="flex w-full justify-center">
+                            <ion-avatar class="w-32 h-32">
+                                @if (base64Image) {
+                                <img [src]="base64Image" [alt]="base64Image" class="h-full">
+                                }
+                            </ion-avatar>
+                        </div>
+                    </ion-content>
+                </ng-template>
+            </ion-modal>
+        </ion-item>
+        <form [formGroup]="form">
+            <ion-item>
+                <div class="grid grid-cols-12 items-center w-full">
+                    <ion-label class="col-span-3">
+                        {{'email' | transloco | capitalize}}
+                    </ion-label>
+                    <ion-input formControlName="email" placeholder="{{'email@email.com' | transloco | capitalize}}"
+                        class="col-span-9"></ion-input>
+                </div>
+            </ion-item>
+
+            <ion-item>
+                <div class="grid grid-cols-12 items-center w-full">
+                    <ion-label class="col-span-3">
+                        {{'fullname' | transloco | capitalize}}
+                    </ion-label>
+                    <ion-input formControlName="fullname" placeholder="{{'fullname' | transloco | capitalize}}"
+                        class="col-span-9"></ion-input>
+                </div>
+            </ion-item>
+
+            <ion-item>
+                <div class="grid grid-cols-12 items-center w-full">
+                    <ion-label class="col-span-3">
+                        {{'phone' | transloco | capitalize}}
+                    </ion-label>
+                    <ion-input formControlName="phone" placeholder="{{'phone' | transloco | capitalize}}"
+                        class="col-span-9"></ion-input>
+                </div>
+            </ion-item>
+
+            <ion-item>
+                <div class="grid grid-cols-12 items-center w-full">
+                    <ion-label class="col-span-3">
+                        {{'address' | transloco | capitalize}}
+                    </ion-label>
+                    <ion-input formControlName="address" placeholder="{{'address' | transloco | capitalize}}"
+                        class="col-span-9"></ion-input>
+                </div>
+            </ion-item>
+
+            <ion-item>
+                <div class="grid grid-cols-12 items-center w-full">
+                    <ion-label class="col-span-3">
+                        {{'city' | transloco | capitalize}}
+                    </ion-label>
+                    <ion-input formControlName="city" placeholder="{{'city' | transloco | capitalize}}"
+                        class="col-span-9"></ion-input>
+                </div>
+            </ion-item>
+
+
+            <ion-item>
+                <div class="grid grid-cols-12 items-center w-full">
+                    <ion-label class="col-span-3">
+                        {{'country' | transloco | capitalize}}
+                    </ion-label>
+                    <ion-input formControlName="country" placeholder="{{'country' | transloco | capitalize}}"
+                        class="col-span-9"></ion-input>
+                </div>
+            </ion-item>
+        </form>
+
+    </ion-list>
+
+
+</ion-content>

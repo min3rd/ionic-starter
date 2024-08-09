@@ -11,5 +11,13 @@ export class UserMockApi extends MockApi {
         this.mockupApiService.onGet(Endpoint.common_user()).reply(() => {
             return [200, userData];
         });
+
+        this.mockupApiService.onPut(Endpoint.common_user()).reply(({ request }) => {
+            return [200, request.body];
+        });
+
+        this.mockupApiService.onPut(Endpoint.common_user_change_password()).reply(({ request }) => {
+            return [200, request.body];
+        });
     }
 }

@@ -4,5 +4,22 @@
   "welcome back": "welcome back",
   "password": "password",
   "sign up": "sign up",
-  "remember me": "remember me"
+  "remember me": "remember me",
+  "change password": "change password",
+  "profile": "profile",
+  "save": "save",
+  "choose": "choose",
+  "take photo": "take photo",
+  "edit": "edit",
+  "fullname": "fullname",
+  "phone": "phone",
+  "address": "address",
+  "city": "city",
+  "country": "country",
+  "edit avatar": "edit avatar",
+  "cancel": "cancel",
+  "current password": "current password",
+  "new password": "new password",
+  "confirm new password": "confirm new password",
+  "confirm": "confirm"
 }

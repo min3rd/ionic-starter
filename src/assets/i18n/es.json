@@ -1,3 +1,25 @@
 {
-  "email": "correo electrónico"
+  "email": "correo electrónico",
+  "change password": "cambiar la contraseña",
+  "password": "contraseña",
+  "profile": "perfil",
+  "remember me": "Acuérdate de mí",
+  "sign in": "iniciar sesión",
+  "sign up": "inscribirse",
+  "welcome back": "bienvenido de nuevo",
+  "choose": "elegir",
+  "save": "ahorrar",
+  "take photo": "tomar foto",
+  "address": "DIRECCIÓN",
+  "city": "ciudad",
+  "country": "país",
+  "edit": "editar",
+  "fullname": "nombre completo",
+  "phone": "teléfono",
+  "cancel": "Cancelar",
+  "edit avatar": "editar avatar",
+  "confirm new password": "confirmar nueva contraseña",
+  "current password": "Contraseña actual",
+  "new password": "Nueva contraseña",
+  "confirm": "confirmar"
 }

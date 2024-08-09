@@ -20,4 +20,8 @@ export class Endpoint {
     static common_user(): string {
         return this.common('user');
     }
+
+    static common_user_change_password(): string {
+        return this.common('user', 'change-password');
+    }
 }

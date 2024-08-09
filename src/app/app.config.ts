@@ -18,8 +18,8 @@ export const applicationConfig: ApplicationConfig = {
         importProvidersFrom(IonicStorageModule.forRoot()),
         provideTransloco({
             config: {
-                availableLangs: ['en', 'es'],
-                defaultLang: 'en',
+                availableLangs: ['en', 'es', 'vi'],
+                defaultLang: 'vi',
                 // Remove this option if your application doesn't support changing language in runtime.
                 reRenderOnLangChange: true,
                 prodMode: !isDevMode(),
