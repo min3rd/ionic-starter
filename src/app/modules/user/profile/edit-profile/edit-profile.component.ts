@@ -3,11 +3,11 @@ import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { BaseComponent } from 'src/app/core/base/base.component';
 import { ShareModule } from 'src/app/core/share/share.module';
 import { Camera, CameraResultType, CameraSource } from '@capacitor/camera';
-import { User } from 'src/app/core/types/user';
 import { UserService } from 'src/app/core/services/user/user.service';
 import { takeUntil } from 'rxjs';
 import { Validators } from '@angular/forms';
 import { ToastService } from 'src/app/core/services/toast.service';
+import { User } from 'src/app/core/services/user/user';
 @Component({
   selector: 'app-edit-profile',
   standalone: true,

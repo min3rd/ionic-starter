@@ -21,5 +21,9 @@
   "current password": "current password",
   "new password": "new password",
   "confirm new password": "confirm new password",
-  "confirm": "confirm"
+  "confirm": "confirm",
+  "sign out": "sign out",
+  "good bye": "good bye",
+  "you have been signed out": "you have been signed out",
+  "redirecting to sign in page in": "redirecting to sign in page in ... "
 }

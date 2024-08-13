@@ -22,14 +22,16 @@
         </div>
     </ion-item>
     }
-    <ion-nav-link routerDirection="forward" [component]="profileComponent">
-        <ion-item>
-            {{'profile' | transloco | capitalize}}
-        </ion-item>
-    </ion-nav-link>
-    <ion-nav-link routerDirection="forward" [component]="changePasswordComponent">
-        <ion-item>
-            {{'change password' | transloco | capitalize}}
-        </ion-item>
-    </ion-nav-link>
+    <ion-item routerDirection="forward" [routerLink]="['/user', 'profile']">
+        {{'profile' | transloco | capitalize}}
+    </ion-item>
+    <ion-item routerDirection="forward" [routerLink]="['/user', 'change-password']">
+        {{'change password' | transloco | capitalize}}
+    </ion-item>
+    <ion-item (click)="signOut()">
+        {{'sign out' | transloco | capitalize}}
+    </ion-item>
+
+    <router-outlet></router-outlet>
+
 </ion-content>

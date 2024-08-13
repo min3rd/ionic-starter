@@ -21,5 +21,9 @@
   "confirm new password": "confirmar nueva contraseña",
   "current password": "Contraseña actual",
   "new password": "Nueva contraseña",
-  "confirm": "confirmar"
+  "confirm": "confirmar",
+  "sign out": "desconectar",
+  "good bye": "adiós",
+  "you have been signed out": "has cerrado sesión",
+  "redirecting to sign in page in": "redireccionando a la página de inicio de sesión en..."
 }

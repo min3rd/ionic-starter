@@ -1,3 +1,5 @@
+import { cloneDeep } from "lodash-es";
+
 export class MockApiUtils {
     // -----------------------------------------------------------------------------------------------------
     // @ Public methods
@@ -26,5 +28,18 @@ export class MockApiUtils {
         });
 
         /* eslint-enable */
+    }
+
+    static filterData<T>(data: any[], key: string, query: string, page: number, size: number): T[] {
+        let clone = cloneDeep(data);
+        let filtered = clone.filter(e => e[key].includes(query));
+        if (query === 'all') {
+            filtered = cloneDeep(data);
+        }
+        if (page != undefined && size != undefined) {
+            return filtered.slice(page * size, page * size + size);
+        }
+        return filtered
+            ;
     }
 }

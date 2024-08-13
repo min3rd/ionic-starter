@@ -21,5 +21,9 @@
   "confirm new password": "xác nhận mật khẩu mới",
   "current password": "mật khẩu hiện tại",
   "new password": "mật khẩu mới",
-  "confirm": "xác nhận"
+  "confirm": "xác nhận",
+  "sign out": "đăng xuất",
+  "good bye": "tạm biệt",
+  "you have been signed out": "bạn đã đăng xuất",
+  "redirecting to sign in page in": "chuyển hướng đến trang đăng nhập trong ..."
 }

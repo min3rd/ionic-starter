@@ -1,4 +1,4 @@
-import { Base } from "../base/base.types";
+import { Base } from "../../base/base.types";
 
 export interface User extends Base {
     email: string;

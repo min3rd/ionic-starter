@@ -7,11 +7,11 @@
             {{'profile' | transloco | capitalize}}
         </ion-title>
 
-        <ion-nav-link slot="end" routerDirection="forward" [component]="editProfileComponent">
-            <ion-button fill="clear">
+        <ion-buttons slot="end">
+            <ion-button fill="clear" [routerLink]="['/user', 'profile', 'edit']">
                 {{'edit' | transloco | capitalize}}
             </ion-button>
-        </ion-nav-link>
+        </ion-buttons>
     </ion-toolbar>
 </ion-header>
 <ion-content [fullscreen]="true">

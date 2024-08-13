@@ -18,7 +18,7 @@ export class AuthService {
   get accessToken(): string | undefined {
     return this._accessToken;
   }
-  set accessToken(value: string) {
+  set accessToken(value: string | undefined) {
     this._accessToken = value;
     this._storageService.set(StorageKeys.accessToken, value);
   }
@@ -41,7 +41,7 @@ export class AuthService {
   }
 
   signOut() {
-    this._router.navigate(['/sign-out']);
+    this._router.navigate(['/user/sign-out']);
   }
 
   /**
@@ -55,7 +55,7 @@ export class AuthService {
         take(1),
         switchMap((accessToken: string) => {
           this._accessToken = accessToken;
-         
+
           // Check the access token expire date
           if (AuthUtils.isTokenExpired(this._accessToken)) {
             return of(false);

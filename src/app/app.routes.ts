@@ -5,8 +5,8 @@ import { LayoutComponent } from './core/layout/layout.component';
 import { metaDataResolver } from './app.resolver';
 
 export const routes: Routes = [
-    { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
-    // Auth
+    { path: '', redirectTo: 'apps', pathMatch: 'full' },
+    // noAuth
     {
         path: '',
         canActivateChild: [noAuthGuard],
@@ -37,5 +37,17 @@ export const routes: Routes = [
         },
         resolve: [metaDataResolver],
         loadChildren: () => import('./modules/user/user.routes').then((m) => m.routes),
-    }
+    },
+
+    // Apps
+    {
+        path: 'apps',
+        canActivateChild: [authGuard],
+        component: LayoutComponent,
+        data: {
+            layout: 'classic',
+        },
+        resolve: [metaDataResolver],
+        loadChildren: () => import('./modules/apps/apps.routes').then((m) => m.routes),
+    },
 ];

@@ -1,0 +1,21 @@
+<ion-content>
+    <div class="grid grid-cols-2 md:flex md:flex-wrap">
+        @if (apps) {
+        @for (app of apps; track $index) {
+        <ion-card [routerLink]="[app.link]">
+            <ion-card-header>
+                @if (app.subtitle) {
+                <ion-card-subtitle>
+                    {{ app.subtitle | transloco | capitalize}}
+                </ion-card-subtitle>
+                }
+                <ion-card-title>
+                    <ion-icon name="{{app.icon}}"></ion-icon>
+                    {{ app.title | transloco | capitalize}}
+                </ion-card-title>
+            </ion-card-header>
+        </ion-card>
+        }
+        }
+    </div>
+</ion-content>

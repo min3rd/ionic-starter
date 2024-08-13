@@ -25,6 +25,13 @@ import {
   IonBackButton,
   IonSkeletonText,
   IonModal,
+  IonCard,
+  IonCardHeader,
+  IonCardContent,
+  IonCardTitle,
+  IonCardSubtitle,
+  IonInfiniteScroll,
+  IonInfiniteScrollContent,
 } from "@ionic/angular/standalone";
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
@@ -60,6 +67,13 @@ import { RouterModule } from '@angular/router';
     IonBackButton,
     IonSkeletonText,
     IonModal,
+    IonCard,
+    IonCardHeader,
+    IonCardContent,
+    IonCardTitle,
+    IonCardSubtitle,
+    IonInfiniteScroll,
+    IonInfiniteScrollContent,
   ],
   exports: [
     RouterModule,
@@ -89,6 +103,13 @@ import { RouterModule } from '@angular/router';
     IonBackButton,
     IonSkeletonText,
     IonModal,
+    IonCard,
+    IonCardHeader,
+    IonCardContent,
+    IonCardTitle,
+    IonCardSubtitle,
+    IonInfiniteScroll,
+    IonInfiniteScrollContent,
   ]
 })
 export class ShareModule { }

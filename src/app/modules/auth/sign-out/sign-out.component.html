@@ -1,1 +1,17 @@
-<p>sign-out works!</p>,
+<ion-content>
+    <div class="flex flex-col w-full items-center justify-center">
+        <h1 class="font-semibold text-2xl truncate">
+            {{'good bye' | transloco | capitalize}}
+        </h1>
+        <p>
+            {{'you have been signed out' | transloco | capitalize}}
+        </p>
+        <p>
+            {{'redirecting to sign in page in' | transloco | capitalize}}
+            {{countdown}}s
+        </p>
+        <ion-button [routerLink]="['/sign-in']">
+            {{'sign in' | transloco | capitalize}}
+        </ion-button>
+    </div>
+</ion-content>

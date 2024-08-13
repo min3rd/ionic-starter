@@ -4,8 +4,8 @@ import { takeUntil } from 'rxjs';
 import { BaseComponent } from 'src/app/core/base/base.component';
 import { UserService } from 'src/app/core/services/user/user.service';
 import { ShareModule } from 'src/app/core/share/share.module';
-import { User } from 'src/app/core/types/user';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
+import { User } from 'src/app/core/services/user/user';
 
 @Component({
   selector: 'app-profile',

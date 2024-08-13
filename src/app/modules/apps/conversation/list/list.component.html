@@ -1,0 +1,15 @@
+<ion-content>
+    <ion-list>
+        <ion-item *ngFor="let conversation of conversations; let index">
+            <ion-avatar slot="start">
+                <img [src]="conversation.icon" alt="avatar" class="h-full" />
+            </ion-avatar>
+            <ion-label>
+                {{ conversation.title }}
+            </ion-label>
+        </ion-item>
+    </ion-list>
+    <ion-infinite-scroll (ionInfinite)="onIonInfinite($event)">
+        <ion-infinite-scroll-content></ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+</ion-content>
