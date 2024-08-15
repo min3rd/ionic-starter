@@ -8,7 +8,7 @@ export const provideVn9Melody = (): Array<Provider | EnvironmentProviders> => {
     return [
         {
             provide: MOCK_API_DEFAULT_DELAY,
-            useValue: 1000
+            useValue: 100
         },
         provideAnimationsAsync(),
         provideHttpClient(withInterceptors([mockApiInterceptor])),

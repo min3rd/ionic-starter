@@ -25,5 +25,12 @@
   "sign out": "đăng xuất",
   "good bye": "tạm biệt",
   "you have been signed out": "bạn đã đăng xuất",
-  "redirecting to sign in page in": "chuyển hướng đến trang đăng nhập trong ..."
+  "redirecting to sign in page in": "chuyển hướng đến trang đăng nhập trong ...",
+  "chat with your friends": "trò chuyện với bạn bè của bạn",
+  "conversation": "cuộc hội thoại",
+  "type your message": "gõ tin nhắn của bạn",
+  "address book": "sổ địa chỉ",
+  "search": "tìm kiếm",
+  "profile updated successfully": "hồ sơ được cập nhật thành công",
+  "sign in successfully": "đăng nhập thành công"
 }

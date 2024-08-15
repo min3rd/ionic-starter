@@ -1,0 +1,60 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-back-button></ion-back-button>
+        </ion-buttons>
+        <ion-title>Chat</ion-title>
+        <ion-buttons slot="end">
+            <ion-button>
+                <ion-icon slot="icon-only" name="search"></ion-icon>
+            </ion-button>
+            <ion-button>
+                <ion-icon slot="icon-only" name="ellipsis-vertical"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+<ion-content>
+    <ion-list>
+        @if (messages && messages.length) {
+        @for (message of messages; track $index) {
+        <ion-item lines="none">
+            @if (message.sender == user.fullname) {
+            <ion-chip slot="end" color="primary">
+                {{message.content}}
+            </ion-chip>
+            }
+            @else {
+            <ion-avatar slot="start">
+                <img [src]="message.avatar" alt="avatar" class="h-full" />
+            </ion-avatar>
+            <ion-chip>
+                {{message.content}}
+            </ion-chip>
+            }
+        </ion-item>
+        }
+        }
+        @else {
+
+        }
+    </ion-list>
+</ion-content>
+<ion-footer>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-button>
+                <ion-icon slot="icon-only" name="add"></ion-icon>
+            </ion-button>
+            <ion-button>
+                <ion-icon slot="icon-only" name="image"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+        <ion-input placeholder="{{'type your message' | transloco | capitalize}}"></ion-input>
+        <ion-buttons slot="end">
+            <ion-button>
+                <ion-icon slot="icon-only" name="send"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-footer>

@@ -32,14 +32,13 @@ export class MockApiUtils {
 
     static filterData<T>(data: any[], key: string, query: string, page: number, size: number): T[] {
         let clone = cloneDeep(data);
-        let filtered = clone.filter(e => e[key].includes(query));
+        let filtered = clone.filter(e => `${e[key]}`.toLocaleLowerCase().includes(query.toLocaleLowerCase()));
         if (query === 'all') {
             filtered = cloneDeep(data);
         }
         if (page != undefined && size != undefined) {
-            return filtered.slice(page * size, page * size + size);
+            return filtered.slice((page - 1) * size, (page - 1) * size + size);
         }
-        return filtered
-            ;
+        return filtered;
     }
 }

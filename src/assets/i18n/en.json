@@ -25,5 +25,12 @@
   "sign out": "sign out",
   "good bye": "good bye",
   "you have been signed out": "you have been signed out",
-  "redirecting to sign in page in": "redirecting to sign in page in ... "
+  "redirecting to sign in page in": "redirecting to sign in page in ... ",
+  "conversation": "conversation",
+  "chat with your friends": "chat with your friends",
+  "type your message": "type your message",
+  "address book": "address book",
+  "search": "search",
+  "profile updated successfully": "profile updated successfully",
+  "sign in successfully": "sign in successfully"
 }

@@ -35,14 +35,19 @@ export class SignInComponent extends BaseComponent {
     }
     this._authService.signIn(this.form.getRawValue()).subscribe(() => {
       this._toastService.add({
-        text: 'Sign in successfully',
+        text: 'sign in successfully',
         duration: 'short',
       });
       if (getQuery(this.activatedRoute.snapshot, 'redirectURL')) {
-        this.router.navigateByUrl(getQuery(this.activatedRoute.snapshot, 'redirectURL'));
+        this.router.navigate([
+          getQuery(this.activatedRoute.snapshot, 'redirectURL')
+        ],
+          {
+            relativeTo: this.activatedRoute.parent,
+          });
         return;
       }
-      this.router.navigateByUrl('/');
+      this.router.navigate(['/']);
     });
   }
 }

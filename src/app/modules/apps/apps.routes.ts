@@ -9,5 +9,9 @@ export const routes: Routes = [
     {
         path: 'conversation',
         loadChildren: () => import('./conversation/conversation.routes').then((m) => m.routes),
+    },
+    {
+        path: 'address-book',
+        loadChildren: () => import('./address-book/address-book.routes').then((m) => m.routes),
     }
 ]

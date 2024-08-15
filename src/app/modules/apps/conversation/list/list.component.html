@@ -1,6 +1,35 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-back-button></ion-back-button>
+        </ion-buttons>
+        @if (onSearch) {
+        <ion-input (ionChange)="search($event)" [autofocus]="true" placeholder="{{'search' | transloco | capitalize}}"
+            [clearOnEdit]="true">
+        </ion-input>
+        <ion-buttons slot="end">
+            <ion-button (click)="onSearch = false;">
+                <ion-icon slot="icon-only" name="close"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+        }
+        @if (!onSearch) {
+        <ion-buttons slot="end">
+            <ion-button (click)="onSearch = true;">
+                <ion-icon slot="icon-only" name="search"></ion-icon>
+            </ion-button>
+            <ion-button>
+                <ion-icon slot="icon-only" name="add"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+        }
+    </ion-toolbar>
+</ion-header>
+
 <ion-content>
     <ion-list>
-        <ion-item *ngFor="let conversation of conversations; let index">
+        @for (conversation of conversations; track $index) {
+        <ion-item [routerLink]="['./', conversation.id]">
             <ion-avatar slot="start">
                 <img [src]="conversation.icon" alt="avatar" class="h-full" />
             </ion-avatar>
@@ -8,8 +37,9 @@
                 {{ conversation.title }}
             </ion-label>
         </ion-item>
+        }
     </ion-list>
-    <ion-infinite-scroll (ionInfinite)="onIonInfinite($event)">
+    <!-- <ion-infinite-scroll (ionInfinite)="onIonInfinite($event)">
         <ion-infinite-scroll-content></ion-infinite-scroll-content>
-    </ion-infinite-scroll>
+    </ion-infinite-scroll> -->
 </ion-content>

@@ -109,7 +109,7 @@ export class EditProfileComponent extends BaseComponent {
     }
     this._userService.update(this.form.getRawValue()).subscribe(() => {
       this._toastService.add({
-        text: 'Profile updated successfully',
+        text: 'profile updated successfully',
         duration: 'short',
       });
     });

@@ -25,5 +25,12 @@
   "sign out": "desconectar",
   "good bye": "adiós",
   "you have been signed out": "has cerrado sesión",
-  "redirecting to sign in page in": "redireccionando a la página de inicio de sesión en..."
+  "redirecting to sign in page in": "redireccionando a la página de inicio de sesión en...",
+  "chat with your friends": "chatea con tus amigos",
+  "conversation": "conversación",
+  "type your message": "escribe tu mensaje",
+  "address book": "libreta de direcciones",
+  "search": "buscar",
+  "profile updated successfully": "perfil actualizado exitosamente",
+  "sign in successfully": "iniciar sesión exitosamente"
 }

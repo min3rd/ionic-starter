@@ -2,7 +2,7 @@
     <div class="grid grid-cols-2 md:flex md:flex-wrap">
         @if (apps) {
         @for (app of apps; track $index) {
-        <ion-card [routerLink]="[app.link]">
+        <ion-card [routerLink]="[app.link]" routerDirection="forward">
             <ion-card-header>
                 @if (app.subtitle) {
                 <ion-card-subtitle>

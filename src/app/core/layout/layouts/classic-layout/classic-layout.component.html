@@ -2,18 +2,20 @@
     <ion-header [translucent]="true">
         <ion-toolbar>
             <ion-buttons slot="start">
-                <ion-button [routerLink]="['/']" fill="clear">
-                    <ion-icon name="home"></ion-icon>
+                <ion-button [routerLink]="['/']">
+                    <ion-icon slot="icon-only" name="home"></ion-icon>
                 </ion-button>
             </ion-buttons>
 
             @if (title) {
             <ion-title>{{title | transloco | capitalize}}</ion-title>
             }
-            <user slot="end"></user>
+            <ion-buttons slot="end">
+                <user></user>
+            </ion-buttons>
         </ion-toolbar>
     </ion-header>
-    <ion-content [fullscreen]="true">
-        <router-outlet></router-outlet>
+    <ion-content>
+        <ion-router-outlet></ion-router-outlet>
     </ion-content>
 </ion-app>

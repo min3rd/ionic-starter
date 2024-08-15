@@ -5,13 +5,12 @@ import { BaseComponent } from 'src/app/core/base/base.component';
 import { ConversationService } from 'src/app/core/services/apps/conversation/conversation.service';
 import { Conversation } from 'src/app/core/services/apps/conversation/conversation.types';
 import { ShareModule } from 'src/app/core/share/share.module';
-import { IonInfiniteScroll } from "@ionic/angular/standalone";
 import { getParam } from 'src/app/core/utils/functions';
 
 @Component({
   selector: 'app-list',
   standalone: true,
-  imports: [IonInfiniteScroll,
+  imports: [
     CommonModule,
     ShareModule,
   ],
@@ -19,6 +18,7 @@ import { getParam } from 'src/app/core/utils/functions';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ListComponent extends BaseComponent {
+  onSearch: boolean = false;
   conversations!: Conversation[];
   private _conversationService: ConversationService = inject(ConversationService);
   override ngOnInit(): void {
@@ -32,6 +32,9 @@ export class ListComponent extends BaseComponent {
     });
   }
   onIonInfinite(event: any) {
-    this.router.navigate(['../', +getParam(this.activatedRoute.snapshot, 'page') + 1], { relativeTo: this.activatedRoute });
+    this.router.navigate(['../', +getParam(this.activatedRoute.snapshot, 'pageConversation') + 1], { relativeTo: this.activatedRoute });
+  }
+  search(event: CustomEvent) {
+    this.router.navigate(['../../', event.detail.value], { relativeTo: this.activatedRoute });
   }
 }
