@@ -13,7 +13,7 @@ export class AppsService extends BaseService {
     return this._apps.asObservable();
   }
 
-  get() {
+  get(): Observable<App[]> {
     return this.httpClient.get<App[]>(Endpoint.common_apps()).pipe(tap(apps => {
       this._apps.next(apps);
     }));

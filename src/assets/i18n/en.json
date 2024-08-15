@@ -32,5 +32,9 @@
   "address book": "address book",
   "search": "search",
   "profile updated successfully": "profile updated successfully",
-  "sign in successfully": "sign in successfully"
+  "sign in successfully": "sign in successfully",
+  "lastname": "lastname",
+  "firstname": "firstname",
+  "please fill the firstname": "please fill the firstname",
+  "please fill the lastname": "please fill the lastname"
 }

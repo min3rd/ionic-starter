@@ -22,30 +22,28 @@ export class ConversationService extends BaseService {
   get messages$(): Observable<Message[]> {
     return this._messages.asObservable();
   }
-  search(pageable: Pageable) {
+  search(pageable: Pageable): Observable<Conversation[]> {
     return this._conversations.pipe(
       take(1),
       switchMap(conversations => this.httpClient.get<Conversation[]>(Endpoint.conversation(), {
         params: new HttpParams({ fromObject: pageable as any }),
       }).pipe(tap(newConversations => {
-        // conversations = [...conversations ?? [], ...newConversations];
         this._conversations.next(newConversations);
       })))
     );
   }
-  get(conversationId: string) {
+  get(conversationId: string): Observable<Conversation> {
     return this.httpClient.get<Conversation>(Endpoint.conversation(conversationId)).pipe(tap(conversation => {
       this._conversation.next(conversation);
     }));
   }
-  messages(conversationId: string, pageable: Pageable) {
+  messages(conversationId: string, pageable: Pageable): Observable<Message[]> {
     return this._messages.pipe(
       take(1),
       switchMap(messages => this.httpClient.get<Message[]>(Endpoint.conversation_id_messages(conversationId), {
         params: new HttpParams({ fromObject: pageable as any }),
       }).pipe(tap(newMessages => {
-        messages = [...messages ?? [], ...newMessages];
-        this._messages.next(messages);
+        this._messages.next(newMessages);
       }))
       ));
   }

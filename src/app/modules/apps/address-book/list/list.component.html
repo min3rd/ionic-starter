@@ -1,1 +1,52 @@
-<p>list works!</p>,
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-back-button></ion-back-button>
+        </ion-buttons>
+        @if (onSearch) {
+        <ion-input placeholder="{{'search' | transloco | capitalize}}" [autofocus]="true"
+            [clearOnEdit]="true"></ion-input>
+        <ion-buttons slot="end">
+            <ion-button (click)="onSearch = false;">
+                <ion-icon name="close" slot="icon-only"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+        }
+        @if (!onSearch) {
+        <ion-buttons slot="end">
+            <ion-button (click)="onSearch = true;">
+                <ion-icon name="search" slot="icon-only"></ion-icon>
+            </ion-button>
+            <ion-button [routerLink]="['./new']" routerDirection="forward">
+                <ion-icon name="add" slot="icon-only"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+        }
+    </ion-toolbar>
+</ion-header>
+<ion-content>
+    @if (addressBooks && addressBooks.length) {
+    <ion-list>
+        @for (addressBook of addressBooks; track $index) {
+        <ion-item>
+            <ion-thumbnail slot="start">
+                <img [src]="addressBook.avatar" [alt]="addressBook.avatar">
+            </ion-thumbnail>
+            <div class="flex flex-col">
+                <div class="flex items-center font-semibold gap-2">
+                    <div>
+                        {{addressBook.firstname}}
+                    </div>
+                    <div>
+                        {{addressBook.lastname}}
+                    </div>
+                </div>
+                <div class="text-sm font-thin">
+                    {{addressBook.address}}
+                </div>
+            </div>
+        </ion-item>
+        }
+    </ion-list>
+    }
+</ion-content>

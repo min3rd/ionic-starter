@@ -1,8 +1,8 @@
 export class Endpoint {
-    static api(...path: string[]): string {
+    static api(...path: string[] | any[]): string {
         return `/api/${path.join('/')}`;
     }
-    static auth(...path: string[]): string {
+    static auth(...path: string[] | any[]): string {
         return this.api('auth', ...path);
     }
     static auth_signin(): string {
@@ -13,7 +13,7 @@ export class Endpoint {
         return this.auth('signup');
     }
 
-    static common(...path: string[]): string {
+    static common(...path: string[] | any[]): string {
         return this.api('common', ...path);
     }
 
@@ -29,23 +29,27 @@ export class Endpoint {
         return this.common('apps');
     }
 
-    static conversation(...path: string[]): string {
+    static common_countries(): string {
+        return this.common('countries');
+    }
+
+    static conversation(...path: string[] | any[]): string {
         return this.api('conversations', ...path);
     }
 
-    static conversation_id(id: string, ...path: string[]): string {
+    static conversation_id(id: string, ...path: string[] | any[]): string {
         return this.conversation(id, ...path);
     }
 
-    static conversation_id_messages(conversationId: string, ...path: string[]): string {
+    static conversation_id_messages(conversationId: string | undefined, ...path: string[] | any[]): string {
         return this.conversation(conversationId, 'messages', ...path);
     }
 
-    static address_book(...path: string[]): string {
+    static address_book(...path: string[] | any[]): string {
         return this.api('address-books', ...path);
     }
 
-    static address_book_id(id: string, ...path: string[]): string {
+    static address_book_id(id: string | undefined, ...path: string[] | any[]): string {
         return this.address_book(id, ...path);
     }
 }

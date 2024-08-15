@@ -1,5 +1,5 @@
 export interface Base {
-    id: string;
+    id?: string;
     createdBy?: string;
     createdDate?: Date;
     lastModifiedBy?: string;

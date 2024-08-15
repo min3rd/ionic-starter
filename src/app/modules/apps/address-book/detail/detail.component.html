@@ -1,1 +1,51 @@
-<p>detail works!</p>,
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-back-button></ion-back-button>
+        </ion-buttons>
+
+        <ion-buttons slot="end">
+            <ion-button>
+                {{'save' | transloco | capitalize}}
+            </ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-list>
+        <ion-item lines="none" class="mt-2">
+            <div class="flex w-32 h-32 rounded-md">
+                @if (!form.get('avatar')?.value) {
+                <ion-skeleton-text class="w-full h-full rounded-md" [animated]="true"></ion-skeleton-text>
+                }
+                @else {
+                <img [src]="form.get('avatar')?.value" class="w-full h-full rounded-md">
+                }
+                <div class="absolute top-0 w-32 h-32 flex items-center justify-center" (click)="changeAvatar()">
+                    <ion-icon name="camera" size="large" slot="icon-only"></ion-icon>
+                </div>
+            </div>
+        </ion-item>
+
+        <form [formGroup]="form">
+            <ion-item class="mt-2">
+                <ion-input formControlName="firstname" labelPlacement="stacked"
+                    label="{{'firstname' | transloco | capitalize}}">
+                </ion-input>
+            </ion-item>
+
+            <ion-item class="mt-2">
+                <ion-input formControlName="lastname" labelPlacement="stacked"
+                    label="{{'lastname' | transloco | capitalize}}">
+                </ion-input>
+            </ion-item>
+
+            <ion-item class="mt-2">
+                <ion-input formControlName="nickname" labelPlacement="stacked"
+                    label="{{'nickname' | transloco | capitalize}}">
+                </ion-input>
+            </ion-item>
+        </form>
+    </ion-list>
+</ion-content>

@@ -32,5 +32,9 @@
   "address book": "sổ địa chỉ",
   "search": "tìm kiếm",
   "profile updated successfully": "hồ sơ được cập nhật thành công",
-  "sign in successfully": "đăng nhập thành công"
+  "sign in successfully": "đăng nhập thành công",
+  "lastname": "họ",
+  "firstname": "tên",
+  "please fill the firstname": "vui lòng điền tên",
+  "please fill the lastname": "vui lòng điền họ"
 }

@@ -36,6 +36,7 @@ import {
   IonRefresherContent,
   IonChip,
   IonFooter,
+  IonThumbnail,
 } from "@ionic/angular/standalone";
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
@@ -82,6 +83,7 @@ import { RouterModule } from '@angular/router';
     IonRefresherContent,
     IonChip,
     IonFooter,
+    IonThumbnail,
   ],
   exports: [
     RouterModule,
@@ -122,6 +124,7 @@ import { RouterModule } from '@angular/router';
     IonRefresherContent,
     IonChip,
     IonFooter,
+    IonThumbnail,
   ]
 })
 export class ShareModule { }

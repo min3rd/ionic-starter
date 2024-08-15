@@ -32,5 +32,9 @@
   "address book": "libreta de direcciones",
   "search": "buscar",
   "profile updated successfully": "perfil actualizado exitosamente",
-  "sign in successfully": "iniciar sesión exitosamente"
+  "sign in successfully": "iniciar sesión exitosamente",
+  "lastname": "apellido",
+  "firstname": "nombre de pila",
+  "please fill the firstname": "por favor complete el nombre",
+  "please fill the lastname": "por favor complete el apellido"
 }
