@@ -22,8 +22,11 @@
                 @else {
                 <img [src]="form.get('avatar')?.value" class="w-full h-full rounded-md">
                 }
-                <div class="absolute top-0 w-32 h-32 flex items-center justify-center" (click)="changeAvatar()">
-                    <ion-icon name="camera" size="large" slot="icon-only"></ion-icon>
+                <div class="absolute top-0 w-32 h-32 flex items-center justify-center gap-2">
+                    <ion-icon (click)="changeAvatar()" name="camera" size="large" slot="icon-only"></ion-icon>
+                    @if (form.get('avatar')?.value) {
+                    <ion-icon (click)="removeAvatar()" name="trash" size="large" slot="icon-only"></ion-icon>
+                    }
                 </div>
             </div>
         </ion-item>
@@ -46,6 +49,23 @@
                     label="{{'nickname' | transloco | capitalize}}">
                 </ion-input>
             </ion-item>
+            <ion-item-divider class="my-2">
+                <ion-label slot="start">
+                    {{'email' | transloco | capitalize}}
+                </ion-label>
+                <ion-buttons slot="end">
+                    <ion-button (click)="addEmail()">
+                        <ion-icon name="add" slot="icon-only"></ion-icon>
+                    </ion-button>
+                </ion-buttons>
+            </ion-item-divider>
+            @for (email of getEmailsFormArray(); track $index) {
+            <ion-item class="mt-2">
+                <ion-input [formControl]="email.get('email')" labelPlacement="stacked"
+                    label="{{'email' | transloco | capitalize}}">
+                </ion-input>
+            </ion-item>
+            }
         </form>
     </ion-list>
 </ion-content>

@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
-import { Validators } from '@angular/forms';
+import { UntypedFormArray, UntypedFormControl, Validators } from '@angular/forms';
 import { Camera, CameraResultType } from '@capacitor/camera';
 import { from, takeUntil } from 'rxjs';
 import { BaseComponent } from 'src/app/core/base/base.component';
@@ -28,7 +28,7 @@ export class DetailComponent extends BaseComponent {
       lastname: ['', Validators.required],
       firstname: ['', Validators.required],
       nickname: [''],
-      emails: [[], Validators.required],
+      emails: this.formBuilder.array([]),
     });
     this._addressBookService.addressBook$.pipe(takeUntil(this.unsubscribeAll)).subscribe(addressBook => {
       if (!addressBook) {
@@ -49,5 +49,24 @@ export class DetailComponent extends BaseComponent {
 
       this.changeDetectorRef.markForCheck();
     });
+  }
+  removeAvatar() {
+    this.form.patchValue({
+      avatar: '',
+    });
+    this.changeDetectorRef.markForCheck();
+  }
+  addEmail() {
+    const form = this.formBuilder.group({
+      email: ['', Validators.required],
+    });
+
+    (this.form.get('emails') as UntypedFormArray).push(form);
+    console.log(this.form.get('emails'));
+    
+    this.changeDetectorRef.markForCheck();
+  }
+  getEmailsFormArray() {
+    return (this.form.get('emails') as any)?.controls;
   }
 }
