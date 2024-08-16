@@ -49,5 +49,14 @@
   "Vietnam": "Việt Nam",
   "all": "tất cả",
   "minutes": "phút",
-  "times": "lần"
+  "times": "lần",
+  "continue": "Tiếp tục",
+  "android": "android",
+  "cloud": "đám mây",
+  "firebase": "căn cứ hỏa lực",
+  "web": "mạng lưới",
+  "Android": "Android",
+  "Cloud": "Đám mây",
+  "Firebase": "căn cứ hỏa lực",
+  "Web": "Web"
 }

@@ -42,6 +42,15 @@
                         <ion-progress-bar
                             [value]="(course.progress?.currentStep ?? 0) / (course.totalSteps ??1)"></ion-progress-bar>
                     </div>
+
+                    <div class="my-2">
+                        <ion-button slot="end" shape="round" fill="outline">
+                            <div>
+                                {{'continue' | transloco | capitalize}}
+                            </div>
+                            <ion-icon name="arrow-forward"></ion-icon>
+                        </ion-button>
+                    </div>
                 </div>
             </ion-card-content>
         </ion-card>

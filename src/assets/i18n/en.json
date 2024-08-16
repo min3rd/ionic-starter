@@ -49,5 +49,14 @@
   "China": "China",
   "all": "all",
   "minutes": "minutes",
-  "times": "times"
+  "times": "times",
+  "continue": "continue",
+  "web": "web",
+  "android": "android",
+  "firebase": "firebase",
+  "cloud": "cloud",
+  "Web": "Web",
+  "Firebase": "Firebase",
+  "Cloud": "Cloud",
+  "Android": "Android"
 }

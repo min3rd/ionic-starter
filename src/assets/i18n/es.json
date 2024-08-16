@@ -49,5 +49,14 @@
   "Vietnam": "Vietnam",
   "all": "todo",
   "minutes": "minutos",
-  "times": "veces"
+  "times": "veces",
+  "continue": "continuar",
+  "android": "androide",
+  "cloud": "nube",
+  "firebase": "base de fuego",
+  "web": "web",
+  "Android": "Androide",
+  "Cloud": "Nube",
+  "Firebase": "base de fuego",
+  "Web": "Web"
 }
