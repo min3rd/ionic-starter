@@ -3,11 +3,12 @@
         <ion-buttons slot="start">
             <ion-back-button></ion-back-button>
         </ion-buttons>
-        <ion-title>
-            <!-- {{category | transloco | capitalize}} -->
-        </ion-title>
+        @if(onSearch){
+        <ion-searchbar (ionCancel)="onSearch = false;" showCancelButton="always" cancelButtonIcon="close" placeholder="{{'search' | transloco | capitalize}}"></ion-searchbar>
+        }
+        @if(!onSearch){
         <ion-buttons slot="end">
-            <ion-button>
+            <ion-button (click)="onSearch = true;">
                 <ion-icon slot="icon-only" name="search"></ion-icon>
             </ion-button>
             <ion-button id="click-trigger">
@@ -34,6 +35,7 @@
                 </ng-template>
             </ion-popover>
         </ion-buttons>
+        }
     </ion-toolbar>
 </ion-header>
 <ion-content>

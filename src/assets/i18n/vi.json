@@ -58,5 +58,8 @@
   "Android": "Android",
   "Cloud": "Đám mây",
   "Firebase": "căn cứ hỏa lực",
-  "Web": "Web"
+  "Web": "Web",
+  "members": "thành viên",
+  "mark as readed": "đánh dấu là đã đọc",
+  "delete chat": "xóa trò chuyện"
 }

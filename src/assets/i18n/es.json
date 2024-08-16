@@ -58,5 +58,8 @@
   "Android": "Androide",
   "Cloud": "Nube",
   "Firebase": "base de fuego",
-  "Web": "Web"
+  "Web": "Web",
+  "members": "miembros",
+  "mark as readed": "marcar como leído",
+  "delete chat": "eliminar chat"
 }

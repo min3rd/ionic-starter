@@ -58,5 +58,8 @@
   "Web": "Web",
   "Firebase": "Firebase",
   "Cloud": "Cloud",
-  "Android": "Android"
+  "Android": "Android",
+  "members": "members",
+  "mark as readed": "mark as readed",
+  "delete chat": "delete chat"
 }

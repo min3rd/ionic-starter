@@ -44,7 +44,7 @@
                     </div>
 
                     <div class="my-2">
-                        <ion-button slot="end" shape="round" fill="outline">
+                        <ion-button slot="end" [routerLink]="['./', course.id]" routerDirection="forward" shape="round" fill="outline">
                             <div>
                                 {{'continue' | transloco | capitalize}}
                             </div>

@@ -4,6 +4,7 @@ import { ListComponent } from "./list/list.component";
 import { AcademyService } from "src/app/core/services/apps/academy/academy.service";
 import { inject } from "@angular/core";
 import { getParam } from "src/app/core/utils/functions";
+import { DetailComponent } from "./detail/detail.component";
 
 export const categoriesResolver = (route: ActivatedRouteSnapshot, state: RouterStateSnapshot) => {
     const academyService: AcademyService = inject(AcademyService);
@@ -36,5 +37,9 @@ export const routes: Routes = [
                 ]
             }
         ]
+    },
+    {
+        path: ':categoryCourse/:pageCourse/:courseId',
+        component: DetailComponent,
     }
 ];
