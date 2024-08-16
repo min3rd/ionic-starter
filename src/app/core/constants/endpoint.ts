@@ -52,4 +52,16 @@ export class Endpoint {
     static address_book_id(id: string | undefined, ...path: string[] | any[]): string {
         return this.address_book(id, path);
     }
+
+    static academy(...path: string[] | any[]): string {
+        return this.api('academy', path);
+    }
+
+    static academy_categories(...path: string[] | any[]): string {
+        return this.academy('categories', path);
+    }
+
+    static academy_courses(...path: string[] | any[]): string {
+        return this.academy('courses', path);
+    }
 }

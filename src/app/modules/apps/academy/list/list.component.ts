@@ -2,8 +2,8 @@ import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { takeUntil } from 'rxjs';
 import { BaseComponent } from 'src/app/core/base/base.component';
-import { ConversationService } from 'src/app/core/services/apps/conversation/conversation.service';
-import { Conversation } from 'src/app/core/services/apps/conversation/conversation.types';
+import { AcademyService } from 'src/app/core/services/apps/academy/academy.service';
+import { Course } from 'src/app/core/services/apps/academy/academy.types';
 import { ShareModule } from 'src/app/core/share/share.module';
 
 @Component({
@@ -17,20 +17,16 @@ import { ShareModule } from 'src/app/core/share/share.module';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ListComponent extends BaseComponent {
-  onSearch: boolean = false;
-  conversations!: Conversation[];
-  private _conversationService: ConversationService = inject(ConversationService);
+  courses!: Course[];
+  private _academyService: AcademyService = inject(AcademyService);
   override ngOnInit(): void {
     super.ngOnInit();
-    this._conversationService.conversions$.pipe(takeUntil(this.unsubscribeAll)).subscribe(conversations => {
-      if (!conversations) {
+    this._academyService.courses$.pipe(takeUntil(this.unsubscribeAll)).subscribe(courses => {
+      if (!courses) {
         return;
       }
-      this.conversations = conversations;
+      this.courses = courses;
       this.changeDetectorRef.markForCheck();
     });
-  }
-  search(event: CustomEvent) {
-    this.router.navigate(['../../', event.detail.value], { relativeTo: this.activatedRoute });
   }
 }

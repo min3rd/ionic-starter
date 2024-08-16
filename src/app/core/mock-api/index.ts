@@ -1,3 +1,4 @@
+import { AcademyMockApi } from "./apps/academy/api";
 import { AddressBookMockApi } from "./apps/address-book/api";
 import { ConversationMockApi } from "./apps/conversation/api";
 import { AuthMockApi } from "./auth/api";
@@ -12,4 +13,5 @@ export const mockApi = [
     ConversationMockApi,
     AddressBookMockApi,
     CountryMockApi,
+    AcademyMockApi,
 ];

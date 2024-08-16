@@ -43,6 +43,12 @@ import {
   IonGrid,
   IonRow,
   IonCol,
+  IonItemSliding,
+  IonItemOptions,
+  IonItemOption,
+  IonItemGroup,
+  IonPopover,
+  IonProgressBar,
 } from "@ionic/angular/standalone";
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
@@ -96,6 +102,12 @@ import { RouterModule } from '@angular/router';
     IonGrid,
     IonRow,
     IonCol,
+    IonItemSliding,
+    IonItemOptions,
+    IonItemOption,
+    IonItemGroup,
+    IonPopover,
+    IonProgressBar,
   ],
   exports: [
     RouterModule,
@@ -143,6 +155,12 @@ import { RouterModule } from '@angular/router';
     IonGrid,
     IonRow,
     IonCol,
+    IonItemSliding,
+    IonItemOptions,
+    IonItemOption,
+    IonItemGroup,
+    IonPopover,
+    IonProgressBar,
   ]
 })
 export class ShareModule { }

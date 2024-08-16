@@ -11,7 +11,7 @@ import { cloneDeep } from "lodash-es";
 export class AddressBookMockApi extends MockApi {
     override registerHandlers(): void {
         this.mockupApiService.onGet(Endpoint.address_book()).reply(({ request }) => {
-            return [200, MockApiUtils.filterData(addressBooksData, 'name', request.params.get('query') ?? '', +(request.params.get('page') ?? 0), +(request.params.get('size') ?? 10))];
+            return [200, MockApiUtils.filterData(addressBooksData, 'name', request.params.get('query') ?? '', +(request.params.get('page') ?? 1), +(request.params.get('size') ?? 10))];
         });
 
         this.mockupApiService.onPost(Endpoint.address_book()).reply(({ request }) => {

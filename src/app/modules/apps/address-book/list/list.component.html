@@ -23,24 +23,39 @@
     @if (addressBooks && addressBooks.length) {
     <ion-list>
         @for (addressBook of addressBooks; track $index) {
-        <ion-item [routerLink]="['./', addressBook.id]" routerDirection="forward">
-            <ion-thumbnail slot="start">
-                <img [src]="addressBook.avatar" [alt]="addressBook.avatar">
-            </ion-thumbnail>
-            <div class="flex flex-col">
-                <div class="flex items-center font-semibold gap-2">
-                    <div>
-                        {{addressBook.firstname}}
+        <ion-item-sliding>
+            <ion-item-options side="start">
+                <ion-item-option>
+                    <ion-icon slot="icon-only" name="archive"></ion-icon>
+                </ion-item-option>
+            </ion-item-options>
+            <ion-item [routerLink]="['./', addressBook.id]" routerDirection="forward">
+                <ion-thumbnail slot="start">
+                    <img [src]="addressBook.avatar" [alt]="addressBook.avatar">
+                </ion-thumbnail>
+                <div class="flex flex-col">
+                    <div class="flex items-center font-semibold gap-2">
+                        <div>
+                            {{addressBook.firstname}}
+                        </div>
+                        <div>
+                            {{addressBook.lastname}}
+                        </div>
                     </div>
-                    <div>
-                        {{addressBook.lastname}}
+                    <div class="text-sm font-thin">
+                        {{addressBook.address}}
                     </div>
                 </div>
-                <div class="text-sm font-thin">
-                    {{addressBook.address}}
-                </div>
-            </div>
-        </ion-item>
+            </ion-item>
+            <ion-item-options side="end">
+                <ion-item-option>
+                    <ion-icon slot="icon-only" name="information"></ion-icon>
+                </ion-item-option>
+                <ion-item-option color="danger">
+                    <ion-icon slot="icon-only" name="trash"></ion-icon>
+                </ion-item-option>
+            </ion-item-options>
+        </ion-item-sliding>
         }
     </ion-list>
     }

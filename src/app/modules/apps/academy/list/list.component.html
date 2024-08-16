@@ -1,0 +1,51 @@
+<ion-content>
+    @if (courses && courses.length) {
+    <div class="flex flex-col md:flex-wrap">
+        @for (course of courses; track $index) {
+        <ion-card>
+            <ion-card-header>
+                <div class="flex items-center justify-between">
+                    <ion-chip>
+                        {{course.category | transloco | capitalize}}
+                    </ion-chip>
+
+                    @if (course.progress?.completed) {
+                    <ion-button color='success' shape="round">
+                        <ion-icon name="checkmark" slot="icon-only"></ion-icon>
+                    </ion-button>
+                    }
+                </div>
+                <ion-card-title>
+                    {{course.title}}
+                </ion-card-title>
+                <ion-card-subtitle>
+                    {{course.description}}
+                </ion-card-subtitle>
+            </ion-card-header>
+            <ion-card-content>
+                <div class="flex flex-col">
+                    <div class="flex items-center gap-2">
+                        <ion-icon name="time"></ion-icon>
+                        <div>
+                            {{course.duration}} {{'minutes' | transloco | lowercase}}
+                        </div>
+                    </div>
+
+                    <div class="flex items-center gap-2">
+                        <ion-icon name="school"></ion-icon>
+                        <div>
+                            {{course.progress?.completed}} {{'times' | transloco | lowercase}}
+                        </div>
+                    </div>
+
+                    <div class="my-2">
+                        <ion-progress-bar
+                            [value]="(course.progress?.currentStep ?? 0) / (course.totalSteps ??1)"></ion-progress-bar>
+                    </div>
+                </div>
+            </ion-card-content>
+        </ion-card>
+        }
+    </div>
+    }
+</ion-content>

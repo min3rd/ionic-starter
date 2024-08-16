@@ -13,5 +13,9 @@ export const routes: Routes = [
     {
         path: 'address-book',
         loadChildren: () => import('./address-book/address-book.routes').then((m) => m.routes),
+    },
+    {
+        path: 'academy',
+        loadChildren: () => import('./academy/academy.routes').then((m) => m.routes),
     }
 ]

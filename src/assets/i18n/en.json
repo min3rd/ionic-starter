@@ -46,5 +46,8 @@
   "United States": "United States",
   "Japan": "Japan",
   "Korea": "Korea",
-  "China": "China"
+  "China": "China",
+  "all": "all",
+  "minutes": "minutes",
+  "times": "times"
 }

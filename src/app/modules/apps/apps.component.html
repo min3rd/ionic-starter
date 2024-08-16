@@ -2,16 +2,22 @@
     <div class="grid grid-cols-2 md:flex md:flex-wrap">
         @if (apps) {
         @for (app of apps; track $index) {
-        <ion-card [routerLink]="[app.link]" routerDirection="forward">
+        <ion-card [routerLink]="[app.link]" routerDirection="forward" class="hover:cursor-pointer">
             <ion-card-header>
                 @if (app.subtitle) {
                 <ion-card-subtitle>
-                    {{ app.subtitle | transloco | capitalize}}
+                    <div class="truncate">
+                        {{ app.subtitle | transloco | capitalize}}
+                    </div>
                 </ion-card-subtitle>
                 }
                 <ion-card-title>
-                    <ion-icon name="{{app.icon}}"></ion-icon>
-                    {{ app.title | transloco | capitalize}}
+                    <div class="flex items-center gap-2">
+                        <ion-icon name="{{app.icon}}"></ion-icon>
+                        <div>
+                            {{ app.title | transloco | capitalize}}
+                        </div>
+                    </div>
                 </ion-card-title>
             </ion-card-header>
         </ion-card>
