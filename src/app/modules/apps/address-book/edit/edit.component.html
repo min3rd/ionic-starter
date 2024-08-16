@@ -11,7 +11,7 @@
             </ion-button>
             }
             @else {
-            <ion-button>
+            <ion-button (click)="update()">
                 {{'save' | transloco | capitalize}}
             </ion-button>
             }
@@ -129,10 +129,10 @@
                 </ion-input>
             </ion-item>
             <ion-item class="mt-2">
-                <ion-select formControlName="country" label="{{'country' | transloco | capitalize}}"
-                    label-placement="stacked" interface="action-sheet">
+                <ion-select formControlName="country" [selectedText]="form.get('country')?.value?.name"
+                    label="{{'country' | transloco | capitalize}}" label-placement="stacked" interface="action-sheet">
                     @for (country of countries; track $index) {
-                    <ion-select-option [value]="country.code">
+                    <ion-select-option [value]="country">
                         {{country.name | transloco | capitalize}}
                     </ion-select-option>
                     }

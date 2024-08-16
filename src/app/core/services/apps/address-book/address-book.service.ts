@@ -39,8 +39,14 @@ export class AddressBookService extends BaseService {
       }))));
   }
   get(id: string): Observable<AddressBook> {
-    return this.httpClient.get<AddressBook>(Endpoint.address_book(id)).pipe(tap(addressBook => {
+    return this.httpClient.get<AddressBook>(Endpoint.address_book_id(id)).pipe(tap(addressBook => {
       this._addressBook.next(addressBook);
+    }));
+  }
+
+  update(addressBook: AddressBook): Observable<AddressBook> {
+    return this.httpClient.put<AddressBook>(Endpoint.address_book_id(addressBook.id), addressBook).pipe(tap(updatedAddressBook => {     
+      this._addressBook.next(updatedAddressBook);
     }));
   }
 }

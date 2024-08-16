@@ -64,9 +64,7 @@ export class EditProfileComponent extends BaseComponent {
       resultType: CameraResultType.Base64,
       source: CameraSource.Photos,
     })).subscribe(photo => {
-      this.isModalOpen = true;
-      console.log(this.isModalOpen);
-      
+      this.isModalOpen = true;     
       this.base64Image = 'data:image/png;base64,' + photo.base64String;
       this.changeDetectorRef.markForCheck();
     });

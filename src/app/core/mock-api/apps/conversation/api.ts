@@ -24,7 +24,14 @@ export class ConversationMockApi extends MockApi {
                     }
                     return e;
                 });
-                return [200, MockApiUtils.filterData(messages, 'content', request.params.get('query') ?? '', +(request.params.get('page') ?? 0), +(request.params.get('size') ?? 10))];
+                return [200,
+                    MockApiUtils.filterData(
+                        messages,
+                        'content',
+                        request.params.get('query') ?? '',
+                        +(request.params.get('page') ?? 0),
+                        +(request.params.get('size') ?? 10)
+                    )];
             });
         });
     }

@@ -36,13 +36,35 @@ export class EditComponent extends BaseComponent {
       phones: this.formBuilder.array([]),
       address: [''],
       city: [''],
-      country: [''],
+      country: [undefined],
     });
     this._addressBookService.addressBook$.pipe(takeUntil(this.unsubscribeAll)).subscribe(addressBook => {
       if (!addressBook) {
         return;
       }
       this.addressBook = addressBook;
+      this.form.controls['emails'] = this.formBuilder.array([]);
+      this.form.controls['phones'] = this.formBuilder.array([]);
+      if (addressBook.emails) {
+        for (const email of addressBook.emails) {
+          const form = this.formBuilder.group({
+            email: [email, Validators.required],
+          });
+
+          (this.form.get('emails') as UntypedFormArray).push(form);
+        }
+      }
+
+      if (addressBook.phones) {
+        for (const phone of addressBook.phones) {
+          const form = this.formBuilder.group({
+            code: [phone.code, Validators.required],
+            number: [phone.number, Validators.required],
+          });
+
+          (this.form.get('phones') as UntypedFormArray).push(form);
+        }
+      }
       this.form.patchValue(addressBook);
       this.changeDetectorRef.markForCheck();
     });
@@ -118,6 +140,22 @@ export class EditComponent extends BaseComponent {
     }
     this._addressBookService.create(this.form.value).subscribe((addressBook) => {
       this.router.navigate(['../', addressBook.id], { relativeTo: this.activatedRoute });
+    });
+  }
+
+  update() {
+    if (this.form.invalid) {
+      return;
+    }   
+    this._addressBookService.update({
+      ...this.addressBook,
+      ...this.form.value,
+      ...{
+        emails: this.form.get('emails')?.value,
+        phones: this.form.get('phones')?.value,
+      }
+    }).subscribe((addressBook) => {
+      this.router.navigate(['../'], { relativeTo: this.activatedRoute });
     });
   }
 }

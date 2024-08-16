@@ -5,7 +5,7 @@
         </ion-buttons>
 
         <ion-buttons slot="end">
-            <ion-button>
+            <ion-button [routerLink]="['./edit']" routerDirection="forward">
                 {{'edit' | transloco | capitalize}}
             </ion-button>
         </ion-buttons>
@@ -54,6 +54,32 @@
                 </div>
             </div>
         </ion-item>
+
+        <ion-item-divider class="mt-4">
+            {{'email' | transloco | capitalize}}
+        </ion-item-divider>
+
+        @for (email of addressBook.emails; track $index) {
+        <ion-item class="mt-2">
+            <ion-icon name="mail" slot="start"></ion-icon>
+            <ion-label>
+                {{email.email}}
+            </ion-label>
+        </ion-item>
+        }
+
+        <ion-item-divider class="mt-4">
+            {{'phone' | transloco | capitalize}}
+        </ion-item-divider>
+
+        @for (phone of addressBook.phones; track $index) {
+        <ion-item class="mt-2">
+            <ion-icon name="call" slot="start"></ion-icon>
+            <ion-label>
+                (+{{phone.code}}) {{phone.number}}
+            </ion-label>
+        </ion-item>
+        }
     </ion-list>
     }
 </ion-content>

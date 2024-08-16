@@ -17,18 +17,24 @@ export class AddressBookMockApi extends MockApi {
         this.mockupApiService.onPost(Endpoint.address_book()).reply(({ request }) => {
             let data = cloneDeep(request.body);
             data.id = MockApiUtils.guid();
-
-            this.mockupApiService.onGet(Endpoint.address_book(data.id)).reply(() => {
+            this.mockupApiService.onGet(Endpoint.address_book_id(data.id)).reply(() => {
                 return [200, data];
             });
-
             return [200, data];
         });
 
-        addressBooksData.forEach(addressBook => {
-            this.mockupApiService.onGet(Endpoint.address_book(addressBook.id)).reply(() => {
-                return [200, addressBook];
+        for (let addressBook of addressBooksData) {
+            this.mockupApiService.onGet(Endpoint.address_book_id(addressBook.id)).reply(() => {
+                let data = cloneDeep(addressBook);
+                return [200, data];
             });
-        });
+            this.mockupApiService.onPut(Endpoint.address_book_id(addressBook.id)).reply(({ request }) => {
+                let data = cloneDeep(request.body);
+                this.mockupApiService.onGet(Endpoint.address_book_id(data.id)).reply(() => {
+                    return [200, data];
+                });
+                return [200, data];
+            });
+        }
     }
 }

@@ -55,6 +55,11 @@ export const routes: Routes = [
                 path: ':pageAddressBook/:addressBookId',
                 component: DetailComponent,
                 resolve: [metaDataResolver, detailResolver]
+            },
+            {
+                path: ':pageAddressBook/:addressBookId/edit',
+                component: EditComponent,
+                resolve: [metaDataResolver, detailResolver]
             }
         ]
     }

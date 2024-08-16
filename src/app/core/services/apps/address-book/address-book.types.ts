@@ -6,7 +6,7 @@ export interface AddressBook extends Base {
     lastname?: string;
     nickname?: string;
     avatar?: string;
-    emails?: string[];
+    emails?: Email[];
     phones?: Phone[];
     address?: string;
     city?: string;
@@ -16,4 +16,8 @@ export interface AddressBook extends Base {
 export interface Phone extends Base {
     code?: number;
     number?: number;
+}
+
+export interface Email extends Base {
+    email?: string;
 }
