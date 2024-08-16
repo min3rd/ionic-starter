@@ -4,14 +4,9 @@
             <ion-back-button></ion-back-button>
         </ion-buttons>
         @if (onSearch) {
-        <ion-input (ionChange)="search($event)" [autofocus]="true" placeholder="{{'search' | transloco | capitalize}}"
-            [clearOnEdit]="true">
-        </ion-input>
-        <ion-buttons slot="end">
-            <ion-button (click)="onSearch = false;">
-                <ion-icon slot="icon-only" name="close"></ion-icon>
-            </ion-button>
-        </ion-buttons>
+        <ion-searchbar (ionChange)="search($event)" [autofocus]="true"
+            placeholder="{{'search' | transloco | capitalize}}" cancelButtonIcon="close"
+            showCancelButton="always" (ionCancel)="onSearch = false;"></ion-searchbar>
         }
         @if (!onSearch) {
         <ion-buttons slot="end">

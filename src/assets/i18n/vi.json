@@ -36,5 +36,15 @@
   "lastname": "họ",
   "firstname": "tên",
   "please fill the firstname": "vui lòng điền tên",
-  "please fill the lastname": "vui lòng điền họ"
+  "please fill the lastname": "vui lòng điền họ",
+  "nickname": "biệt hiệu",
+  "phones": "điện thoại",
+  "code": "mã số",
+  "number": "con số",
+  "create": "tạo mới",
+  "China": "Trung Quốc",
+  "Japan": "Nhật Bản",
+  "Korea": "Hàn Quốc",
+  "United States": "Hoa Kỳ",
+  "Vietnam": "Việt Nam"
 }

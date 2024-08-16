@@ -13,6 +13,13 @@ export const addressBooksData: AddressBook[] = [
             number: 123456789,
         }],
         address: "Apt. 580",
+        city: "Hồ Chí Minh",
+        country: {
+            code: 84,
+            name: "Vietnam",
+            shortName: "VN",
+            languageCode: "vi",
+        },
     },
 
 ]

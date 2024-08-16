@@ -1,0 +1,143 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-back-button></ion-back-button>
+        </ion-buttons>
+
+        <ion-buttons slot="end">
+            @if (!addressBook) {
+            <ion-button (click)="create()">
+                {{'create' | transloco | capitalize}}
+            </ion-button>
+            }
+            @else {
+            <ion-button>
+                {{'save' | transloco | capitalize}}
+            </ion-button>
+            }
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-list>
+        <ion-item lines="none" class="mt-2">
+            <div class="flex w-32 h-32 rounded-md">
+                @if (!form.get('avatar')?.value) {
+                <ion-skeleton-text class="w-full h-full rounded-md" [animated]="true"></ion-skeleton-text>
+                }
+                @else {
+                <img [src]="form.get('avatar')?.value" class="w-full h-full rounded-md">
+                }
+
+                @if (!form.get('avatar')?.value) {
+                <div (click)="changeAvatar()" class="absolute top-0 w-32 h-32 flex items-center justify-center gap-2">
+                    <ion-icon name="camera" size="large" slot="icon-only"></ion-icon>
+                </div>
+                }
+                @else {
+                <div class="absolute top-0 w-32 h-32 flex items-center justify-center gap-2">
+                    <ion-icon (click)="changeAvatar()" name="camera" size="large" slot="icon-only"></ion-icon>
+                    @if (form.get('avatar')?.value) {
+                    <ion-icon (click)="removeAvatar()" name="trash" size="large" slot="icon-only"></ion-icon>
+                    }
+                </div>
+                }
+            </div>
+        </ion-item>
+
+        <form [formGroup]="form">
+            <ion-item class="mt-2">
+                <ion-input formControlName="firstname" labelPlacement="stacked"
+                    label="{{'firstname' | transloco | capitalize}}">
+                </ion-input>
+            </ion-item>
+
+            <ion-item class="mt-2">
+                <ion-input formControlName="lastname" labelPlacement="stacked"
+                    label="{{'lastname' | transloco | capitalize}}">
+                </ion-input>
+            </ion-item>
+
+            <ion-item class="mt-2">
+                <ion-input formControlName="nickname" labelPlacement="stacked"
+                    label="{{'nickname' | transloco | capitalize}}">
+                </ion-input>
+            </ion-item>
+            <ion-item-divider class="mt-2">
+                <ion-label slot="start">
+                    {{'email' | transloco | capitalize}}
+                </ion-label>
+                <ion-buttons slot="end">
+                    <ion-button (click)="addEmail()">
+                        <ion-icon name="add" slot="icon-only"></ion-icon>
+                    </ion-button>
+                </ion-buttons>
+            </ion-item-divider>
+            @for (email of getEmailsFormArray(); track $index; let i = $index;) {
+            <ion-item class="mt-2">
+                <ion-input [formControl]="email.get('email')" labelPlacement="stacked"
+                    label="{{'email' | transloco | capitalize}}">
+                </ion-input>
+                <ion-buttons slot="end">
+                    <ion-button (click)="removeEmail(i)">
+                        <ion-icon name="trash" slot="icon-only"></ion-icon>
+                    </ion-button>
+                </ion-buttons>
+            </ion-item>
+            }
+
+            <ion-item-divider class="mt-2">
+                <ion-label slot="start">
+                    {{'phones' | transloco | capitalize}}
+                </ion-label>
+                <ion-buttons slot="end">
+                    <ion-button (click)="addPhone()">
+                        <ion-icon name="add" slot="icon-only"></ion-icon>
+                    </ion-button>
+                </ion-buttons>
+            </ion-item-divider>
+            @for (phone of getPhonesFormArray(); track $index; let i = $index;) {
+            <ion-item class="mt-2">
+                <ion-select [formControl]="phone.get('code')" label="{{'code' | transloco | capitalize}}"
+                    label-placement="stacked" interface="action-sheet" class="min-w-32">
+                    @for (country of countries; track $index) {
+                    <ion-select-option [value]="country.code">
+                        {{country.name | transloco | capitalize}} (+{{country.code}})
+                    </ion-select-option>
+                    }
+                </ion-select>
+
+                <ion-input [formControl]="phone.get('number')" labelPlacement="stacked"
+                    label="{{'number' | transloco | capitalize}}" class="ml-4">
+                </ion-input>
+
+                <ion-buttons slot="end">
+                    <ion-button (click)="removePhone(i)">
+                        <ion-icon name="trash" slot="icon-only"></ion-icon>
+                    </ion-button>
+                </ion-buttons>
+            </ion-item>
+            }
+            <ion-item class="mt-2">
+                <ion-input formControlName="address" labelPlacement="stacked"
+                    label="{{'address' | transloco | capitalize}}">
+                </ion-input>
+            </ion-item>
+            <ion-item class="mt-2">
+                <ion-input formControlName="city" labelPlacement="stacked" label="{{'city' | transloco | capitalize}}">
+                </ion-input>
+            </ion-item>
+            <ion-item class="mt-2">
+                <ion-select formControlName="country" label="{{'country' | transloco | capitalize}}"
+                    label-placement="stacked" interface="action-sheet">
+                    @for (country of countries; track $index) {
+                    <ion-select-option [value]="country.code">
+                        {{country.name | transloco | capitalize}}
+                    </ion-select-option>
+                    }
+                </ion-select>
+            </ion-item>
+        </form>
+    </ion-list>
+</ion-content>

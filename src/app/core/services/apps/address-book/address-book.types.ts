@@ -1,4 +1,5 @@
 import { Base } from "src/app/core/base/base.types";
+import { Country } from "../../common/country/country.types";
 
 export interface AddressBook extends Base {
     firstname?: string;
@@ -9,7 +10,7 @@ export interface AddressBook extends Base {
     phones?: Phone[];
     address?: string;
     city?: string;
-    country?: string;
+    country?: Country;
 }
 
 export interface Phone extends Base {

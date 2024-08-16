@@ -6,66 +6,54 @@
 
         <ion-buttons slot="end">
             <ion-button>
-                {{'save' | transloco | capitalize}}
+                {{'edit' | transloco | capitalize}}
             </ion-button>
         </ion-buttons>
     </ion-toolbar>
 </ion-header>
 
 <ion-content>
+    @if (addressBook) {
     <ion-list>
         <ion-item lines="none" class="mt-2">
-            <div class="flex w-32 h-32 rounded-md">
-                @if (!form.get('avatar')?.value) {
-                <ion-skeleton-text class="w-full h-full rounded-md" [animated]="true"></ion-skeleton-text>
-                }
-                @else {
-                <img [src]="form.get('avatar')?.value" class="w-full h-full rounded-md">
-                }
-                <div class="absolute top-0 w-32 h-32 flex items-center justify-center gap-2">
-                    <ion-icon (click)="changeAvatar()" name="camera" size="large" slot="icon-only"></ion-icon>
-                    @if (form.get('avatar')?.value) {
-                    <ion-icon (click)="removeAvatar()" name="trash" size="large" slot="icon-only"></ion-icon>
+            <div class="flex items-start gap-2">
+                <div class="flex w-32 h-32 rounded-md">
+                    @if (!addressBook.avatar) {
+                    <ion-skeleton-text class="w-full h-full rounded-md" [animated]="true"></ion-skeleton-text>
+                    }
+                    @else {
+                    <img [src]="addressBook.avatar" class="w-full h-full rounded-md">
+                    }
+                </div>
+
+                <div class="flex flex-col">
+                    <div class="flex items-center font-semibold gap-2 flex-wrap">
+                        <div>
+                            {{addressBook.firstname}}
+                        </div>
+
+                        <div>
+                            {{addressBook.lastname}}
+                        </div>
+                    </div>
+                    @if (addressBook.address) {
+                    <div class="text-sm truncate">
+                        {{addressBook.address}}
+                    </div>
+                    }
+                    @if (addressBook.city) {
+                    <div class="text-sm truncate">
+                        {{addressBook.city}}
+                    </div>
+                    }
+                    @if (addressBook.country) {
+                    <div class="text-sm truncate">
+                        {{addressBook.country.name | transloco | capitalize}}
+                    </div>
                     }
                 </div>
             </div>
         </ion-item>
-
-        <form [formGroup]="form">
-            <ion-item class="mt-2">
-                <ion-input formControlName="firstname" labelPlacement="stacked"
-                    label="{{'firstname' | transloco | capitalize}}">
-                </ion-input>
-            </ion-item>
-
-            <ion-item class="mt-2">
-                <ion-input formControlName="lastname" labelPlacement="stacked"
-                    label="{{'lastname' | transloco | capitalize}}">
-                </ion-input>
-            </ion-item>
-
-            <ion-item class="mt-2">
-                <ion-input formControlName="nickname" labelPlacement="stacked"
-                    label="{{'nickname' | transloco | capitalize}}">
-                </ion-input>
-            </ion-item>
-            <ion-item-divider class="my-2">
-                <ion-label slot="start">
-                    {{'email' | transloco | capitalize}}
-                </ion-label>
-                <ion-buttons slot="end">
-                    <ion-button (click)="addEmail()">
-                        <ion-icon name="add" slot="icon-only"></ion-icon>
-                    </ion-button>
-                </ion-buttons>
-            </ion-item-divider>
-            @for (email of getEmailsFormArray(); track $index) {
-            <ion-item class="mt-2">
-                <ion-input [formControl]="email.get('email')" labelPlacement="stacked"
-                    label="{{'email' | transloco | capitalize}}">
-                </ion-input>
-            </ion-item>
-            }
-        </form>
     </ion-list>
+    }
 </ion-content>

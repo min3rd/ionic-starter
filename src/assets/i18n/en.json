@@ -36,5 +36,15 @@
   "lastname": "lastname",
   "firstname": "firstname",
   "please fill the firstname": "please fill the firstname",
-  "please fill the lastname": "please fill the lastname"
+  "please fill the lastname": "please fill the lastname",
+  "nickname": "nickname",
+  "phones": "phones",
+  "number": "number",
+  "code": "code",
+  "create": "create",
+  "Vietnam": "Vietnam",
+  "United States": "United States",
+  "Japan": "Japan",
+  "Korea": "Korea",
+  "China": "China"
 }

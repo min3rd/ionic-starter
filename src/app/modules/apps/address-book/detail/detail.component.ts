@@ -6,12 +6,15 @@ import { from, takeUntil } from 'rxjs';
 import { BaseComponent } from 'src/app/core/base/base.component';
 import { AddressBookService } from 'src/app/core/services/apps/address-book/address-book.service';
 import { AddressBook } from 'src/app/core/services/apps/address-book/address-book.types';
+import { CountryService } from 'src/app/core/services/common/country/country.service';
+import { Country } from 'src/app/core/services/common/country/country.types';
 import { ShareModule } from 'src/app/core/share/share.module';
+import { IonHeader, IonToolbar, IonLabel } from "@ionic/angular/standalone";
 
 @Component({
   selector: 'app-detail',
   standalone: true,
-  imports: [
+  imports: [IonLabel, IonToolbar, IonHeader,
     CommonModule,
     ShareModule,
   ],
@@ -20,53 +23,25 @@ import { ShareModule } from 'src/app/core/share/share.module';
 })
 export class DetailComponent extends BaseComponent {
   addressBook!: AddressBook;
+  countries!: Country[];
   private _addressBookService: AddressBookService = inject(AddressBookService);
+  private _countryService: CountryService = inject(CountryService);
   override ngOnInit(): void {
     super.ngOnInit();
-    this.form = this.formBuilder.group({
-      avatar: [''],
-      lastname: ['', Validators.required],
-      firstname: ['', Validators.required],
-      nickname: [''],
-      emails: this.formBuilder.array([]),
-    });
     this._addressBookService.addressBook$.pipe(takeUntil(this.unsubscribeAll)).subscribe(addressBook => {
       if (!addressBook) {
         return;
       }
       this.addressBook = addressBook;
-      this.form.patchValue(addressBook);
       this.changeDetectorRef.markForCheck();
     });
-  }
-  changeAvatar() {
-    from(Camera.getPhoto({
-      resultType: CameraResultType.Base64,
-    })).subscribe(photo => {
-      this.form.patchValue({
-        avatar: 'data:image/png;base64,' + photo.base64String,
-      });
 
+    this._countryService.countries$.pipe(takeUntil(this.unsubscribeAll)).subscribe(countries => {
+      if (!countries) {
+        return;
+      }
+      this.countries = countries;
       this.changeDetectorRef.markForCheck();
     });
-  }
-  removeAvatar() {
-    this.form.patchValue({
-      avatar: '',
-    });
-    this.changeDetectorRef.markForCheck();
-  }
-  addEmail() {
-    const form = this.formBuilder.group({
-      email: ['', Validators.required],
-    });
-
-    (this.form.get('emails') as UntypedFormArray).push(form);
-    console.log(this.form.get('emails'));
-    
-    this.changeDetectorRef.markForCheck();
-  }
-  getEmailsFormArray() {
-    return (this.form.get('emails') as any)?.controls;
   }
 }

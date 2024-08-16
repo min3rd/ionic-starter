@@ -37,36 +37,6 @@
                 </div>
                 }
             </div>
-            <ion-modal [isOpen]="isModalOpen">
-                <ng-template>
-                    <ion-header>
-                        <ion-toolbar>
-                            <ion-buttons slot="start">
-                                <ion-button (click)="isModalOpen = false;">
-                                    {{'cancel' | transloco | capitalize}}
-                                </ion-button>
-                            </ion-buttons>
-                            <ion-title>
-                                {{'edit avatar' | transloco | capitalize}}
-                            </ion-title>
-                            <ion-buttons slot="end">
-                                <ion-button (click)="isModalOpen = false; changeAvatar();">
-                                    {{'save' | transloco | capitalize}}
-                                </ion-button>
-                            </ion-buttons>
-                        </ion-toolbar>
-                    </ion-header>
-                    <ion-content>
-                        <div class="flex w-full justify-center">
-                            <ion-avatar class="w-32 h-32">
-                                @if (base64Image) {
-                                <img [src]="base64Image" [alt]="base64Image" class="h-full">
-                                }
-                            </ion-avatar>
-                        </div>
-                    </ion-content>
-                </ng-template>
-            </ion-modal>
         </ion-item>
         <form [formGroup]="form">
             <ion-item class="mt-2">
@@ -101,6 +71,35 @@
         </form>
 
     </ion-list>
-
-
 </ion-content>
+
+<ion-modal [isOpen]="isModalOpen">
+    <ng-template>
+        <ion-header>
+            <ion-toolbar>
+                <ion-buttons slot="start">
+                    <ion-button (click)="isModalOpen = false;">
+                        {{'cancel' | transloco | capitalize}}
+                    </ion-button>
+                </ion-buttons>
+                <ion-title>
+                    {{'edit avatar' | transloco | capitalize}}
+                </ion-title>
+                <ion-buttons slot="end">
+                    <ion-button (click)="isModalOpen = false; changeAvatar();">
+                        {{'save' | transloco | capitalize}}
+                    </ion-button>
+                </ion-buttons>
+            </ion-toolbar>
+        </ion-header>
+        <ion-content>
+            <div class="flex w-full justify-center">
+                <ion-avatar class="w-32 h-32">
+                    @if (base64Image) {
+                    <img [src]="base64Image" [alt]="base64Image" class="h-full">
+                    }
+                </ion-avatar>
+            </div>
+        </ion-content>
+    </ng-template>
+</ion-modal>

@@ -4,7 +4,7 @@ import { BaseComponent } from 'src/app/core/base/base.component';
 import { ShareModule } from 'src/app/core/share/share.module';
 import { Camera, CameraResultType, CameraSource } from '@capacitor/camera';
 import { UserService } from 'src/app/core/services/user/user.service';
-import { takeUntil } from 'rxjs';
+import { from, takeUntil } from 'rxjs';
 import { Validators } from '@angular/forms';
 import { ToastService } from 'src/app/core/services/toast.service';
 import { User } from 'src/app/core/services/user/user';
@@ -60,11 +60,13 @@ export class EditProfileComponent extends BaseComponent {
     });
   }
   choosePhoto() {
-    Camera.getPhoto({
+    from(Camera.getPhoto({
       resultType: CameraResultType.Base64,
       source: CameraSource.Photos,
-    }).then(photo => {
+    })).subscribe(photo => {
       this.isModalOpen = true;
+      console.log(this.isModalOpen);
+      
       this.base64Image = 'data:image/png;base64,' + photo.base64String;
       this.changeDetectorRef.markForCheck();
     });
@@ -93,10 +95,10 @@ export class EditProfileComponent extends BaseComponent {
   }
 
   takePhoto() {
-    Camera.getPhoto({
+    from(Camera.getPhoto({
       resultType: CameraResultType.Base64,
       source: CameraSource.Camera,
-    }).then(photo => {
+    })).subscribe(photo => {
       this.isModalOpen = true;
       this.base64Image = 'data:image/png;base64,' + photo.base64String;
       this.changeDetectorRef.markForCheck();

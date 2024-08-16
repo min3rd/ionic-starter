@@ -36,5 +36,15 @@
   "lastname": "apellido",
   "firstname": "nombre de pila",
   "please fill the firstname": "por favor complete el nombre",
-  "please fill the lastname": "por favor complete el apellido"
+  "please fill the lastname": "por favor complete el apellido",
+  "nickname": "apodo",
+  "phones": "telefonos",
+  "code": "código",
+  "number": "número",
+  "create": "crear",
+  "China": "Porcelana",
+  "Japan": "Japón",
+  "Korea": "Corea",
+  "United States": "Estados Unidos",
+  "Vietnam": "Vietnam"
 }
