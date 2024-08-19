@@ -61,5 +61,8 @@
   "Android": "Android",
   "members": "members",
   "mark as readed": "mark as readed",
-  "delete chat": "delete chat"
+  "delete chat": "delete chat",
+  "academy": "academy",
+  "what do you want to learn today": "what do you want to learn today",
+  "back to courses": "back to courses"
 }

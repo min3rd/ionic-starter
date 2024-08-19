@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, tap } from 'rxjs';
 import { BaseService } from 'src/app/core/base/base.service';
-import { Course, CourseCategory } from './academy.types';
+import { Course, CourseCategory, Step } from './academy.types';
 import { Endpoint } from 'src/app/core/constants/endpoint';
 import { Pageable } from 'src/app/@vn9melody/types/pageable';
 import { HttpParams } from '@angular/common/http';
@@ -13,6 +13,7 @@ export class AcademyService extends BaseService {
   private _courseCategories: BehaviorSubject<CourseCategory[]> = new BehaviorSubject<any>(null);
   private _courses: BehaviorSubject<Course[]> = new BehaviorSubject<any>(null);
   private _course: BehaviorSubject<Course | null> = new BehaviorSubject<any>(null);
+  private _steps: BehaviorSubject<Step[]> = new BehaviorSubject<any>(null);
   get courseCategories$(): Observable<CourseCategory[]> {
     return this._courseCategories.asObservable();
   }
@@ -21,6 +22,9 @@ export class AcademyService extends BaseService {
   }
   get course$(): Observable<Course | null> {
     return this._course.asObservable();
+  }
+  get steps$(): Observable<Step[]> {
+    return this._steps.asObservable();
   }
 
   categories(): Observable<CourseCategory[]> {
@@ -34,6 +38,16 @@ export class AcademyService extends BaseService {
       params: new HttpParams({ fromObject: pageable as any }),
     }).pipe(tap(courses => {
       this._courses.next(courses);
+    }));
+  }
+  get(id: string): Observable<Course> {
+    return this.httpClient.get<Course>(Endpoint.academy_courses_id(id)).pipe(tap(course => {
+      this._course.next(course);
+    }));
+  }
+  steps(id: string): Observable<Step[]> {
+    return this.httpClient.get<Step[]>(Endpoint.academy_courses_id_steps(id)).pipe(tap(steps => {
+      this._steps.next(steps);
     }));
   }
 }

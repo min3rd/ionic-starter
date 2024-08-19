@@ -2,7 +2,7 @@ import { Injectable } from "@angular/core";
 import { MockApi } from "../../mock-api";
 import { Endpoint } from "src/app/core/constants/endpoint";
 import { cloneDeep } from "lodash-es";
-import { courseCategoriesData, coursesData } from "./data";
+import { courseCategoriesData, coursesData, courseStepsData } from "./data";
 import { MockApiUtils } from "src/app/@vn9melody/lib/mock-api";
 
 @Injectable({
@@ -14,7 +14,6 @@ export class AcademyMockApi extends MockApi {
             return [200, cloneDeep(courseCategoriesData)];
         });
         this.mockupApiService.onGet(Endpoint.academy_courses()).reply(({ request }) => {
-
             return [200, MockApiUtils.filterData(
                 coursesData,
                 'category',
@@ -23,5 +22,16 @@ export class AcademyMockApi extends MockApi {
                 +(request.params.get('size') ?? 10)
             )];
         });
+
+        coursesData.forEach(course => {
+            this.mockupApiService.onGet(Endpoint.academy_courses_id(course.id)).reply(() => {
+                return [200, cloneDeep(course)];
+            });
+           
+            this.mockupApiService.onGet(Endpoint.academy_courses_id_steps(course.id)).reply(() => {
+                return [200, cloneDeep(courseStepsData)];
+            });
+        });
+
     }
 }

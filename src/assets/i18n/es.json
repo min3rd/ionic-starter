@@ -61,5 +61,8 @@
   "Web": "Web",
   "members": "miembros",
   "mark as readed": "marcar como leído",
-  "delete chat": "eliminar chat"
+  "delete chat": "eliminar chat",
+  "academy": "academia",
+  "what do you want to learn today": "¿Qué quieres aprender hoy?",
+  "back to courses": "volver a los cursos"
 }

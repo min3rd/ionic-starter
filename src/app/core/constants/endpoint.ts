@@ -3,7 +3,7 @@ export class Endpoint {
         return `/api/${path.join('/')}`;
     }
     static auth(...path: string[] | any[]): string {
-        return this.api('auth', path);
+        return this.api('auth', path.join('/'));
     }
     static auth_signin(): string {
         return this.auth('signin');
@@ -14,7 +14,7 @@ export class Endpoint {
     }
 
     static common(...path: string[] | any[]): string {
-        return this.api('common', path);
+        return this.api('common', path.join('/'));
     }
 
     static common_user(): string {
@@ -34,34 +34,41 @@ export class Endpoint {
     }
 
     static conversation(...path: string[] | any[]): string {
-        return this.api('conversations', path);
+        return this.api('conversations', path.join('/'));
     }
 
     static conversation_id(id: string, ...path: string[] | any[]): string {
-        return this.conversation(id, path);
+        return this.conversation(id, path.join('/'));
     }
 
     static conversation_id_messages(conversationId: string | undefined, ...path: string[] | any[]): string {
-        return this.conversation(conversationId, 'messages', path);
+        return this.conversation(conversationId, 'messages', path.join('/'));
     }
 
     static address_book(...path: string[] | any[]): string {
-        return this.api('address-books', path);
+        return this.api('address-books', path.join('/'));
     }
 
     static address_book_id(id: string | undefined, ...path: string[] | any[]): string {
-        return this.address_book(id, path);
+        return this.address_book(id, path.join('/'));
     }
 
     static academy(...path: string[] | any[]): string {
-        return this.api('academy', path);
+        return this.api('academy', path.join('/'));
     }
 
     static academy_categories(...path: string[] | any[]): string {
-        return this.academy('categories', path);
+        return this.academy('categories', path.join('/'));
     }
 
     static academy_courses(...path: string[] | any[]): string {
-        return this.academy('courses', path);
+        return this.academy('courses', path.join('/'));
+    }
+
+    static academy_courses_id(id: string | undefined, ...path: string[] | undefined[]): string {
+        return this.academy_courses(id, path.join('/'));
+    }
+    static academy_courses_id_steps(id: string | undefined, ...path: string[] | undefined[]): string {
+        return this.academy_courses_id(id, 'steps', path.join('/'));
     }
 }

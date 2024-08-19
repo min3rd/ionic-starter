@@ -18,6 +18,17 @@ export const listResolve = (route: ActivatedRouteSnapshot, state: RouterStateSna
         size: 20,
     });
 }
+
+export const detailResolve = (route: ActivatedRouteSnapshot, state: RouterStateSnapshot) => {
+    const academyService: AcademyService = inject(AcademyService);
+    return academyService.get(getParam(route, 'courseId'));
+}
+
+export const stepsResolve = (route: ActivatedRouteSnapshot, state: RouterStateSnapshot) => {
+    const academyService: AcademyService = inject(AcademyService);
+    return academyService.steps(getParam(route, 'courseId'));
+}
+
 export const routes: Routes = [
     {
         path: '',
@@ -41,5 +52,6 @@ export const routes: Routes = [
     {
         path: ':categoryCourse/:pageCourse/:courseId',
         component: DetailComponent,
+        resolve: [detailResolve, stepsResolve],
     }
 ];
