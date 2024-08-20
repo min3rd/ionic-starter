@@ -8,7 +8,6 @@ import { TranslocoHttpLoader } from "./core/transloco/transloco-loader";
 import { provideVn9Melody } from "./@vn9melody/provider";
 import { routes } from "./app.routes";
 import { IonicStorageModule } from "@ionic/storage-angular";
-import { provideServiceWorker } from '@angular/service-worker';
 
 export const applicationConfig: ApplicationConfig = {
     providers: [
@@ -20,16 +19,12 @@ export const applicationConfig: ApplicationConfig = {
         provideTransloco({
             config: {
                 availableLangs: ['en', 'es', 'vi'],
-                defaultLang: 'vi',
-                // Remove this option if your application doesn't support changing language in runtime.
+                defaultLang: 'en',
                 reRenderOnLangChange: true,
                 prodMode: !isDevMode(),
             },
             loader: TranslocoHttpLoader
         }),
-        provideVn9Melody(), provideServiceWorker('ngsw-worker.js', {
-            enabled: !isDevMode(),
-            registrationStrategy: 'registerWhenStable:30000'
-          }),
+        provideVn9Melody(),
     ]
 }

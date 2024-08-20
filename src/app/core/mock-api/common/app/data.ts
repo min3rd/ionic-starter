@@ -19,7 +19,14 @@ export const appsData: App[] = [
         id: 'academy',
         title: 'academy',
         subtitle: 'what do you want to learn today',
-        icon: 'book',
+        icon: 'school',
         link: '/apps/academy',
+    },
+    {
+        id: 'file-manager',
+        title: 'file manager',
+        subtitle: 'what do you want to learn today',
+        icon: 'folder-open',
+        link: '/apps/file-manager',
     },
 ]

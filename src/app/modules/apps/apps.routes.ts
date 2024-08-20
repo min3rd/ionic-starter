@@ -17,5 +17,9 @@ export const routes: Routes = [
     {
         path: 'academy',
         loadChildren: () => import('./academy/academy.routes').then((m) => m.routes),
+    },
+    {
+        path: 'file-manager',
+        loadChildren: () => import('./file-manager/file-manager.routes').then((m) => m.routes),
     }
 ]

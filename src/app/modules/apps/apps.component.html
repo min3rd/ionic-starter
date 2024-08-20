@@ -4,21 +4,17 @@
         @for (app of apps; track $index) {
         <ion-card [routerLink]="[app.link]" routerDirection="forward" class="hover:cursor-pointer">
             <ion-card-header>
+                <div class="flex items-center gap-2">
+                    <ion-icon name="{{app.icon}}"></ion-icon>
+                    <div class="text-xl font-semibold truncate">
+                        {{ app.title | transloco | capitalize}}
+                    </div>
+                </div>
                 @if (app.subtitle) {
-                <ion-card-subtitle>
-                    <div class="truncate">
-                        {{ app.subtitle | transloco | capitalize}}
-                    </div>
-                </ion-card-subtitle>
+                <div class="text-sm truncate">
+                    {{ app.subtitle | transloco | capitalize}}
+                </div>
                 }
-                <ion-card-title>
-                    <div class="flex items-center gap-2">
-                        <ion-icon name="{{app.icon}}"></ion-icon>
-                        <div>
-                            {{ app.title | transloco | capitalize}}
-                        </div>
-                    </div>
-                </ion-card-title>
             </ion-card-header>
         </ion-card>
         }
