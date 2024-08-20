@@ -6,7 +6,7 @@ import { inject } from "@angular/core";
 import { getParam } from "src/app/core/utils/functions";
 import { DetailComponent } from "./detail/detail.component";
 
-export const categoriesResolver = (route: ActivatedRouteSnapshot, state: RouterStateSnapshot) => {
+export const categoriesResolve = (route: ActivatedRouteSnapshot, state: RouterStateSnapshot) => {
     const academyService: AcademyService = inject(AcademyService);
     return academyService.categories();
 }
@@ -33,7 +33,7 @@ export const routes: Routes = [
     {
         path: '',
         component: AcademyComponent,
-        resolve: [categoriesResolver],
+        resolve: [categoriesResolve],
         children: [
             { path: '', redirectTo: 'all', pathMatch: 'full' },
             {

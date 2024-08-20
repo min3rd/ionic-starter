@@ -8,7 +8,7 @@ import { forkJoin, of } from "rxjs";
 import { EditComponent } from "./edit/edit.component";
 import { DetailComponent } from "./detail/detail.component";
 
-export const listResolver = (route: ActivatedRouteSnapshot, state: RouterStateSnapshot) => {
+export const listResolve = (route: ActivatedRouteSnapshot, state: RouterStateSnapshot) => {
     const addressBookService: AddressBookService = inject(AddressBookService);
     return addressBookService.search({
         query: getParam(route, 'filterAddressBook'),
@@ -17,20 +17,20 @@ export const listResolver = (route: ActivatedRouteSnapshot, state: RouterStateSn
     });
 }
 
-export const metaDataResolver = (route: ActivatedRouteSnapshot, state: RouterStateSnapshot) => {
+export const metaDataResolve = (route: ActivatedRouteSnapshot, state: RouterStateSnapshot) => {
     const countryService: CountryService = inject(CountryService);
     return forkJoin([
         countryService.get(),
     ]);
 }
 
-export const createResolver = (route: ActivatedRouteSnapshot, state: RouterStateSnapshot) => {
+export const createResolve = (route: ActivatedRouteSnapshot, state: RouterStateSnapshot) => {
     const addressBookService: AddressBookService = inject(AddressBookService);
     addressBookService.clear();
     return of(true);
 }
 
-export const detailResolver = (route: ActivatedRouteSnapshot, state: RouterStateSnapshot) => {
+export const detailResolve = (route: ActivatedRouteSnapshot, state: RouterStateSnapshot) => {
     const addressBookService: AddressBookService = inject(AddressBookService);
     return addressBookService.get(getParam(route, 'addressBookId'));
 }
@@ -44,22 +44,22 @@ export const routes: Routes = [
             {
                 path: ':pageAddressBook',
                 component: ListComponent,
-                resolve: [listResolver],
+                resolve: [listResolve],
             },
             {
                 path: ':pageAddressBook/new',
                 component: EditComponent,
-                resolve: [metaDataResolver, createResolver],
+                resolve: [metaDataResolve, createResolve],
             },
             {
                 path: ':pageAddressBook/:addressBookId',
                 component: DetailComponent,
-                resolve: [metaDataResolver, detailResolver]
+                resolve: [metaDataResolve, detailResolve]
             },
             {
                 path: ':pageAddressBook/:addressBookId/edit',
                 component: EditComponent,
-                resolve: [metaDataResolver, detailResolver]
+                resolve: [metaDataResolve, detailResolve]
             }
         ]
     }

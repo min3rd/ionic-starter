@@ -1,5 +1,7 @@
+import { Item } from "src/app/core/services/apps/file-manager/file-manager.types";
+
 /* eslint-disable */
-export const items = [
+export const items: Item[] = [
     {
         id: 'cd6897cb-acfd-4016-8b53-3f66a5b5fc68',
         folderId: null,

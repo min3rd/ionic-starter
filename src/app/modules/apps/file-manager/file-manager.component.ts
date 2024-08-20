@@ -1,6 +1,8 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { BaseComponent } from 'src/app/core/base/base.component';
+import { FileManagerService } from 'src/app/core/services/apps/file-manager/file-manager.service';
+import { Item } from 'src/app/core/services/apps/file-manager/file-manager.types';
 import { ShareModule } from 'src/app/core/share/share.module';
 
 @Component({
@@ -13,4 +15,21 @@ import { ShareModule } from 'src/app/core/share/share.module';
   templateUrl: './file-manager.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class FileManagerComponent extends BaseComponent { }
+export class FileManagerComponent extends BaseComponent {
+  items!: Item[];
+  folders!: Item[];
+  files!: Item[];
+  displayType: 'list' | 'grid' = 'grid';
+  private _fileManagerService: FileManagerService = inject(FileManagerService);
+  override ngOnInit(): void {
+    super.ngOnInit();
+    this._fileManagerService.items$.subscribe(items => {
+      if (!items) {
+        return;
+      }
+      this.items = items;
+      this.folders = items.filter(item => item.type === 'folder');
+      this.files = items.filter(item => item.type !== 'folder');
+    });
+  }
+}

@@ -19,7 +19,7 @@ export class FileManagerService extends BaseService {
     return this._item.asObservable();
   }
 
-  search(pageable: Pageable): Observable<Item[]> {
+  search(pageable: Pageable | undefined = undefined): Observable<Item[]> {
     return this.httpClient.get<Item[]>(Endpoint.file_manager(), {
       params: new HttpParams({ fromObject: pageable as any }),
     }).pipe(tap(items => {

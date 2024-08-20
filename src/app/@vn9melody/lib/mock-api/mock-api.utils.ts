@@ -30,9 +30,9 @@ export class MockApiUtils {
         /* eslint-enable */
     }
 
-    static filterData<T>(data: any[], key: string, query: string, page: number, size: number): T[] {
+    static filterData<T>(data: any[], key: string, query: any, page: number | undefined = undefined, size: number | undefined = undefined): T[] {
         let clone = cloneDeep(data);
-        let filtered = clone.filter(e => `${e[key]}`.toLocaleLowerCase().includes(query.toLocaleLowerCase()));
+        let filtered = clone.filter(e => e[key] == query || `${e[key]}`.toLocaleLowerCase().includes(query.toLocaleLowerCase()));
         if (query === 'all') {
             filtered = cloneDeep(data);
         }
