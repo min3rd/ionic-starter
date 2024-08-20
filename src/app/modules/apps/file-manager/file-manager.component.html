@@ -30,7 +30,7 @@
     <div class="grid grid-cols-3 md:flex md:flex-wrap">
         @if (folders && folders.length) {
         @for (folder of folders; track $index) {
-        <ion-card class="w-32" [routerLink]="['../', folder.id]">
+        <ion-card class="w-32 animate-fade-up" [routerLink]="['../', folder.id]">
             <ion-card-content>
                 <div class="flex flex-col w-full justify-center">
                     <ion-icon name="folder" size="large"></ion-icon>
@@ -47,7 +47,7 @@
         }
         @if (files && files.length) {
         @for (file of files; track $index) {
-        <ion-card class="w-32">
+        <ion-card class="w-32 animate-fade-up">
             <ion-card-content>
                 <div class="flex flex-col w-full justify-center">
                     <div class="indicator">
@@ -74,7 +74,7 @@
     @if (displayType == 'list') {
     <ion-list>
         @for (folder of folders; track $index) {
-        <ion-item [routerLink]="['../', folder.id]">
+        <ion-item class="animate-fade-left" [routerLink]="['../', folder.id]">
             <div class="flex items-center justify-between w-full">
                 <div class="flex items-center gap-2">
                     <ion-icon name="folder"></ion-icon>
@@ -90,7 +90,7 @@
         }
 
         @for (file of files; track $index) {
-        <ion-item>
+        <ion-item class="animate-fade-left">
             <div class="flex items-center justify-between w-full">
                 <div class="flex items-center gap-2">
                     <div class="badge badge-secondary">
