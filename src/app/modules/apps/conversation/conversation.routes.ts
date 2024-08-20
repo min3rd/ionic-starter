@@ -1,12 +1,11 @@
-import { ActivatedRouteSnapshot, ResolveFn, RouterStateSnapshot, Routes } from "@angular/router";
+import { ActivatedRouteSnapshot, RouterStateSnapshot, Routes } from "@angular/router";
 import { ListComponent } from "./list/list.component";
 import { ConversationService } from "src/app/core/services/apps/conversation/conversation.service";
 import { inject } from "@angular/core";
 import { getParam } from "src/app/core/utils/functions";
 import { ChatComponent } from "./chat/chat.component";
-import { ConversationComponent } from "./conversation.component";
 
-export const conversationResolver = (route: ActivatedRouteSnapshot, state: RouterStateSnapshot) => {
+export const conversationResolve = (route: ActivatedRouteSnapshot, state: RouterStateSnapshot) => {
     const conversationService: ConversationService = inject(ConversationService);
     return conversationService.search({
         query: getParam(route, 'filterConversation'),
@@ -15,7 +14,7 @@ export const conversationResolver = (route: ActivatedRouteSnapshot, state: Route
     });
 }
 
-export const messageResolver = (route: ActivatedRouteSnapshot, state: RouterStateSnapshot) => {
+export const messageResolve = (route: ActivatedRouteSnapshot, state: RouterStateSnapshot) => {
     const conversationService: ConversationService = inject(ConversationService);
     return conversationService.messages(getParam(route, 'conversationId'), {
         query: getParam(route, 'filterMessage'),
@@ -36,7 +35,7 @@ export const routes: Routes = [
             { path: '', pathMatch: 'full', redirectTo: '1' },
             {
                 path: ':pageConversation',
-                resolve: [conversationResolver],
+                resolve: [conversationResolve],
                 component: ListComponent,
             },
             {
@@ -46,7 +45,7 @@ export const routes: Routes = [
             },
             {
                 path: ':pageConversation/:conversationId/:filterMessage/:pageMessage',
-                resolve: [conversationResolver, messageResolver],
+                resolve: [conversationResolve, messageResolve],
                 component: ChatComponent,
             }
         ]

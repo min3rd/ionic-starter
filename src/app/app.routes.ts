@@ -2,7 +2,7 @@ import { Routes } from '@angular/router';
 import { noAuthGuard } from './core/auth/no-auth.guard';
 import { authGuard } from './core/auth/auth.guard';
 import { LayoutComponent } from './core/layout/layout.component';
-import { metaDataResolver } from './app.resolver';
+import { metaDataResolve } from './app.resolve';
 
 export const routes: Routes = [
     { path: '', redirectTo: 'apps', pathMatch: 'full' },
@@ -35,7 +35,7 @@ export const routes: Routes = [
         data: {
             layout: 'classic',
         },
-        resolve: [metaDataResolver],
+        resolve: [metaDataResolve],
         loadChildren: () => import('./modules/user/user.routes').then((m) => m.routes),
     },
 
@@ -47,7 +47,7 @@ export const routes: Routes = [
         data: {
             layout: 'classic',
         },
-        resolve: [metaDataResolver],
+        resolve: [metaDataResolve],
         loadChildren: () => import('./modules/apps/apps.routes').then((m) => m.routes),
     },
 ];

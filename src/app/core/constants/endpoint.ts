@@ -71,4 +71,9 @@ export class Endpoint {
     static academy_courses_id_steps(id: string | undefined, ...path: string[] | undefined[]): string {
         return this.academy_courses_id(id, 'steps', path.join('/'));
     }
+
+    static file_manager(...path: string[] | any[]): string {
+        return this.api('file-manager', path.join('/'));
+    }
+    
 }
