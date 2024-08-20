@@ -4,7 +4,8 @@ import { BaseComponent } from 'src/app/core/base/base.component';
 import { AcademyService } from 'src/app/core/services/apps/academy/academy.service';
 import { Course, Step } from 'src/app/core/services/apps/academy/academy.types';
 import { ShareModule } from 'src/app/core/share/share.module';
-
+import { MenuController } from "@ionic/angular/standalone";
+import { from, takeUntil } from 'rxjs';
 @Component({
   selector: 'app-detail',
   standalone: true,
@@ -18,7 +19,9 @@ import { ShareModule } from 'src/app/core/share/share.module';
 export class DetailComponent extends BaseComponent {
   course!: Course;
   steps!: Step[];
+  currentStep!: number;
   private _academyService: AcademyService = inject(AcademyService);
+  menuController: MenuController = inject(MenuController);
   override ngOnInit(): void {
     super.ngOnInit();
     this._academyService.course$.subscribe(course => {
@@ -33,16 +36,10 @@ export class DetailComponent extends BaseComponent {
       }
       this.steps = steps;
     });
-  }
-  read(offset: number) {
-    if (!this.course.progress) {
-      this.course.progress = {
-        currentStep: 0,
-      };
-    }
-    if (this.course.progress.currentStep == undefined) {
-      this.course.progress.currentStep = 0;
-    }
-    this.course.progress.currentStep += offset
+    this.activatedRoute.params.subscribe(params => {
+      this.currentStep = +params['step'];
+    });
+    from(this.menuController.close()).pipe(takeUntil(this.unsubscribeAll)).subscribe(result => {
+    });
   }
 }

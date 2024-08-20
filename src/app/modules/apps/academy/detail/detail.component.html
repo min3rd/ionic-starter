@@ -1,7 +1,9 @@
 <ion-header>
     <ion-toolbar>
         <ion-buttons slot="start">
-            <ion-back-button></ion-back-button>
+            <ion-button [routerLink]="['../../']">
+                <ion-icon name="arrow-back" slot="icon-only"></ion-icon>
+            </ion-button>
         </ion-buttons>
         @if (course) {
         <ion-title>
@@ -16,23 +18,24 @@
     </ion-toolbar>
 </ion-header>
 <ion-content class="ion-padding">
-    <div [innerHTML]="steps[course.progress?.currentStep ?? 0].content">
+    <div [innerHTML]="steps[currentStep].content">
     </div>
 </ion-content>
 <ion-footer id="main-content">
-    <ion-progress-bar [value]="((course.progress?.currentStep ?? 0) / (course.totalSteps ?? 1))"></ion-progress-bar>
+    <ion-progress-bar [value]="((currentStep + 1) / (course.totalSteps ?? 1))"></ion-progress-bar>
     <ion-toolbar>
-        <ion-buttons slot="start">
+        <ion-buttons slot="start" (click)="menuController.open()">
             <ion-menu-button></ion-menu-button>
         </ion-buttons>
         <ion-label>
-            {{course.progress?.currentStep ?? 0}}/{{course.totalSteps ?? 1}}
+            {{currentStep + 1}}/{{course.totalSteps ?? 1}}
         </ion-label>
         <ion-buttons slot="end">
-            <ion-button (click)="read(-1)">
+            <ion-button [routerLink]="['../', currentStep - 1]" routerDirection="forward" [disabled]="currentStep <= 0">
                 <ion-icon name="arrow-back" slot="icon-only"></ion-icon>
             </ion-button>
-            <ion-button (click)="read(1)">
+            <ion-button [routerLink]="['../', currentStep + 1]" routerDirection="forward"
+                [disabled]="currentStep >= (course.totalSteps ?? 1) - 1">
                 <ion-icon name="arrow-forward" slot="icon-only"></ion-icon>
             </ion-button>
         </ion-buttons>
@@ -43,7 +46,7 @@
     <ion-header>
         <ion-toolbar>
             <ion-buttons slot="start">
-                <ion-button [routerLink]="['../']" routerDirection="backward">
+                <ion-button [routerLink]="['../../']" routerDirection="backward">
                     <div class="flex items-center gap-2">
                         <ion-icon name="arrow-back"></ion-icon>
                         <ion-label>
@@ -86,8 +89,7 @@
         <div class="flex flex-col gap-4 py-4">
             @for (step of steps; track $index) {
             <div class="flex items-center border-b">
-                <div class="flex flex-col"
-                    [ngClass]="{'line-through text-slate-400': (step.order??0) < (course.progress?.currentStep??0)}">
+                <div class="flex flex-col" [ngClass]="{'line-through text-slate-400': (step.order??0) < currentStep}">
                     <div>
                         {{step.title | transloco | capitalize}}
                     </div>
@@ -95,7 +97,7 @@
                         {{step.subtitle| transloco | capitalize}}
                     </div>
                 </div>
-                <ion-button fill="clear" shape="round">
+                <ion-button [routerLink]="['../', step.order]" routerDirection="forward" fill="clear" shape="round">
                     <ion-icon name="arrow-forward" slot="icon-only"></ion-icon>
                 </ion-button>
             </div>

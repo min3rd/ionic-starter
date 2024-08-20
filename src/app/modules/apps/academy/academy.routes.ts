@@ -51,6 +51,11 @@ export const routes: Routes = [
     },
     {
         path: ':categoryCourse/:pageCourse/:courseId',
+        pathMatch: 'full',
+        redirectTo: ':categoryCourse/:pageCourse/:courseId/0',
+    },
+    {
+        path: ':categoryCourse/:pageCourse/:courseId/:step',
         component: DetailComponent,
         resolve: [detailResolve, stepsResolve],
     }
