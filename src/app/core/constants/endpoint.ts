@@ -75,5 +75,13 @@ export class Endpoint {
     static file_manager(...path: string[] | any[]): string {
         return this.api('file-manager', path.join('/'));
     }
-    
+
+    static film(...path: string[] | undefined[]): string {
+        return this.api('film', path.join('/'));
+    }
+
+    static film_notifications(...path: string[] | undefined[]): string {
+        return this.film('notifications', path.join('/'));
+    }
+
 }

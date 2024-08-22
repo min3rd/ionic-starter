@@ -21,5 +21,9 @@ export const routes: Routes = [
     {
         path: 'file-manager',
         loadChildren: () => import('./file-manager/file-manager.routes').then((m) => m.routes),
+    },
+    {
+        path: 'film',
+        loadChildren: () => import('./film/film.routes').then((m) => m.routes),
     }
 ]

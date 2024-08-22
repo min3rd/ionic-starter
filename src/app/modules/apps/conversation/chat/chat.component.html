@@ -41,30 +41,47 @@
     </ion-toolbar>
 </ion-header>
 <ion-content>
-    <ion-list>
-        @if (messages && messages.length) {
-        @for (message of messages; track $index) {
-        <ion-item lines="none">
-            @if (message.sender == user.fullname) {
-            <ion-chip slot="end" color="primary">
-                {{message.content}}
-            </ion-chip>
-            }
-            @else {
-            <ion-avatar slot="start">
-                <img [src]="message.avatar" alt="avatar" class="h-full" />
-            </ion-avatar>
-            <ion-chip>
-                {{message.content}}
-            </ion-chip>
-            }
-        </ion-item>
-        }
-        }
-        @else {
-
-        }
-    </ion-list>
+    @if (messages && messages.length) {
+    @for (message of messages; track $index) {
+    @if (message.sender == user.fullname) {
+    <div class="chat chat-end">
+        <div class="chat-image avatar">
+            <div class="w-10 rounded-full">
+                <img [src]="message.avatar" class="h-full" />
+            </div>
+        </div>
+        <div class="chat-header">
+            <time class="text-xs opacity-50">
+                {{message.createdDate | date: 'HH:mm'}}
+            </time>
+        </div>
+        <div class="chat-bubble chat-bubble-primary">
+            {{message.content}}
+        </div>
+        <div class="chat-footer opacity-50">Delivered</div>
+    </div>
+    }
+    @else {
+    <div class="chat chat-start">
+        <div class="chat-image avatar">
+            <div class="w-10 rounded-full">
+                <img [src]="message.avatar" class="h-full" />
+            </div>
+        </div>
+        <div class="chat-header">
+            {{message.sender}}
+            <time class="text-xs opacity-50">
+                {{message.createdDate | date: 'HH:mm'}}
+            </time>
+        </div>
+        <div class="chat-bubble">
+            {{message.content}}
+        </div>
+        <div class="chat-footer opacity-50">Seen at 12:46</div>
+    </div>
+    }
+    }
+    }
 </ion-content>
 <ion-footer>
     <ion-toolbar>

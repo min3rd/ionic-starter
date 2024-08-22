@@ -29,4 +29,11 @@ export const appsData: App[] = [
         icon: 'folder-open',
         link: '/apps/file-manager',
     },
+    {
+        id: 'net-film',
+        title: 'net film',
+        subtitle: 'see the latest movies',
+        icon: 'film',
+        link: '/apps/film',
+    },
 ]

@@ -1,7 +1,7 @@
 export interface Base {
     id?: string;
     createdBy?: string;
-    createdDate?: Date;
+    createdDate?: Date | string;
     lastModifiedBy?: string;
-    lastModifiedDate?: Date;
+    lastModifiedDate?: Date | string;
 }

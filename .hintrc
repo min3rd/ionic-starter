@@ -8,7 +8,8 @@
       "default",
       {
         "ignore": [
-          "meta[name=color-scheme]"
+          "meta[name=color-scheme]",
+          "meta[name=theme-color]"
         ]
       }
     ],
@@ -16,6 +17,13 @@
       "default",
       {
         "image-alt": "off"
+      }
+    ],
+    "apple-touch-icons": "off",
+    "axe/structure": [
+      "default",
+      {
+        "list": "off"
       }
     ]
   }
