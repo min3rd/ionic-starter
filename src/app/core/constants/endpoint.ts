@@ -77,7 +77,7 @@ export class Endpoint {
     }
 
     static film(...path: string[] | undefined[]): string {
-        return this.api('film', path.join('/'));
+        return this.api('films', path.join('/'));
     }
 
     static film_notifications(...path: string[] | undefined[]): string {

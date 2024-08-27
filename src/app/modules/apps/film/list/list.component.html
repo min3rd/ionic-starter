@@ -1,0 +1,52 @@
+<ion-content>
+    <ion-list>
+        @for (film of films; track $index) {
+        <ion-item lines="none">
+            <div class="flex flex-col mt-2">
+                <div class="relative w-full max-h-48 bg-cover overflow-hidden rounded-md">
+                    <img [src]="film.thumbnail" />
+                    <div class="absolute bottom-2 right-2 bg-secondary-content rounded-md p-1">
+                        {{film.duration}}
+                    </div>
+                </div>
+                <div class="flex items-center justify-between w-full mt-2">
+                    <div class="flex items-center gap-2">
+                        <div class="avatar">
+                            <div class="w-12 rounded-full">
+                                <img [src]="film.avatar" />
+                            </div>
+                        </div>
+                        <div>
+                            <div class="font-semibold line-clamp-2 truncate">
+                                {{film.title}}
+                            </div>
+                            <div class="flex items-center gap-2 text-sm">
+                                <div class="text-secondary">
+                                    {{film.subtitle}}
+                                </div>
+                                <div>
+                                    •
+                                </div>
+                                <div>
+                                    {{film.view | abbreviate}}
+                                </div>
+                                <div>
+                                    •
+                                </div>
+                                <div>
+                                    {{film.createdDate | uploadTime}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <ion-buttons slot="end">
+                        <ion-button>
+                            <ion-icon name="ellipsis-vertical" slot="icon-only"></ion-icon>
+                        </ion-button>
+                    </ion-buttons>
+                </div>
+            </div>
+        </ion-item>
+        }
+    </ion-list>
+</ion-content>

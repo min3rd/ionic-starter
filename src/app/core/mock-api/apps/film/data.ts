@@ -1,4 +1,4 @@
-import { Notification } from "src/app/core/services/apps/film/film.types";
+import { Film, Notification } from "src/app/core/services/apps/film/film.types";
 
 export const notificationsData: Notification[] = [
     {
@@ -13,100 +13,60 @@ export const notificationsData: Notification[] = [
         avatar: 'assets/images/avatars/1.jpg',
         thumbnail: 'assets/images/thumbnails/1.jpg',
     },
+];
+
+export const filmsData: Film[] = [
     {
-        title: 'The Shawshank Redemption',
+        title: 'Trending: The Shawshank Redemption',
         subtitle: 'Drama',
         avatar: 'assets/images/avatars/1.jpg',
         thumbnail: 'assets/images/thumbnails/1.jpg',
+        view: 1250000,
+        duration: '00:15:56',
+        createdDate: "2021-09-01T00:00:00.000Z",
     },
     {
-        title: 'The Shawshank Redemption',
+        title: 'Trending: The Shawshank Redemption',
         subtitle: 'Drama',
         avatar: 'assets/images/avatars/1.jpg',
         thumbnail: 'assets/images/thumbnails/1.jpg',
-    },
-    {
-        title: 'The Shawshank Redemption',
+        view: 1250000,
+        duration: '00:15:56',
+        createdDate: "2021-09-01T00:00:00.000Z",
+    }, {
+        title: 'Trending: The Shawshank Redemption',
         subtitle: 'Drama',
         avatar: 'assets/images/avatars/1.jpg',
         thumbnail: 'assets/images/thumbnails/1.jpg',
-    },
-    {
-        title: 'The Shawshank Redemption',
+        view: 1250000,
+        duration: '00:15:56',
+        createdDate: "2021-09-01T00:00:00.000Z",
+    }
+    , {
+        title: 'Trending: The Shawshank Redemption',
         subtitle: 'Drama',
         avatar: 'assets/images/avatars/1.jpg',
         thumbnail: 'assets/images/thumbnails/1.jpg',
-    },
-    {
-        title: 'The Shawshank Redemption',
+        view: 1250000,
+        duration: '00:15:56',
+        createdDate: "2021-09-01T00:00:00.000Z",
+    }
+    , {
+        title: 'Trending: The Shawshank Redemption',
         subtitle: 'Drama',
         avatar: 'assets/images/avatars/1.jpg',
         thumbnail: 'assets/images/thumbnails/1.jpg',
+        view: 1250000,
+        duration: '00:15:56',
+        createdDate: "2021-09-01T00:00:00.000Z",
     },
     {
-        title: 'The Shawshank Redemption',
+        title: 'Trending: The Shawshank Redemption',
         subtitle: 'Drama',
         avatar: 'assets/images/avatars/1.jpg',
         thumbnail: 'assets/images/thumbnails/1.jpg',
-    },
-    {
-        title: 'The Shawshank Redemption',
-        subtitle: 'Drama',
-        avatar: 'assets/images/avatars/1.jpg',
-        thumbnail: 'assets/images/thumbnails/1.jpg',
-    },
-    {
-        title: 'The Shawshank Redemption',
-        subtitle: 'Drama',
-        avatar: 'assets/images/avatars/1.jpg',
-        thumbnail: 'assets/images/thumbnails/1.jpg',
-    },
-    {
-        title: 'The Shawshank Redemption',
-        subtitle: 'Drama',
-        avatar: 'assets/images/avatars/1.jpg',
-        thumbnail: 'assets/images/thumbnails/1.jpg',
-    },
-    {
-        title: 'The Shawshank Redemption',
-        subtitle: 'Drama',
-        avatar: 'assets/images/avatars/1.jpg',
-        thumbnail: 'assets/images/thumbnails/1.jpg',
-    },
-    {
-        title: 'The Shawshank Redemption',
-        subtitle: 'Drama',
-        avatar: 'assets/images/avatars/1.jpg',
-        thumbnail: 'assets/images/thumbnails/1.jpg',
-    },
-    {
-        title: 'The Shawshank Redemption',
-        subtitle: 'Drama',
-        avatar: 'assets/images/avatars/1.jpg',
-        thumbnail: 'assets/images/thumbnails/1.jpg',
-    },
-    {
-        title: 'The Shawshank Redemption',
-        subtitle: 'Drama',
-        avatar: 'assets/images/avatars/1.jpg',
-        thumbnail: 'assets/images/thumbnails/1.jpg',
-    },
-    {
-        title: 'The Shawshank Redemption',
-        subtitle: 'Drama',
-        avatar: 'assets/images/avatars/1.jpg',
-        thumbnail: 'assets/images/thumbnails/1.jpg',
-    },
-    {
-        title: 'The Shawshank Redemption',
-        subtitle: 'Drama',
-        avatar: 'assets/images/avatars/1.jpg',
-        thumbnail: 'assets/images/thumbnails/1.jpg',
-    },
-    {
-        title: 'The Shawshank Redemption',
-        subtitle: 'Drama',
-        avatar: 'assets/images/avatars/1.jpg',
-        thumbnail: 'assets/images/thumbnails/1.jpg',
-    },
+        view: 1250000,
+        duration: '00:15:56',
+        createdDate: "2021-09-01T00:00:00.000Z",
+    }
 ];
