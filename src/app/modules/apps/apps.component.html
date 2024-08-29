@@ -1,8 +1,9 @@
-<ion-content class="ion-padding">
-    <div class="grid grid-cols-2 md:flex md:flex-wrap gap-2">
+<ion-content>
+    <div class="grid grid-cols-2 md:flex md:flex-wrap gap-2 p-2">
         @if (apps) {
-        @for (app of apps; track $index) {
-        <div [routerLink]="[app.link]" routerDirection="forward" class="card bg-base-100 hover:cursor-pointer">
+        @for (app of apps; track $index; let i = $index;) {
+        <div [routerLink]="[app.link]" routerDirection="forward"
+            class="card bg-primary hover:cursor-pointer animate-flip-down animate-duration-700">
             <div class="card-body">
                 <ion-icon name="{{app.icon}}" size="large"></ion-icon>
                 <div class="card-title">

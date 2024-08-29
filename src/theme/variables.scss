@@ -1,2 +1,7 @@
 // For information on how to create your own theme, please see:
 // http://ionicframework.com/docs/theming/
+
+ion-button {
+  --background: oklch(var(--p));
+  --color: oklch(var(--pc));
+}
