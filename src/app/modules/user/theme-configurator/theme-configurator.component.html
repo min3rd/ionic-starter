@@ -15,26 +15,12 @@
     </div>
 </ion-header>
 <ion-content>
-    <ion-item lines="none" class="overflow-visible animate-fade-left animate-duration-300">
-        <div class="flex items-center gap-2 py-4 w-full">
-            <div>
-                {{'theme' | transloco | capitalize}}
-            </div>
-            <div class="dropdown w-full">
-                <div tabindex="0" role="button" class="btn m-1">
-                    {{'theme' | transloco | capitalize}}
-                </div>
-                <ul tabindex="0"
-                    class="dropdown-content bg-base-300 rounded-box z-[1] p-2 shadow-2xl max-h-96 w-full overflow-y-scroll">
-                    @for (theme of themes; track $index) {
-                    <li>
-                        <input type="radio" name="theme-dropdown"
-                            class="theme-controller btn btn-sm btn-block btn-ghost justify-start" [value]="theme"
-                            [ariaLabel]="theme | transloco | capitalize" />
-                    </li>
-                    }
-                </ul>
-            </div>
+    <div class="flex p-2 w-full">
+        <div class="join join-vertical w-full">
+            @for (theme of themes; track $index) {
+            <input type="radio" name="theme-buttons" class="btn theme-controller join-item w-full"
+                [ariaLabel]="theme | transloco | capitalize" value="{{theme}}" />
+            }
         </div>
-    </ion-item>
+    </div>
 </ion-content>
