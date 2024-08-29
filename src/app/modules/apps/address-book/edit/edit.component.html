@@ -1,22 +1,25 @@
 <ion-header>
-    <ion-toolbar>
-        <ion-buttons slot="start">
-            <ion-back-button></ion-back-button>
-        </ion-buttons>
-
-        <ion-buttons slot="end">
-            @if (!addressBook) {
-            <ion-button (click)="create()">
-                {{'create' | transloco | capitalize}}
-            </ion-button>
-            }
-            @else {
-            <ion-button (click)="update()">
-                {{'save' | transloco | capitalize}}
-            </ion-button>
-            }
-        </ion-buttons>
-    </ion-toolbar>
+    <div class="navbar bg-primary">
+        <div class="navbar-start">
+            <ion-buttons>
+                <ion-back-button class="animate-fade-up animate-duration-300"></ion-back-button>
+            </ion-buttons>
+        </div>
+        <div class="navbar-end">
+            <ion-buttons>
+                @if (!addressBook) {
+                <ion-button (click)="create()" class="animate-fade-up animate-duration-300">
+                    {{'create' | transloco | capitalize}}
+                </ion-button>
+                }
+                @else {
+                <ion-button (click)="update()" class="animate-fade-up animate-duration-300">
+                    {{'save' | transloco | capitalize}}
+                </ion-button>
+                }
+            </ion-buttons>
+        </div>
+    </div>
 </ion-header>
 
 <ion-content>
