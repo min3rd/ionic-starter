@@ -69,5 +69,6 @@
   "notification": "notification",
   "subscribers": "subscribers",
   "subscribe": "subscribe",
-  "theme configurator": "theme configurator"
+  "theme configurator": "theme configurator",
+  "theme": "theme"
 }
