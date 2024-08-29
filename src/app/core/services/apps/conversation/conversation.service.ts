@@ -33,7 +33,7 @@ export class ConversationService extends BaseService {
     );
   }
   get(conversationId: string): Observable<Conversation> {
-    return this.httpClient.get<Conversation>(Endpoint.conversation(conversationId)).pipe(tap(conversation => {
+    return this.httpClient.get<Conversation>(Endpoint.conversation_id(conversationId)).pipe(tap(conversation => {
       this._conversation.next(conversation);
     }));
   }

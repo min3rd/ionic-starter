@@ -23,6 +23,11 @@ export const messageResolve = (route: ActivatedRouteSnapshot, state: RouterState
     });
 }
 
+export const detailResolve = (route: ActivatedRouteSnapshot, state: RouterStateSnapshot) => {
+    const conversationService: ConversationService = inject(ConversationService);
+    return conversationService.get(getParam(route, 'conversationId'));
+}
+
 export const routes: Routes = [
     {
         path: '',
@@ -45,7 +50,7 @@ export const routes: Routes = [
             },
             {
                 path: ':pageConversation/:conversationId/:filterMessage/:pageMessage',
-                resolve: [conversationResolve, messageResolve],
+                resolve: [detailResolve, messageResolve],
                 component: ChatComponent,
             }
         ]

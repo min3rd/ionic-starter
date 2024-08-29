@@ -8,7 +8,7 @@ import { appsData } from "./data";
 })
 export class AppsMockApi extends MockApi {
     override registerHandlers(): void {
-        this.mockupApiService.onGet(Endpoint.common_apps()).reply(() => {
+        this.mockupApiService.onGet(Endpoint.common_apps()).reply(({ request }) => {
             return [200, appsData];
         });
     }

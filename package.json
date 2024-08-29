@@ -39,8 +39,8 @@
     "ionicons": "7.4.0",
     "lodash-es": "4.17.21",
     "rxjs": "7.8.1",
-    "tailwindcss-animated": "^1.1.2",
-    "tslib": "2.6.3",
+    "tailwindcss-animated": "1.1.2",
+    "tslib": "2.7.0",
     "zone.js": "0.14.10"
   },
   "devDependencies": {
@@ -74,7 +74,8 @@
     "karma-jasmine-html-reporter": "2.1.0",
     "postcss": "8.4.41",
     "tailwindcss": "3.4.10",
-    "typescript": "5.5.4"
+    "typescript": "5.5.4",
+    "video.js": "8.17.3"
   },
   "description": "Ionic Starter Pack",
   "browserslist": [

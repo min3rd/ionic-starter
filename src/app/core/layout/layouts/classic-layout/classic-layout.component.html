@@ -1,19 +1,22 @@
 <ion-app>
-    <ion-header [translucent]="true">
-        <ion-toolbar>
-            <ion-buttons slot="start">
-                <ion-button [routerLink]="['/']">
-                    <ion-icon slot="icon-only" name="home"></ion-icon>
-                </ion-button>
-            </ion-buttons>
-
+    <ion-header>
+        <div class="navbar bg-primary text-primary-content">
+            <div class="navbar-start">
+                <ion-buttons>
+                    <ion-button [routerLink]="['/']">
+                        <ion-icon slot="icon-only" name="home"></ion-icon>
+                    </ion-button>
+                </ion-buttons>
+            </div>
             @if (title) {
-            <ion-title>{{title | transloco | capitalize}}</ion-title>
+            <div class="navbar-center">
+                <ion-title>{{title | transloco | capitalize}}</ion-title>
+            </div>
             }
-            <ion-buttons slot="end">
+            <div class="navbar-end">
                 <user></user>
-            </ion-buttons>
-        </ion-toolbar>
+            </div>
+        </div>
     </ion-header>
     <ion-content>
         <ion-router-outlet></ion-router-outlet>

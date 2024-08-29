@@ -2,8 +2,8 @@ import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { takeUntil } from 'rxjs';
 import { BaseComponent } from 'src/app/core/base/base.component';
-import { ConversationService } from 'src/app/core/services/apps/conversation/conversation.service';
-import { Conversation } from 'src/app/core/services/apps/conversation/conversation.types';
+import { FilmService } from 'src/app/core/services/apps/film/film.service';
+import { Film } from 'src/app/core/services/apps/film/film.types';
 import { ShareModule } from 'src/app/core/share/share.module';
 
 @Component({
@@ -17,20 +17,16 @@ import { ShareModule } from 'src/app/core/share/share.module';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ListComponent extends BaseComponent {
-  onSearch: boolean = false;
-  conversations!: Conversation[];
-  private _conversationService: ConversationService = inject(ConversationService);
+  films!: Film[];
+  private _filmService: FilmService = inject(FilmService);
   override ngOnInit(): void {
     super.ngOnInit();
-    this._conversationService.conversions$.pipe(takeUntil(this.unsubscribeAll)).subscribe(conversations => {
-      if (!conversations) {
+    this._filmService.films$.pipe(takeUntil(this.unsubscribeAll)).subscribe(films => {     
+      if (!films) {
         return;
       }
-      this.conversations = conversations;
+      this.films = films;
       this.changeDetectorRef.markForCheck();
     });
-  }
-  search(event: any): void {
-    this.router.navigate(['../../', event.target?.value], { relativeTo: this.activatedRoute });
   }
 }

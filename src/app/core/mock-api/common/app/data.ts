@@ -30,8 +30,8 @@ export const appsData: App[] = [
         link: '/apps/file-manager',
     },
     {
-        id: 'net-film',
-        title: 'net film',
+        id: 'youtube',
+        title: 'youtube',
         subtitle: 'see the latest movies',
         icon: 'film',
         link: '/apps/film',

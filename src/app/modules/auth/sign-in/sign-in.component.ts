@@ -3,7 +3,7 @@ import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { Validators } from '@angular/forms';
 import { AuthService } from 'src/app/core/auth/auth.service';
 import { BaseComponent } from 'src/app/core/base/base.component';
-import { credentials } from 'src/app/core/mock-api/auth/data';
+import { adminCredential } from 'src/app/core/mock-api/auth/data';
 import { ToastService } from 'src/app/core/services/toast.service';
 import { ShareModule } from 'src/app/core/share/share.module';
 import { getQuery } from 'src/app/core/utils/functions';
@@ -24,9 +24,9 @@ export class SignInComponent extends BaseComponent {
   override ngOnInit(): void {
     super.ngOnInit();
     this.form = this.formBuilder.group({
-      email: [credentials.email, Validators.required],
-      password: [credentials.password, Validators.required],
-      rememberMe: [credentials.rememeberMe],
+      email: [adminCredential.email, Validators.required],
+      password: [adminCredential.password, Validators.required],
+      rememberMe: [adminCredential.rememeberMe],
     });
   }
   signIn() {

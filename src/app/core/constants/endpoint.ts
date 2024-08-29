@@ -37,7 +37,7 @@ export class Endpoint {
         return this.api('conversations', path.join('/'));
     }
 
-    static conversation_id(id: string, ...path: string[] | any[]): string {
+    static conversation_id(id: string | undefined, ...path: string[] | any[]): string {
         return this.conversation(id, path.join('/'));
     }
 
@@ -77,7 +77,7 @@ export class Endpoint {
     }
 
     static film(...path: string[] | undefined[]): string {
-        return this.api('film', path.join('/'));
+        return this.api('films', path.join('/'));
     }
 
     static film_notifications(...path: string[] | undefined[]): string {

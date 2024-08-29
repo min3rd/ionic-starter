@@ -1,0 +1,105 @@
+<ion-content>
+    <video #target class="video-js" controls autoplay></video>
+    <div class="ion-padding">
+        <div class="text-lg font-semibold line-clamp-2">
+            {{film.title}}
+        </div>
+        <div class="flex items-center gap-2 mt-2">
+            <div class="avatar">
+                <div class="w-12 rounded-full">
+                    <img [src]="film.avatar" />
+                </div>
+            </div>
+            <div class="flex flex-col">
+                <div class="truncate font-semibold">
+                    {{film.channel}}
+                </div>
+                <div>
+                    {{film.subscription | abbreviate}} {{'subscribers' | transloco}}
+                </div>
+            </div>
+            <ion-buttons>
+                <ion-button shape="round" color="primary" fill="solid">
+                    {{'subscribe' | transloco | capitalize}}
+                </ion-button>
+            </ion-buttons>
+        </div>
+
+        <div class="flex items-center mt-2">
+            <ion-chip>
+                <ion-icon name="thumbs-up"></ion-icon>
+                <div>
+                    {{film.like | abbreviate}}
+                </div>
+            </ion-chip>
+
+            <ion-chip>
+                <ion-icon name="thumbs-down"></ion-icon>
+            </ion-chip>
+
+            <ion-chip>
+                <ion-icon name="share-social"></ion-icon>
+                <div>
+                    {{'share' | transloco | capitalize}}
+                </div>
+            </ion-chip>
+
+            <ion-chip>
+                <ion-icon name="arrow-down"></ion-icon>
+                <div>
+                    {{'download' | transloco | capitalize}}
+                </div>
+            </ion-chip>
+        </div>
+
+        <div class="flex flex-col w-full mt-2">
+            @for (film of films; track $index) {
+            <div class="flex flex-col w-full mt-2">
+                <div class="relative w-full max-h-48 bg-cover overflow-hidden rounded-md"
+                    [routerLink]="['../', film.id]">
+                    <img [src]="film.thumbnail" />
+                    <div class="absolute bottom-2 right-2 bg-secondary-content rounded-md p-1">
+                        {{film.duration}}
+                    </div>
+                </div>
+                <div class="flex items-center justify-between w-full mt-2">
+                    <div class="flex items-center gap-2">
+                        <div class="avatar">
+                            <div class="w-12 rounded-full">
+                                <img [src]="film.avatar" />
+                            </div>
+                        </div>
+                        <div>
+                            <div class="font-semibold line-clamp-1">
+                                {{film.title}}
+                            </div>
+                            <div class="flex items-center gap-2 text-sm">
+                                <div class="text-secondary line-clamp-1">
+                                    {{film.channel}}
+                                </div>
+                                <div>
+                                    •
+                                </div>
+                                <div>
+                                    {{film.view | abbreviate}}
+                                </div>
+                                <div>
+                                    •
+                                </div>
+                                <div>
+                                    {{film.createdDate | uploadTime}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <ion-buttons>
+                        <ion-button>
+                            <ion-icon name="ellipsis-vertical" slot="icon-only"></ion-icon>
+                        </ion-button>
+                    </ion-buttons>
+                </div>
+            </div>
+            }
+        </div>
+    </div>
+</ion-content>

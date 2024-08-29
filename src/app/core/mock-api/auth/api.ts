@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 import { MockApi } from "../mock-api";
 import { Endpoint } from "../../constants/endpoint";
-import { credentials, user } from "./data";
+import { adminCredential, user, userCredential } from "./data";
 import { Utf8 } from "crypto-es/lib/core";
 import { HmacSHA256 } from "crypto-es/lib/sha256";
 import { Base64 } from "crypto-es/lib/enc-base64";
@@ -14,10 +14,15 @@ export class AuthMockApi extends MockApi {
     override registerHandlers(): void {
         this.mockupApiService.onPost(Endpoint.auth_signin()).reply(({ request }) => {
             const { email, password } = request.body;
-            if (email === credentials.email && password === credentials.password) {
+            if (email === adminCredential.email && password === adminCredential.password) {
                 return [200, {
                     user: user,
-                    accessToken: this._generateJWTToken(),
+                    accessToken: this._generateJWTToken(['admin']),
+                }];
+            } else if (email === userCredential.email && password === userCredential.password) {
+                return [200, {
+                    user: user,
+                    accessToken: this._generateJWTToken(['user']),
                 }];
             }
             return [400, false];
@@ -57,7 +62,7 @@ export class AuthMockApi extends MockApi {
      *
      * @private
      */
-    private _generateJWTToken(): string {
+    private _generateJWTToken(authorities: string[] = []): string {
         // Define token header
         const header = {
             alg: 'HS256',
@@ -74,6 +79,7 @@ export class AuthMockApi extends MockApi {
             iat: iat,
             iss: 'vn9melody',
             exp: exp,
+            authorities: authorities,
         };
 
         // Stringify and encode the header

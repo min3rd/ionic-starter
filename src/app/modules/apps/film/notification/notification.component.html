@@ -1,10 +1,20 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-button [routerLink]="['../']" routerDirection="backward">
+                <ion-icon name="arrow-back" slot="icon-only"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
 <ion-content>
     <ion-list>
-        @for (notification of notifications; track $index) {
+        @for (notification of notifications; track $index; let i = $index;) {
         <ion-item>
             <div class="flex items-center gap-2">
                 <div class="avatar">
-                    <div class="w-8 rounded-full">
+                    <div class="w-12 rounded-full">
                         <img [src]="notification.avatar" />
                     </div>
                 </div>
@@ -18,16 +28,18 @@
                 </div>
             </div>
 
-            <div class="flex items-center gap-2" slot="end">
+            <div class="flex items-center gap-2 py-2" slot="end">
                 <div class="avatar">
                     <div class="mask mask-squircle w-16">
                         <img [src]="notification.thumbnail" />
                     </div>
                 </div>
                 <ion-buttons>
-                    <ion-button>
+                    <ion-button id="menu_{{i}}">
                         <ion-icon name="ellipsis-vertical" slot="icon-only"></ion-icon>
                     </ion-button>
+                    <ion-action-sheet trigger="menu_{{i}}" header="{{'notification' | transloco | capitalize}}"
+                        [buttons]="actionSheetButtons"></ion-action-sheet>
                 </ion-buttons>
             </div>
         </ion-item>

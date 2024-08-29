@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ElementRef, inject, ViewChild } from '@angular/core';
 import { BaseComponent } from 'src/app/core/base/base.component';
 import { ShareModule } from 'src/app/core/share/share.module';
 import { Camera, CameraResultType, CameraSource } from '@capacitor/camera';
@@ -19,6 +19,7 @@ import { User } from 'src/app/core/services/user/user';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class EditProfileComponent extends BaseComponent {
+  @ViewChild('modal') modal!: ElementRef;
   user!: User;
   isMobile: boolean = this.platform.is('mobile');
   base64Image!: string | undefined;
@@ -64,9 +65,7 @@ export class EditProfileComponent extends BaseComponent {
       resultType: CameraResultType.Base64,
       source: CameraSource.Photos,
     })).subscribe(photo => {
-      this.isModalOpen = true;     
-      this.base64Image = 'data:image/png;base64,' + photo.base64String;
-      this.changeDetectorRef.markForCheck();
+      this.showModal(photo.base64String);
     });
   }
   changeAvatar() {
@@ -97,9 +96,7 @@ export class EditProfileComponent extends BaseComponent {
       resultType: CameraResultType.Base64,
       source: CameraSource.Camera,
     })).subscribe(photo => {
-      this.isModalOpen = true;
-      this.base64Image = 'data:image/png;base64,' + photo.base64String;
-      this.changeDetectorRef.markForCheck();
+      this.showModal(photo.base64String);
     });
   }
 
@@ -113,5 +110,11 @@ export class EditProfileComponent extends BaseComponent {
         duration: 'short',
       });
     });
+  }
+
+  showModal(base64: string | undefined) {
+    this.modal.nativeElement.showModal();
+    this.base64Image = 'data:image/png;base64,' + base64;
+    this.changeDetectorRef.markForCheck();
   }
 }

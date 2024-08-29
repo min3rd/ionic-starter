@@ -51,6 +51,7 @@ import {
   IonProgressBar,
   IonMenu,
   IonMenuButton,
+  IonActionSheet,
 } from "@ionic/angular/standalone";
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
@@ -112,6 +113,7 @@ import { RouterModule } from '@angular/router';
     IonProgressBar,
     IonMenu,
     IonMenuButton,
+    IonActionSheet,
   ],
   exports: [
     RouterModule,
@@ -167,6 +169,7 @@ import { RouterModule } from '@angular/router';
     IonProgressBar,
     IonMenu,
     IonMenuButton,
+    IonActionSheet,
   ]
 })
 export class ShareModule { }
