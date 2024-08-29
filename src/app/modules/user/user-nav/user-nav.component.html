@@ -1,6 +1,6 @@
 <ion-content [fullscreen]="true">
     @if (user) {
-    <ion-item>
+    <ion-item lines="none" class="animate-fade-left animate-duration-300">
         <div class="flex py-2 items-start gap-2">
             @if (user.avatar) {
             <ion-avatar>
@@ -22,16 +22,41 @@
         </div>
     </ion-item>
     }
-    <ion-item routerDirection="forward" [routerLink]="['/user', 'profile']">
-        {{'profile' | transloco | capitalize}}
+    <ion-item routerDirection="forward" [routerLink]="['/user', 'profile']" lines="none"
+        class="animate-fade-left animate-duration-300">
+        <div class="flex items-center gap-2 py-4">
+            <ion-icon name="person-sharp"></ion-icon>
+            <div>
+                {{'profile' | transloco | capitalize}}
+            </div>
+        </div>
     </ion-item>
-    <ion-item routerDirection="forward" [routerLink]="['/user', 'change-password']">
-        {{'change password' | transloco | capitalize}}
-    </ion-item>
-    <ion-item (click)="signOut()">
-        {{'sign out' | transloco | capitalize}}
+    <ion-item routerDirection="forward" [routerLink]="['/user', 'change-password']" lines="none"
+        class="animate-fade-left animate-duration-300">
+        <div class="flex items-center gap-2 py-4">
+            <ion-icon name="key-sharp"></ion-icon>
+            <div>
+                {{'change password' | transloco | capitalize}}
+            </div>
+        </div>
     </ion-item>
 
-    <router-outlet></router-outlet>
+    <ion-item routerDirection="forward" [routerLink]="['/user', 'theme-configurator']" lines="none"
+        class="animate-fade-left animate-duration-300">
+        <div class="flex items-center gap-2 py-4">
+            <ion-icon name="color-palette-sharp"></ion-icon>
+            <div>
+                {{'theme configurator' | transloco | capitalize}}
+            </div>
+        </div>
+    </ion-item>
 
+    <ion-item (click)="signOut()" lines="none" class="animate-fade-left animate-duration-300">
+        <div class="flex items-center gap-2 py-4">
+            <ion-icon name="log-out-sharp"></ion-icon>
+            <div>
+                {{'sign out' | transloco | capitalize}}
+            </div>
+        </div>
+    </ion-item>
 </ion-content>

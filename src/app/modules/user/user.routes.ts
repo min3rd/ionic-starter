@@ -5,6 +5,7 @@ import { UserNavComponent } from "./user-nav/user-nav.component";
 import { ProfileComponent } from "./profile/profile.component";
 import { ChangePasswordComponent } from "./change-password/change-password.component";
 import { EditProfileComponent } from "./profile/edit-profile/edit-profile.component";
+import { ThemeConfiguratorComponent } from "./theme-configurator/theme-configurator.component";
 
 export const routes: Routes = [
     {
@@ -26,6 +27,10 @@ export const routes: Routes = [
             {
                 path: 'change-password',
                 component: ChangePasswordComponent,
+            },
+            {
+                path: 'theme-configurator',
+                component: ThemeConfiguratorComponent,
             },
             {
                 path: 'sign-out',

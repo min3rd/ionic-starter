@@ -5,3 +5,7 @@ ion-button {
   --background: oklch(var(--p));
   --color: oklch(var(--pc));
 }
+
+ion-item {
+  --border-color: oklch(var(--p));
+}

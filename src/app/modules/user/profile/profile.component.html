@@ -1,18 +1,26 @@
 <ion-header>
-    <ion-toolbar>
-        <ion-buttons slot="start">
-            <ion-back-button></ion-back-button>
-        </ion-buttons>
-        <ion-title>
-            {{'profile' | transloco | capitalize}}
-        </ion-title>
-
-        <ion-buttons slot="end">
-            <ion-button fill="clear" [routerLink]="['/user', 'profile', 'edit']">
-                {{'edit' | transloco | capitalize}}
-            </ion-button>
-        </ion-buttons>
-    </ion-toolbar>
+    <div class="navbar bg-primary">
+        <div class="navbar-start">
+            <ion-buttons class="animate-fade-up animate-duration-300">
+                <ion-button [routerLink]="['../']" routerDirection="backward">
+                    <ion-icon name="arrow-back-sharp" slot="icon-only"></ion-icon>
+                </ion-button>
+            </ion-buttons>
+        </div>
+        <div class="navbar-center">
+            <ion-title>
+                {{'profile' | transloco | capitalize}}
+            </ion-title>
+        </div>
+        <div class="navbar-end">
+            <ion-buttons slot="end">
+                <ion-button fill="clear" [routerLink]="['/user', 'profile', 'edit']"
+                    class="animate-fade-up animate-duration-300">
+                    {{'edit' | transloco | capitalize}}
+                </ion-button>
+            </ion-buttons>
+        </div>
+    </div>
 </ion-header>
 <ion-content [fullscreen]="true">
     <ion-list>
@@ -29,8 +37,8 @@
         }
 
         @if (user.fullname) {
-        <ion-item>
-            <div class="grid grid-cols-12 items-center gap-2 w-full">
+        <ion-item lines="none" class="animate-fade-left animate-duration-300">
+            <div class="grid grid-cols-12 items-center gap-2 py-4 w-full">
                 <div class="col-span-3 font-semibold">
                     {{'fullname' | transloco | capitalize}}
                 </div>
@@ -42,8 +50,8 @@
         }
 
         @if (user.email) {
-        <ion-item>
-            <div class="grid grid-cols-12 items-center gap-2 w-full">
+        <ion-item lines="none" class="animate-fade-left animate-duration-300">
+            <div class="grid grid-cols-12 items-center gap-2 py-4 w-full">
                 <div class="col-span-3 font-semibold">
                     {{'email' | transloco | capitalize}}
                 </div>
@@ -55,8 +63,8 @@
         }
 
         @if (user.phone) {
-        <ion-item>
-            <div class="grid grid-cols-12 items-center gap-2 w-full">
+        <ion-item lines="none" class="animate-fade-left animate-duration-300">
+            <div class="grid grid-cols-12 items-center gap-2 py-4 w-full">
                 <div class="col-span-3 font-semibold">
                     {{'phone' | transloco | capitalize}}
                 </div>
@@ -68,8 +76,8 @@
         }
 
         @if (user.address) {
-        <ion-item>
-            <div class="grid grid-cols-12 items-center gap-2 w-full">
+        <ion-item lines="none" class="animate-fade-left animate-duration-300">
+            <div class="grid grid-cols-12 items-center gap-2 py-4 w-full">
                 <div class="col-span-3 font-semibold">
                     {{'address' | transloco | capitalize}}
                 </div>
@@ -81,8 +89,8 @@
         }
 
         @if (user.city) {
-        <ion-item>
-            <div class="grid grid-cols-12 items-center gap-2 w-full">
+        <ion-item lines="none" class="animate-fade-left animate-duration-300">
+            <div class="grid grid-cols-12 items-center gap-2 py-4 w-full">
                 <div class="col-span-3 font-semibold">
                     {{'city' | transloco | capitalize}}
                 </div>
@@ -94,8 +102,8 @@
         }
 
         @if (user.country) {
-        <ion-item>
-            <div class="grid grid-cols-12 items-center gap-2 w-full">
+        <ion-item lines="none" class="animate-fade-left animate-duration-300">
+            <div class="grid grid-cols-12 items-center gap-2 py-4 w-full">
                 <div class="col-span-3 font-semibold">
                     {{'country' | transloco | capitalize}}
                 </div>

@@ -1,15 +1,25 @@
 <ion-header>
-    <ion-toolbar>
-        <ion-buttons slot="start">
-            <ion-back-button></ion-back-button>
-        </ion-buttons>
-        <ion-title>
-            {{'profile' | transloco | capitalize}}
-        </ion-title>
-        <ion-button (click)="update()" slot="end" fill="clear">
-            {{'save' | transloco | capitalize}}
-        </ion-button>
-    </ion-toolbar>
+    <div class="navbar bg-primary">
+        <div class="navbar-start">
+            <ion-buttons class="animate-fade-up animate-duration-300">
+                <ion-button [routerLink]="['../']" routerDirection="backward">
+                    <ion-icon name="arrow-back-sharp" slot="icon-only"></ion-icon>
+                </ion-button>
+            </ion-buttons>
+        </div>
+        <div class="navbar-center">
+            <ion-title>
+                {{'profile' | transloco | capitalize}}
+            </ion-title>
+        </div>
+        <div class="navbar-end">
+            <ion-buttons class="animate-fade-up animate-duration-300">
+                <ion-button (click)="update()">
+                    {{'save' | transloco | capitalize}}
+                </ion-button>
+            </ion-buttons>
+        </div>
+    </div>
 </ion-header>
 
 <ion-content [fullscreen]="true">
@@ -59,32 +69,32 @@
             </div>
         </dialog>
         <form [formGroup]="form">
-            <ion-item class="mt-2">
+            <ion-item lines="none" class="animate-fade-left animate-duration-300 py-4">
                 <ion-input formControlName="email" label="{{'email' | transloco | capitalize}}"
                     placeholder="{{'email@email.com' | transloco | capitalize}}" labelPlacement="stacked"></ion-input>
             </ion-item>
 
-            <ion-item>
+            <ion-item lines="none" class="animate-fade-left animate-duration-300 py-4">
                 <ion-input formControlName="fullname" label="{{'fullname' | transloco | capitalize}}"
                     placeholder="{{'fullname' | transloco | capitalize}}" labelPlacement="stacked"></ion-input>
             </ion-item>
 
-            <ion-item>
+            <ion-item lines="none" class="animate-fade-left animate-duration-300 py-4">
                 <ion-input formControlName="phone" label="{{'phone' | transloco | capitalize}}"
                     placeholder="{{'phone' | transloco | capitalize}}" labelPlacement="stacked"></ion-input>
             </ion-item>
 
-            <ion-item>
+            <ion-item lines="none" class="animate-fade-left animate-duration-300 py-4">
                 <ion-input formControlName="address" label="{{'address' | transloco | capitalize}}"
                     placeholder="{{'address' | transloco | capitalize}}" labelPlacement="stacked"></ion-input>
             </ion-item>
 
-            <ion-item>
+            <ion-item lines="none" class="animate-fade-left animate-duration-300 py-4">
                 <ion-input formControlName="city" label="{{'city' | transloco | capitalize}}"
                     placeholder="{{'city' | transloco | capitalize}}" labelPlacement="stacked"></ion-input>
             </ion-item>
 
-            <ion-item>
+            <ion-item lines="none" class="animate-fade-left animate-duration-300 py-4">
                 <ion-input formControlName="country" label="{{'country' | transloco | capitalize}}"
                     placeholder="{{'country' | transloco | capitalize}}" labelPlacement="stacked"></ion-input>
             </ion-item>

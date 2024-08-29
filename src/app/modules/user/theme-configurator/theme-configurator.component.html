@@ -1,0 +1,40 @@
+<ion-header>
+    <div class="navbar bg-primary">
+        <div class="navbar-start">
+            <ion-buttons class="animate-fade-up animate-duration-300">
+                <ion-button [routerLink]="['../']" routerDirection="backward">
+                    <ion-icon name="arrow-back-sharp" slot="icon-only"></ion-icon>
+                </ion-button>
+            </ion-buttons>
+        </div>
+        <div class="navbar-center">
+            <ion-title>
+                {{'theme configurator' | transloco | capitalize}}
+            </ion-title>
+        </div>
+    </div>
+</ion-header>
+<ion-content>
+    <ion-item lines="none" class="overflow-visible animate-fade-left animate-duration-300">
+        <div class="flex items-center gap-2 py-4 w-full">
+            <div>
+                {{'theme' | transloco | capitalize}}
+            </div>
+            <div class="dropdown w-full">
+                <div tabindex="0" role="button" class="btn m-1">
+                    {{'theme' | transloco | capitalize}}
+                </div>
+                <ul tabindex="0"
+                    class="dropdown-content bg-base-300 rounded-box z-[1] p-2 shadow-2xl max-h-96 w-full overflow-y-scroll">
+                    @for (theme of themes; track $index) {
+                    <li>
+                        <input type="radio" name="theme-dropdown"
+                            class="theme-controller btn btn-sm btn-block btn-ghost justify-start" [value]="theme"
+                            [ariaLabel]="theme | transloco | capitalize" />
+                    </li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </ion-item>
+</ion-content>
