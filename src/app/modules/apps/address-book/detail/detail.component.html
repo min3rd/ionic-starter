@@ -1,17 +1,14 @@
 <ion-header>
     <div class="navbar bg-primary">
-        <div class="navbar-start">
-            <ion-buttons>
-                <ion-back-button class="animate-fade-up animate-duration-300"></ion-back-button>
-            </ion-buttons>
+        <div class="navbar-start animate-fade-up animate-duration-300">
+            <button [routerLink]="['../']" class="btn btn-circle btn-ghost">
+                <ion-icon name="arrow-back" size="large"></ion-icon>
+            </button>
         </div>
-        <div class="navbar-end">
-            <ion-buttons>
-                <ion-button [routerLink]="['./edit']" routerDirection="forward"
-                    class="animate-fade-up animate-duration-300">
-                    {{'edit' | transloco | capitalize}}
-                </ion-button>
-            </ion-buttons>
+        <div class="navbar-end animate-fade-up animate-duration-300">
+            <button [routerLink]="['./edit']" class="btn btn-ghost">
+                {{'edit' | transloco | capitalize}}
+            </button>
         </div>
     </div>
 </ion-header>
