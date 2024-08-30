@@ -9,3 +9,11 @@ ion-button {
 ion-item {
   --border-color: oklch(var(--p));
 }
+
+.ion-color-success {
+  --ion-color-base: oklch(var(--su)) !important;
+}
+
+.ion-color-secondary {
+  --ion-color-base: oklch(var(--s)) !important;
+}

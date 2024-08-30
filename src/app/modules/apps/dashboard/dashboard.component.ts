@@ -14,6 +14,7 @@ import { ShareModule } from 'src/app/core/share/share.module';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DashboardComponent extends BaseComponent {
+  counter: number = 59;
   override ngOnInit(): void {
     super.ngOnInit();
   }

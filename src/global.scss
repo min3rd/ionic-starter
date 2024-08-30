@@ -32,19 +32,12 @@
  * https://ionicframework.com/docs/theming/dark-mode
  */
 
-/* @import "@ionic/angular/css/palettes/dark.always.css"; */
+@import "@ionic/angular/css/palettes/dark.always.css";
 /* @import "@ionic/angular/css/palettes/dark.class.css"; */
-@import '@ionic/angular/css/palettes/dark.system.css';
-
-@layer tailwind-base, ionic, tailwind-utilities;
-
-@layer tailwind-base {
-  @tailwind base;
-}
-
-@layer tailwind-utilities {
-  @tailwind components;
-  @tailwind utilities;
-}
+/* @import '@ionic/angular/css/palettes/dark.system.css'; */
 
 @import "video.js/dist/video-js.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
