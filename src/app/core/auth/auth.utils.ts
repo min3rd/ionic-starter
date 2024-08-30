@@ -179,4 +179,19 @@ export class AuthUtils {
 
         return date;
     }
+
+    public static hasAuthority(token: string, authority: string): boolean {
+        // Get the decoded token
+        const decodedToken = this._decodeToken(token);
+
+        // Return if the decodedToken doesn't have an 'exp' field
+        if (!decodedToken.hasOwnProperty('authorities')) {
+            return false;
+        }
+
+        // Convert the expiration date
+        const authorities = decodedToken.authorities;
+
+        return authorities.includes(authority);
+    }
 }

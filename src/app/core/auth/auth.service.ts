@@ -47,7 +47,7 @@ export class AuthService {
   /**
  * Check the authentication status
  */
-  check(): Observable<boolean> {
+  check(authority: string | undefined = undefined): Observable<boolean> {
 
     // Check the access token availability
     if (!this._accessToken) {
@@ -61,6 +61,11 @@ export class AuthService {
             return of(false);
           }
 
+          if (authority !== undefined) {
+            if (!AuthUtils.hasAuthority(this._accessToken, authority)) {
+              return of(false);
+            }
+          }
           return of(true);
         })
       );
@@ -70,6 +75,14 @@ export class AuthService {
     if (AuthUtils.isTokenExpired(this._accessToken)) {
       return of(false);
     }
+
+    if (authority !== undefined) {
+      if (!AuthUtils.hasAuthority(this._accessToken, authority)) {
+        return of(false);
+      }
+    }
+
     return of(true);
   }
+
 }

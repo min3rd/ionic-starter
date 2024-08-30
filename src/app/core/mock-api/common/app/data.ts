@@ -2,6 +2,13 @@ import { App } from "src/app/core/services/apps/apps.types";
 
 export const appsData: App[] = [
     {
+        id: 'dashboard',
+        title: 'dashboard',
+        subtitle: 'welcome to the dashboard',
+        icon: 'bar-chart',
+        link: '/apps/dashboard',
+    },
+    {
         id: 'conversation',
         title: 'conversation',
         subtitle: 'chat with your friends',

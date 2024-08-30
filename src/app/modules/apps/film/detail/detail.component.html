@@ -18,11 +18,11 @@
                     {{film.subscription | abbreviate}} {{'subscribers' | transloco}}
                 </div>
             </div>
-            <ion-buttons>
-                <ion-button shape="round" color="primary" fill="solid">
+            <ion-button shape="round">
+                <div class="text-primary-content">
                     {{'subscribe' | transloco | capitalize}}
-                </ion-button>
-            </ion-buttons>
+                </div>
+            </ion-button>
         </div>
 
         <div class="flex items-center mt-2">
@@ -58,7 +58,7 @@
                 <div class="relative w-full max-h-48 bg-cover overflow-hidden rounded-md"
                     [routerLink]="['../', film.id]">
                     <img [src]="film.thumbnail" />
-                    <div class="absolute bottom-2 right-2 bg-secondary-content rounded-md p-1">
+                    <div class="absolute bottom-2 right-2 bg-secondary text-secondary-content rounded-md p-1">
                         {{film.duration}}
                     </div>
                 </div>

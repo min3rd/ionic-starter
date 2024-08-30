@@ -3,9 +3,10 @@ import { noAuthGuard } from './core/auth/no-auth.guard';
 import { authGuard } from './core/auth/auth.guard';
 import { LayoutComponent } from './core/layout/layout.component';
 import { metaDataResolve } from './app.resolve';
+import { adminGuard } from './core/auth/admin.guard';
 
 export const routes: Routes = [
-    { path: '', redirectTo: 'apps', pathMatch: 'full' },
+    { path: '', redirectTo: 'apps/dashboard', pathMatch: 'full' },
     // noAuth
     {
         path: '',
@@ -19,7 +20,7 @@ export const routes: Routes = [
     // Admin
     {
         path: '',
-        canActivateChild: [authGuard],
+        canActivateChild: [adminGuard],
         component: LayoutComponent,
         data: {
             layout: 'classic',

@@ -25,5 +25,9 @@ export const routes: Routes = [
     {
         path: 'film',
         loadChildren: () => import('./film/film.routes').then((m) => m.routes),
+    },
+    {
+        path:'dashboard',
+        loadChildren: () => import('./dashboard/dashboard.routes').then((m) => m.routes),
     }
 ]

@@ -1,0 +1,59 @@
+<ion-header>
+    <div class="navbar bg-primary">
+        <div class="navbar-start">
+            <ion-buttons class="animate-fade-up animate-duration-300">
+                <ion-button [routerLink]="['../']" routerDirection="backward">
+                    <ion-icon name="arrow-back" slot="icon-only"></ion-icon>
+                </ion-button>
+            </ion-buttons>
+        </div>
+        <div class="navbar-end">
+
+        </div>
+    </div>
+</ion-header>
+
+<ion-content class="ion-padding">
+    <div class="flex flex-col gap-2">
+        <div class="stats bg-primary text-primary-content">
+            <div class="stat">
+                <div class="stat-title">Account balance</div>
+                <div class="stat-value">$89,400</div>
+                <div class="stat-actions">
+                    <ion-button color="success" shape="round">
+                        {{'add funds' | transloco | capitalize}}
+                    </ion-button>
+                </div>
+            </div>
+
+            <div class="stat">
+                <div class="stat-title">Current balance</div>
+                <div class="stat-value">$89,400</div>
+                <div class="stat-actions">
+                    <ion-button color="secondary" shape="round">
+                        {{'withdrawal' | transloco | capitalize}}
+                    </ion-button>
+                </div>
+            </div>
+        </div>
+        <div class="stats stats-horizontal">
+            <div class="stat">
+                <div class="stat-title">Downloads</div>
+                <div class="stat-value">31K</div>
+                <div class="stat-desc">Jan 1st - Feb 1st</div>
+            </div>
+
+            <div class="stat">
+                <div class="stat-title">New Users</div>
+                <div class="stat-value">4,200</div>
+                <div class="stat-desc">↗︎ 400 (22%)</div>
+            </div>
+
+            <div class="stat">
+                <div class="stat-title">New Registers</div>
+                <div class="stat-value">1,200</div>
+                <div class="stat-desc">↘︎ 90 (14%)</div>
+            </div>
+        </div>
+    </div>
+</ion-content>
