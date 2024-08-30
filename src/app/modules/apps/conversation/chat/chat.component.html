@@ -1,50 +1,48 @@
 <ion-header>
     <div class="navbar bg-primary">
-        <div class="navbar-start">
-            <ion-buttons>
-                <ion-back-button></ion-back-button>
-            </ion-buttons>
+        <div class="navbar-start animate-fade-up animate-duration-300">
+            <button [routerLink]="['../../']" class="btn btn-circle btn-ghost">
+                <ion-icon name="arrow-back" size="large"></ion-icon>
+            </button>
             @if (conversation) {
             <div class="font-semibold truncate">
                 {{conversation.title}}
             </div>
             }
         </div>
-        <div class="navbar-end">
-            <ion-buttons>
-                <ion-button>
-                    <ion-icon slot="icon-only" name="search"></ion-icon>
-                </ion-button>
-                <ion-button id="more">
-                    <ion-icon slot="icon-only" name="ellipsis-vertical"></ion-icon>
-                </ion-button>
-                <ion-popover trigger="more">
-                    <ng-template>
-                        <ion-content>
-                            <ion-list>
-                                <ion-item lines="none">
-                                    <ion-icon name="people"></ion-icon>
-                                    <ion-label class="ml-2">
-                                        {{'members' | transloco | capitalize}}
-                                    </ion-label>
-                                </ion-item>
-                                <ion-item lines="none">
-                                    <ion-icon name="checkmark-circle"></ion-icon>
-                                    <ion-label class="ml-2">
-                                        {{'mark as readed' | transloco | capitalize}}
-                                    </ion-label>
-                                </ion-item>
-                                <ion-item lines="none">
-                                    <ion-icon name="trash"></ion-icon>
-                                    <ion-label class="ml-2">
-                                        {{'delete chat' | transloco | capitalize}}
-                                    </ion-label>
-                                </ion-item>
-                            </ion-list>
-                        </ion-content>
-                    </ng-template>
-                </ion-popover>
-            </ion-buttons>
+        <div class="navbar-end animate-fade-up animate-duration-300">
+            <button class="btn btn-circle btn-ghost">
+                <ion-icon size="large" name="search"></ion-icon>
+            </button>
+            <button id="more" class="btn btn-circle btn-ghost">
+                <ion-icon size="large" name="ellipsis-vertical"></ion-icon>
+            </button>
+            <ion-popover trigger="more">
+                <ng-template>
+                    <ion-content>
+                        <ion-list>
+                            <ion-item lines="none">
+                                <ion-icon name="people"></ion-icon>
+                                <ion-label class="ml-2">
+                                    {{'members' | transloco | capitalize}}
+                                </ion-label>
+                            </ion-item>
+                            <ion-item lines="none">
+                                <ion-icon name="checkmark-circle"></ion-icon>
+                                <ion-label class="ml-2">
+                                    {{'mark as readed' | transloco | capitalize}}
+                                </ion-label>
+                            </ion-item>
+                            <ion-item lines="none">
+                                <ion-icon name="trash"></ion-icon>
+                                <ion-label class="ml-2">
+                                    {{'delete chat' | transloco | capitalize}}
+                                </ion-label>
+                            </ion-item>
+                        </ion-list>
+                    </ion-content>
+                </ng-template>
+            </ion-popover>
         </div>
     </div>
 </ion-header>
@@ -92,20 +90,16 @@
     }
 </ion-content>
 <ion-footer>
-    <ion-toolbar>
-        <ion-buttons slot="start">
-            <ion-button>
-                <ion-icon slot="icon-only" name="add"></ion-icon>
-            </ion-button>
-            <ion-button>
-                <ion-icon slot="icon-only" name="image"></ion-icon>
-            </ion-button>
-        </ion-buttons>
+    <div class="navbar animate-fade-up animate-duration-300">
+        <button class="btn btn-circle btn-ghost">
+            <ion-icon size="large" name="add"></ion-icon>
+        </button>
+        <button class="btn btn-circle btn-ghost">
+            <ion-icon size="large" name="image"></ion-icon>
+        </button>
         <ion-input placeholder="{{'type your message' | transloco | capitalize}}"></ion-input>
-        <ion-buttons slot="end">
-            <ion-button>
-                <ion-icon slot="icon-only" name="send"></ion-icon>
-            </ion-button>
-        </ion-buttons>
-    </ion-toolbar>
+        <button class="btn btn-circle btn-ghost">
+            <ion-icon size="large" name="send"></ion-icon>
+        </button>
+    </div>
 </ion-footer>
