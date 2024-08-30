@@ -7,4 +7,5 @@ export interface App extends Base {
     icon: string;
     link: string;
     children?: App[];
+    authorities?: string[];
 }

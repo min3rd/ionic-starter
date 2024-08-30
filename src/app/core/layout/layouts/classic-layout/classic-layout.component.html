@@ -1,19 +1,17 @@
 <ion-app>
     <ion-header>
         <div class="navbar bg-primary">
-            <div class="navbar-start">
-                <ion-buttons>
-                    <ion-button [routerLink]="['/apps']">
-                        <ion-icon slot="icon-only" name="home"></ion-icon>
-                    </ion-button>
-                </ion-buttons>
+            <div class="navbar-start animate-fade-up animate-duration-300">
+                <button [routerLink]="['/apps']" class="btn btn-circle btn-ghost">
+                    <ion-icon size="large" name="home"></ion-icon>
+                </button>
             </div>
             @if (title) {
-            <div class="navbar-center">
+            <div class="navbar-center animate-flip-up">
                 <ion-title>{{title | transloco | capitalize}}</ion-title>
             </div>
             }
-            <div class="navbar-end">
+            <div class="navbar-end animate-fade-up animate-duration-300">
                 <user></user>
             </div>
         </div>

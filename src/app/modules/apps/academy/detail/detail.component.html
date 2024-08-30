@@ -1,12 +1,10 @@
 <ion-header>
 
     <div class="navbar bg-primary">
-        <div class="navbar-start">
-            <ion-buttons>
-                <ion-button [routerLink]="['../../']" class="animate-fade-up animate-duration-300">
-                    <ion-icon name="arrow-back" slot="icon-only"></ion-icon>
-                </ion-button>
-            </ion-buttons>
+        <div class="navbar-start animate-fade-up animate-duration-300">
+            <button [routerLink]="['../../']" class="btn btn-circle btn-ghost">
+                <ion-icon name="arrow-back" size="large"></ion-icon>
+            </button>
         </div>
         @if (course) {
         <div class="navbar-center">
@@ -15,12 +13,10 @@
             </ion-title>
         </div>
         }
-        <div class="navbar-end">
-            <ion-buttons>
-                <ion-button class="animate-fade-up animate-duration-300">
-                    <ion-icon name="ellipsis-vertical" slot="icon-only"></ion-icon>
-                </ion-button>
-            </ion-buttons>
+        <div class="navbar-end animate-fade-up animate-duration-30">
+            <button class="btn btn-circle btn-ghost">
+                <ion-icon name="ellipsis-vertical" size="large"></ion-icon>
+            </button>
         </div>
     </div>
 </ion-header>
@@ -31,26 +27,23 @@
 <ion-footer id="main-content">
     <progress class="progress progress-primary" [value]="currentStep + 1" [max]="(course.totalSteps ?? 1)"></progress>
     <div class="navbar bg-primary">
-        <div class="navbar-start">
-            <ion-buttons (click)="menuController.open()">
-                <ion-menu-button class="animate-fade-up animate-duration-300"></ion-menu-button>
-            </ion-buttons>
+        <div class="navbar-start animate-fade-up animate-duration-300">
+            <button (click)="menuController.open()" class="btn btn-circle btn-ghost">
+                <ion-icon name="menu" size="large"></ion-icon>
+            </button>
             <ion-label>
                 {{currentStep + 1}}/{{course.totalSteps ?? 1}}
             </ion-label>
         </div>
-        <div class="navbar-end">
-            <ion-buttons>
-                <ion-button [routerLink]="['../', currentStep - 1]" routerDirection="forward"
-                    [disabled]="currentStep <= 0" class="animate-fade-up animate-duration-300">
-                    <ion-icon name="arrow-back" slot="icon-only"></ion-icon>
-                </ion-button>
-                <ion-button [routerLink]="['../', currentStep + 1]" routerDirection="forward"
-                    [disabled]="currentStep >= (course.totalSteps ?? 1) - 1"
-                    class="animate-fade-up animate-duration-300">
-                    <ion-icon name="arrow-forward" slot="icon-only"></ion-icon>
-                </ion-button>
-            </ion-buttons>
+        <div class="navbar-end animate-fade-up animate-duration-300">
+            <button [routerLink]="['../', currentStep - 1]" routerDirection="forward" [disabled]="currentStep <= 0"
+                class="btn btn-circle btn-ghost">
+                <ion-icon name="arrow-back" size="large"></ion-icon>
+            </button>
+            <button [routerLink]="['../', currentStep + 1]" routerDirection="forward"
+                [disabled]="currentStep >= (course.totalSteps ?? 1) - 1" class="btn btn-circle btn-ghost">
+                <ion-icon name="arrow-forward" size="large"></ion-icon>
+            </button>
         </div>
     </div>
 </ion-footer>
@@ -58,13 +51,10 @@
 <ion-menu type="overlay" contentId="main-content">
     <ion-header>
         <div class="navbar bg-primary">
-            <div class="navbar-start">
-                <ion-buttons>
-                    <ion-button [routerLink]="['../../']" routerDirection="backward"
-                        class="animate-fade-up animate-duration-300">
-                        <ion-icon name="arrow-back" slot="icon-only"></ion-icon>
-                    </ion-button>
-                </ion-buttons>
+            <div class="navbar-start animate-fade-up animate-duration-300">
+                <button [routerLink]="['../../']" class="btn btn-circle btn-ghost">
+                    <ion-icon name="arrow-back" size="large"></ion-icon>
+                </button>
             </div>
         </div>
     </ion-header>
@@ -108,9 +98,9 @@
                         {{step.subtitle| transloco | capitalize}}
                     </div>
                 </div>
-                <ion-button [routerLink]="['../', step.order]" routerDirection="forward" fill="clear" shape="round">
-                    <ion-icon name="arrow-forward" slot="icon-only"></ion-icon>
-                </ion-button>
+                <button [routerLink]="['../', step.order]" class="btn btn-circle btn-ghost">
+                    <ion-icon name="arrow-forward" size="large"></ion-icon>
+                </button>
             </div>
             }
         </div>

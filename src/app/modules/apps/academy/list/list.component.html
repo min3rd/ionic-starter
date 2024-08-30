@@ -5,14 +5,14 @@
         <ion-card>
             <ion-card-header>
                 <div class="flex items-center justify-between">
-                    <ion-chip>
+                    <div class="badge badge-outline badge-primary">
                         {{course.category | transloco | capitalize}}
-                    </ion-chip>
+                    </div>
 
                     @if (course.progress?.completed) {
-                    <ion-button color='success' shape="round">
-                        <ion-icon name="checkmark" slot="icon-only"></ion-icon>
-                    </ion-button>
+                    <button class="btn btn-circle btn-success">
+                        <ion-icon name="checkmark" size="large"></ion-icon>
+                    </button>
                     }
                 </div>
                 <ion-card-title>
@@ -44,12 +44,12 @@
                     </div>
 
                     <div class="my-2">
-                        <ion-button slot="end" [routerLink]="['./', course.id]" routerDirection="forward" shape="round">
+                        <button [routerLink]="['./', course.id]" class="btn btn-primary">
                             <div>
                                 {{'continue' | transloco | capitalize}}
                             </div>
-                            <ion-icon name="arrow-forward" class="ml-4"></ion-icon>
-                        </ion-button>
+                            <ion-icon name="arrow-forward"></ion-icon>
+                        </button>
                     </div>
                 </div>
             </ion-card-content>

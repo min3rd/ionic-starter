@@ -7,6 +7,7 @@ export const appsData: App[] = [
         subtitle: 'welcome to the dashboard',
         icon: 'bar-chart',
         link: '/apps/dashboard',
+        authorities: ['user'],
     },
     {
         id: 'conversation',
