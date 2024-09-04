@@ -2,14 +2,14 @@
     <div class="navbar bg-primary">
         @if (!onSearch) {
         <div class="navbar-start animate-fade-up animate-duration-300">
-            <button [routerLink]="['../']" class="btn btn-circle btn-ghost">
+            <button [routerLink]="['../']" class="btn btn-circle btn-ghost text-primary-content">
                 <ion-icon size="large" name="arrow-back"></ion-icon>
             </button>
         </div>
         }
         @if (onSearch) {
         <div class="w-full">
-            <button (click)="onSearch = false;" class="btn btn-circle btn-ghost">
+            <button (click)="onSearch = false;" class="btn btn-circle btn-ghost text-primary-content">
                 <ion-icon size="large" name="arrow-back"></ion-icon>
             </button>
             <label class="input input-bordered flex items-center gap-2 w-full animate-fade-left animate-duration-300">
@@ -20,15 +20,17 @@
         }
         @if (!onSearch) {
         <div class="navbar-end animate-fade-up animate-duration-300">
-            <button (click)="onSearch = true;" class="btn btn-circle btn-ghost">
+            <button (click)="onSearch = true;" class="btn btn-circle btn-ghost text-primary-content">
                 <ion-icon size="large" name="search"></ion-icon>
             </button>
             <div class="ml-2 indicator mr-4">
-                <button [routerLink]="['/apps','film','notification']" routerDirection="forward" class="btn btn-circle btn-ghost">
+                <button [routerLink]="['/apps','film','notification']" routerDirection="forward"
+                    class="btn btn-circle btn-ghost text-primary-content">
                     <ion-icon size="large" name="notifications">
                     </ion-icon>
                 </button>
-                <span class="indicator-item indicator-end indicator-middle badge badge-secondary font-semibold">
+                <span
+                    class="indicator-item indicator-end indicator-middle badge badge-secondary text-secondary-content font-semibold">
                     {{notifications.length}}
                 </span>
             </div>

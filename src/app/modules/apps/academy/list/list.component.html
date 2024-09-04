@@ -2,7 +2,7 @@
     @if (courses && courses.length) {
     <div class="flex flex-col md:flex-wrap">
         @for (course of courses; track $index) {
-        <ion-card>
+        <ion-card class="bg-base-100">
             <ion-card-header>
                 <div class="flex items-center justify-between">
                     <div class="badge badge-outline badge-primary">
@@ -10,12 +10,12 @@
                     </div>
 
                     @if (course.progress?.completed) {
-                    <button class="btn btn-circle btn-success">
+                    <button class="btn btn-circle btn-success btn-outline">
                         <ion-icon name="checkmark" size="large"></ion-icon>
                     </button>
                     }
                 </div>
-                <ion-card-title>
+                <ion-card-title class="text-primary">
                     {{course.title}}
                 </ion-card-title>
                 <ion-card-subtitle>
@@ -44,7 +44,7 @@
                     </div>
 
                     <div class="my-2">
-                        <button [routerLink]="['./', course.id]" class="btn btn-primary">
+                        <button [routerLink]="['./', course.id]" class="btn btn-primary text-primary-content">
                             <div>
                                 {{'continue' | transloco | capitalize}}
                             </div>

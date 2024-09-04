@@ -1,118 +1,111 @@
 <ion-header>
     <div class="navbar bg-primary">
-        <div class="navbar-start">
-            <ion-buttons class="animate-fade-up animate-duration-300">
-                <ion-button [routerLink]="['../']" routerDirection="backward">
-                    <ion-icon name="arrow-back" slot="icon-only"></ion-icon>
-                </ion-button>
-            </ion-buttons>
+        <div class="navbar-start animate-fade-up animate-duration-300">
+            <button [routerLink]="['../']" routerDirection="backward"
+                class="btn btn-circle btn-ghost text-primary-content">
+                <ion-icon name="arrow-back" size="large"></ion-icon>
+            </button>
         </div>
         <div class="navbar-center">
-            <ion-title>
+            <ion-title class="text-primary-content">
                 {{'profile' | transloco | capitalize}}
             </ion-title>
         </div>
-        <div class="navbar-end">
-            <ion-buttons slot="end">
-                <ion-button fill="clear" [routerLink]="['/user', 'profile', 'edit']"
-                    class="animate-fade-up animate-duration-300">
-                    {{'edit' | transloco | capitalize}}
-                </ion-button>
-            </ion-buttons>
+        <div class="navbar-end animate-fade-up animate-duration-300">
+            <button [routerLink]="['/user', 'profile', 'edit']" class="btn btn-circle btn-ghost text-primary-content">
+                <ion-icon name="create" size="large"></ion-icon>
+            </button>
         </div>
     </div>
 </ion-header>
-<ion-content [fullscreen]="true">
-    <ion-list>
-        @if (user.avatar) {
-        <ion-item lines="none" class="mt-4">
-            <div class="flex items-center justify-between w-full">
-                <ion-avatar>
-                    <img [src]="user.avatar" [alt]="user.avatar" class="h-full">
-                </ion-avatar>
+<ion-content>
+    @if (user.avatar) {
+    <ion-item lines="none" class="mt-4">
+        <div class="flex items-center justify-between w-full">
+            <ion-avatar>
+                <img [src]="user.avatar" [alt]="user.avatar" class="h-full">
+            </ion-avatar>
 
 
+        </div>
+    </ion-item>
+    }
+
+    @if (user.fullname) {
+    <ion-item lines="none" class="animate-fade-left animate-duration-300">
+        <div class="grid grid-cols-12 items-center gap-2 py-4 w-full">
+            <div class="col-span-3 font-semibold">
+                {{'fullname' | transloco | capitalize}}
             </div>
-        </ion-item>
-        }
-
-        @if (user.fullname) {
-        <ion-item lines="none" class="animate-fade-left animate-duration-300">
-            <div class="grid grid-cols-12 items-center gap-2 py-4 w-full">
-                <div class="col-span-3 font-semibold">
-                    {{'fullname' | transloco | capitalize}}
-                </div>
-                <div class="col-span-9">
-                    {{user.fullname}}
-                </div>
+            <div class="col-span-9">
+                {{user.fullname}}
             </div>
-        </ion-item>
-        }
+        </div>
+    </ion-item>
+    }
 
-        @if (user.email) {
-        <ion-item lines="none" class="animate-fade-left animate-duration-300">
-            <div class="grid grid-cols-12 items-center gap-2 py-4 w-full">
-                <div class="col-span-3 font-semibold">
-                    {{'email' | transloco | capitalize}}
-                </div>
-                <div class="col-span-9">
-                    {{user.email}}
-                </div>
+    @if (user.email) {
+    <ion-item lines="none" class="animate-fade-left animate-duration-300">
+        <div class="grid grid-cols-12 items-center gap-2 py-4 w-full">
+            <div class="col-span-3 font-semibold">
+                {{'email' | transloco | capitalize}}
             </div>
-        </ion-item>
-        }
-
-        @if (user.phone) {
-        <ion-item lines="none" class="animate-fade-left animate-duration-300">
-            <div class="grid grid-cols-12 items-center gap-2 py-4 w-full">
-                <div class="col-span-3 font-semibold">
-                    {{'phone' | transloco | capitalize}}
-                </div>
-                <div class="col-span-9">
-                    {{user.phone}}
-                </div>
+            <div class="col-span-9">
+                {{user.email}}
             </div>
-        </ion-item>
-        }
+        </div>
+    </ion-item>
+    }
 
-        @if (user.address) {
-        <ion-item lines="none" class="animate-fade-left animate-duration-300">
-            <div class="grid grid-cols-12 items-center gap-2 py-4 w-full">
-                <div class="col-span-3 font-semibold">
-                    {{'address' | transloco | capitalize}}
-                </div>
-                <div class="col-span-9">
-                    {{user.address}}
-                </div>
+    @if (user.phone) {
+    <ion-item lines="none" class="animate-fade-left animate-duration-300">
+        <div class="grid grid-cols-12 items-center gap-2 py-4 w-full">
+            <div class="col-span-3 font-semibold">
+                {{'phone' | transloco | capitalize}}
             </div>
-        </ion-item>
-        }
-
-        @if (user.city) {
-        <ion-item lines="none" class="animate-fade-left animate-duration-300">
-            <div class="grid grid-cols-12 items-center gap-2 py-4 w-full">
-                <div class="col-span-3 font-semibold">
-                    {{'city' | transloco | capitalize}}
-                </div>
-                <div class="col-span-9">
-                    {{user.city}}
-                </div>
+            <div class="col-span-9">
+                {{user.phone}}
             </div>
-        </ion-item>
-        }
+        </div>
+    </ion-item>
+    }
 
-        @if (user.country) {
-        <ion-item lines="none" class="animate-fade-left animate-duration-300">
-            <div class="grid grid-cols-12 items-center gap-2 py-4 w-full">
-                <div class="col-span-3 font-semibold">
-                    {{'country' | transloco | capitalize}}
-                </div>
-                <div class="col-span-9">
-                    {{user.country}}
-                </div>
+    @if (user.address) {
+    <ion-item lines="none" class="animate-fade-left animate-duration-300">
+        <div class="grid grid-cols-12 items-center gap-2 py-4 w-full">
+            <div class="col-span-3 font-semibold">
+                {{'address' | transloco | capitalize}}
             </div>
-        </ion-item>
-        }
+            <div class="col-span-9">
+                {{user.address}}
+            </div>
+        </div>
+    </ion-item>
+    }
 
-    </ion-list>
+    @if (user.city) {
+    <ion-item lines="none" class="animate-fade-left animate-duration-300">
+        <div class="grid grid-cols-12 items-center gap-2 py-4 w-full">
+            <div class="col-span-3 font-semibold">
+                {{'city' | transloco | capitalize}}
+            </div>
+            <div class="col-span-9">
+                {{user.city}}
+            </div>
+        </div>
+    </ion-item>
+    }
+
+    @if (user.country) {
+    <ion-item lines="none" class="animate-fade-left animate-duration-300">
+        <div class="grid grid-cols-12 items-center gap-2 py-4 w-full">
+            <div class="col-span-3 font-semibold">
+                {{'country' | transloco | capitalize}}
+            </div>
+            <div class="col-span-9">
+                {{user.country}}
+            </div>
+        </div>
+    </ion-item>
+    }
 </ion-content>

@@ -1,103 +1,97 @@
 <ion-header>
     <div class="navbar bg-primary">
-        <div class="navbar-start">
-            <ion-buttons class="animate-fade-up animate-duration-300">
-                <ion-button [routerLink]="['../']" routerDirection="backward">
-                    <ion-icon name="arrow-back" slot="icon-only"></ion-icon>
-                </ion-button>
-            </ion-buttons>
+        <div class="navbar-start animate-fade-up animate-duration-300">
+            <button [routerLink]="['../']" routerDirection="backward"
+                class="btn btn-circle btn-ghost text-primary-content">
+                <ion-icon name="arrow-back" size="large"></ion-icon>
+            </button>
         </div>
         <div class="navbar-center">
-            <ion-title>
+            <ion-title class="text-primary-content">
                 {{'profile' | transloco | capitalize}}
             </ion-title>
         </div>
-        <div class="navbar-end">
-            <ion-buttons class="animate-fade-up animate-duration-300">
-                <ion-button (click)="update()">
-                    {{'save' | transloco | capitalize}}
-                </ion-button>
-            </ion-buttons>
+        <div class="navbar-end animate-fade-up animate-duration-300">
+            <button (click)="update()" class="btn btn-circle btn-ghost text-primary-content">
+                <ion-icon name="checkmark" size="large"></ion-icon>
+            </button>
         </div>
     </div>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-    <ion-list>
-        <ion-item lines="none">
-            <div class="flex items-center w-32 h-32">
-                @if (form.get('avatar')?.value) {
-                <img [src]="form.get('avatar')?.value" [alt]="form.get('avatar')?.value"
-                    class="w-full h-full rounded-full">
-                }
-                @else {
-                <ion-skeleton-text [animated]="true">
-                </ion-skeleton-text>
-                }
-                @if (!isMobile) {
-                <div class="absolute top-0 w-32 h-32 flex items-center justify-center" (click)="requestPhoto()">
-                    <ion-icon name="image" size="large" slot="icon-only"></ion-icon>
-                </div>
-                }
-                @if (isMobile) {
-                <div class="absolute top-0 w-32 h-32 flex items-center justify-center" (click)="requestCamera()">
-                    <ion-icon name="camera" size="large" slot="icon-only"></ion-icon>
-                </div>
-                }
+    <ion-item lines="none">
+        <div class="flex items-center w-32 h-32 mt-4">
+            @if (form.get('avatar')?.value) {
+            <img [src]="form.get('avatar')?.value" [alt]="form.get('avatar')?.value" class="w-full h-full rounded-full">
+            }
+            @else {
+            <ion-skeleton-text [animated]="true">
+            </ion-skeleton-text>
+            }
+            @if (!isMobile) {
+            <div class="absolute top-0 w-32 h-32 flex items-center justify-center" (click)="requestPhoto()">
+                <ion-icon name="image" size="large" slot="icon-only"></ion-icon>
             </div>
-        </ion-item>
+            }
+            @if (isMobile) {
+            <div class="absolute top-0 w-32 h-32 flex items-center justify-center" (click)="requestCamera()">
+                <ion-icon name="camera" size="large" slot="icon-only"></ion-icon>
+            </div>
+            }
+        </div>
+    </ion-item>
 
-        <dialog #modal class="modal">
-            <div class="modal-box">
-                <div class="flex justify-center w-full">
-                    <div class="avatar">
-                        <div class="w-64 rounded-full">
-                            <img src="{{base64Image}}" />
-                        </div>
+    <dialog #modal class="modal">
+        <div class="modal-box">
+            <div class="flex justify-center w-full">
+                <div class="avatar">
+                    <div class="w-64 rounded-full">
+                        <img src="{{base64Image}}" />
                     </div>
                 </div>
-                <div class="modal-action">
-                    <form method="dialog" class="flex items-center gap-2">
-                        <ion-button color="secondary" (click)="modal.close()">
-                            {{'cancel' | transloco | capitalize}}
-                        </ion-button>
-                        <ion-button color="primary" (click)="modal.close(); changeAvatar()">
-                            {{'save' | transloco | capitalize}}
-                        </ion-button>
-                    </form>
-                </div>
             </div>
-        </dialog>
-        <form [formGroup]="form">
-            <ion-item lines="none" class="animate-fade-left animate-duration-300 py-4">
-                <ion-input formControlName="email" label="{{'email' | transloco | capitalize}}"
-                    placeholder="{{'email@email.com' | transloco | capitalize}}" labelPlacement="stacked"></ion-input>
-            </ion-item>
+            <div class="modal-action">
+                <form method="dialog" class="flex items-center gap-2">
+                    <ion-button color="secondary" (click)="modal.close()">
+                        {{'cancel' | transloco | capitalize}}
+                    </ion-button>
+                    <ion-button color="primary" (click)="modal.close(); changeAvatar()">
+                        {{'save' | transloco | capitalize}}
+                    </ion-button>
+                </form>
+            </div>
+        </div>
+    </dialog>
+    <form [formGroup]="form">
+        <ion-item lines="none" class="animate-fade-left animate-duration-300 py-4">
+            <ion-input formControlName="email" label="{{'email' | transloco | capitalize}}"
+                placeholder="{{'email@email.com' | transloco | capitalize}}" labelPlacement="stacked"></ion-input>
+        </ion-item>
 
-            <ion-item lines="none" class="animate-fade-left animate-duration-300 py-4">
-                <ion-input formControlName="fullname" label="{{'fullname' | transloco | capitalize}}"
-                    placeholder="{{'fullname' | transloco | capitalize}}" labelPlacement="stacked"></ion-input>
-            </ion-item>
+        <ion-item lines="none" class="animate-fade-left animate-duration-300 py-4">
+            <ion-input formControlName="fullname" label="{{'fullname' | transloco | capitalize}}"
+                placeholder="{{'fullname' | transloco | capitalize}}" labelPlacement="stacked"></ion-input>
+        </ion-item>
 
-            <ion-item lines="none" class="animate-fade-left animate-duration-300 py-4">
-                <ion-input formControlName="phone" label="{{'phone' | transloco | capitalize}}"
-                    placeholder="{{'phone' | transloco | capitalize}}" labelPlacement="stacked"></ion-input>
-            </ion-item>
+        <ion-item lines="none" class="animate-fade-left animate-duration-300 py-4">
+            <ion-input formControlName="phone" label="{{'phone' | transloco | capitalize}}"
+                placeholder="{{'phone' | transloco | capitalize}}" labelPlacement="stacked"></ion-input>
+        </ion-item>
 
-            <ion-item lines="none" class="animate-fade-left animate-duration-300 py-4">
-                <ion-input formControlName="address" label="{{'address' | transloco | capitalize}}"
-                    placeholder="{{'address' | transloco | capitalize}}" labelPlacement="stacked"></ion-input>
-            </ion-item>
+        <ion-item lines="none" class="animate-fade-left animate-duration-300 py-4">
+            <ion-input formControlName="address" label="{{'address' | transloco | capitalize}}"
+                placeholder="{{'address' | transloco | capitalize}}" labelPlacement="stacked"></ion-input>
+        </ion-item>
 
-            <ion-item lines="none" class="animate-fade-left animate-duration-300 py-4">
-                <ion-input formControlName="city" label="{{'city' | transloco | capitalize}}"
-                    placeholder="{{'city' | transloco | capitalize}}" labelPlacement="stacked"></ion-input>
-            </ion-item>
+        <ion-item lines="none" class="animate-fade-left animate-duration-300 py-4">
+            <ion-input formControlName="city" label="{{'city' | transloco | capitalize}}"
+                placeholder="{{'city' | transloco | capitalize}}" labelPlacement="stacked"></ion-input>
+        </ion-item>
 
-            <ion-item lines="none" class="animate-fade-left animate-duration-300 py-4">
-                <ion-input formControlName="country" label="{{'country' | transloco | capitalize}}"
-                    placeholder="{{'country' | transloco | capitalize}}" labelPlacement="stacked"></ion-input>
-            </ion-item>
-        </form>
-    </ion-list>
+        <ion-item lines="none" class="animate-fade-left animate-duration-300 py-4">
+            <ion-input formControlName="country" label="{{'country' | transloco | capitalize}}"
+                placeholder="{{'country' | transloco | capitalize}}" labelPlacement="stacked"></ion-input>
+        </ion-item>
+    </form>
 </ion-content>

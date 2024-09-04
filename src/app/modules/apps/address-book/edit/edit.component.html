@@ -1,19 +1,19 @@
 <ion-header>
     <div class="navbar bg-primary">
         <div class="navbar-start animate-fade-up animate-duration-300">
-            <button [routerLink]="['../']" class="btn btn-circle btn-ghost">
+            <button [routerLink]="['../']" class="btn btn-circle btn-ghost text-primary-content">
                 <ion-icon name="arrow-back" size="large"></ion-icon>
             </button>
         </div>
         <div class="navbar-end animate-fade-up animate-duration-300">
             @if (!addressBook) {
-            <button (click)="create()" class="btn btn-ghost">
-                {{'create' | transloco | capitalize}}
+            <button (click)="create()" class="btn btn-circle btn-ghost text-primary-content">
+                <ion-icon name="checkmark" size="large"></ion-icon>
             </button>
             }
             @else {
-            <button (click)="update()" class="btn btn-ghost">
-                {{'save' | transloco | capitalize}}
+            <button (click)="update()" class="btn btn-circle btn-ghost text-primary-content">
+                <ion-icon name="checkmark" size="large"></ion-icon>
             </button>
             }
         </div>
@@ -38,9 +38,14 @@
                 }
                 @else {
                 <div class="absolute top-0 w-32 h-32 flex items-center justify-center gap-2">
-                    <ion-icon (click)="changeAvatar()" name="camera" size="large" slot="icon-only"></ion-icon>
+                    <button (click)="changeAvatar()" class="btn btn-circle btn-ghost text-primary-content">
+                        <ion-icon name="camera" size="large"></ion-icon>
+                    </button>
+
                     @if (form.get('avatar')?.value) {
-                    <ion-icon (click)="removeAvatar()" name="trash" size="large" slot="icon-only"></ion-icon>
+                    <button (click)="removeAvatar()" class="btn btn-circle btn-ghost text-error">
+                        <ion-icon name="trash" size="large"></ion-icon>
+                    </button>
                     }
                 </div>
                 }
@@ -71,22 +76,18 @@
                     <ion-label slot="start">
                         {{'email' | transloco | capitalize}}
                     </ion-label>
-                    <ion-buttons slot="end">
-                        <ion-button (click)="addEmail()">
-                            <ion-icon name="add" slot="icon-only"></ion-icon>
-                        </ion-button>
-                    </ion-buttons>
+                    <button (click)="addEmail()" class="ml-auto btn btn-circle btn-ghost text-primary">
+                        <ion-icon name="add" size="large"></ion-icon>
+                    </button>
                 </ion-item-divider>
                 @for (email of getEmailsFormArray(); track $index; let i = $index;) {
                 <ion-item lines="none" class="mt-2">
                     <ion-input [formControl]="email.get('email')" labelPlacement="stacked"
                         label="{{'email' | transloco | capitalize}}">
                     </ion-input>
-                    <ion-buttons slot="end">
-                        <ion-button (click)="removeEmail(i)">
-                            <ion-icon name="trash" slot="icon-only"></ion-icon>
-                        </ion-button>
-                    </ion-buttons>
+                    <button (click)="removeEmail(i)" class="ml-auto btn btn-circle btn-ghost text-primary">
+                        <ion-icon name="trash" size="large"></ion-icon>
+                    </button>
                 </ion-item>
                 }
             </ion-item-group>
@@ -96,11 +97,9 @@
                     <ion-label slot="start">
                         {{'phones' | transloco | capitalize}}
                     </ion-label>
-                    <ion-buttons slot="end">
-                        <ion-button (click)="addPhone()">
-                            <ion-icon name="add" slot="icon-only"></ion-icon>
-                        </ion-button>
-                    </ion-buttons>
+                    <button (click)="addPhone()" class="ml-auto btn btn-circle btn-ghost text-primary">
+                        <ion-icon name="add" size="large"></ion-icon>
+                    </button>
                 </ion-item-divider>
                 @for (phone of getPhonesFormArray(); track $index; let i = $index;) {
                 <ion-item lines="none" class="mt-2">
@@ -117,11 +116,9 @@
                         label="{{'number' | transloco | capitalize}}" class="ml-4">
                     </ion-input>
 
-                    <ion-buttons slot="end">
-                        <ion-button (click)="removePhone(i)">
-                            <ion-icon name="trash" slot="icon-only"></ion-icon>
-                        </ion-button>
-                    </ion-buttons>
+                    <button (click)="removePhone(i)" class="ml-auto btn btn-circle btn-ghost text-primary">
+                        <ion-icon name="trash" size="large"></ion-icon>
+                    </button>
                 </ion-item>
                 }
             </ion-item-group>

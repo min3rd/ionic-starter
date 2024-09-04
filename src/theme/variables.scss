@@ -1,19 +1,8 @@
 // For information on how to create your own theme, please see:
 // http://ionicframework.com/docs/theming/
-
-ion-button {
-  --background: oklch(var(--p));
-  --color: oklch(var(--pc));
-}
-
-ion-item {
-  --border-color: oklch(var(--p));
-}
-
-.ion-color-success {
-  --ion-color-base: oklch(var(--su)) !important;
-}
-
-.ion-color-secondary {
-  --ion-color-base: oklch(var(--s)) !important;
+ion-item,
+ion-list,
+ion-content {
+  --background: oklch(var(--b3));
+  --color: oklch(var(--bc));
 }

@@ -1,14 +1,13 @@
 <ion-header>
     <div class="navbar bg-primary">
-        <div class="navbar-start">
-            <ion-buttons class="animate-fade-up animate-duration-300">
-                <ion-button [routerLink]="['../']" routerDirection="backward">
-                    <ion-icon name="arrow-back" slot="icon-only"></ion-icon>
-                </ion-button>
-            </ion-buttons>
+        <div class="navbar-start animate-fade-up animate-duration-300">
+            <button [routerLink]="['../']" routerDirection="backward"
+                class="btn btn-circle btn-ghost text-primary-content">
+                <ion-icon name="arrow-back" size="large"></ion-icon>
+            </button>
         </div>
         <div class="navbar-center">
-            <ion-title>
+            <ion-title class="text-primary-content">
                 {{'theme configurator' | transloco | capitalize}}
             </ion-title>
         </div>
@@ -24,7 +23,8 @@
                     {{theme | transloco | capitalize}}
                 </span>
             </label>
-            <input (change)="onChange($event)" id="theme_{{theme}}" type="radio" name="theme-radios" class="radio ml-auto" value="{{theme}}" />
+            <input (change)="onChange($event)" id="theme_{{theme}}" type="radio" name="theme-radios"
+                class="radio ml-auto" value="{{theme}}" [checked]="theme == selected" />
         </div>
         }
     </div>

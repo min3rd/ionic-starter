@@ -2,14 +2,15 @@
     <div class="navbar bg-primary">
         @if (!onSearch) {
         <div class="navbar-start animate-fade-up animate-duration-300">
-            <button [routerLink]="['../']" class="btn btn-circle btn-ghost">
+            <button [routerLink]="['/apps']" class="btn btn-circle btn-ghost text-primary-content">
                 <ion-icon name="arrow-back" size="large"></ion-icon>
             </button>
         </div>
         }
         @if (onSearch) {
         <div class="w-full">
-            <button (click)="onSearch = false;" class="btn btn-circle btn-ghost animate-fade-up animate-duration-300">
+            <button (click)="onSearch = false;"
+                class="btn btn-circle btn-ghost text-primary-content animate-fade-up animate-duration-300">
                 <ion-icon name="arrow-back" size="large"></ion-icon>
             </button>
             <label class="input input-bordered flex items-center gap-2 w-full animate-fade-left animate-duration-300">
@@ -21,10 +22,10 @@
         }
         @if (!onSearch) {
         <div class="navbar-end animate-fade-up animate-duration-300">
-            <button (click)="onSearch = true;" class="btn btn-circle btn-ghost">
+            <button (click)="onSearch = true;" class="btn btn-circle btn-ghost text-primary-content">
                 <ion-icon name="search" size="large"></ion-icon>
             </button>
-            <button class="btn btn-circle btn-ghost">
+            <button class="btn btn-circle btn-ghost text-primary-content">
                 <ion-icon name="add" size="large"></ion-icon>
             </button>
         </div>

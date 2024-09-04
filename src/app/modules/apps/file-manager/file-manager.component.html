@@ -1,24 +1,24 @@
 <ion-header>
     <div class="navbar bg-primary">
         <div class="navbar-start animate-fade-up animate-duration-300">
-            <button [routerLink]="['/apps']" class="btn btn-circle btn-ghost">
+            <button [routerLink]="['/apps']" class="btn btn-circle btn-ghost text-primary-content">
                 <ion-icon name="arrow-back" size="large"></ion-icon>
             </button>
         </div>
         <div class="navbar-end animate-fade-up animate-duration-300">
-            <button class="btn btn-circle btn-ghost">
+            <button class="btn btn-circle btn-ghost text-primary-content">
                 <ion-icon name="search" size="large"></ion-icon>
             </button>
-            <button class="btn btn-circle btn-ghost">
+            <button class="btn btn-circle btn-ghost text-primary-content">
                 <ion-icon name="add" size="large"></ion-icon>
             </button>
             @if (displayType =='list') {
-            <button (click)="displayType = 'grid';" class="btn btn-circle btn-ghost">
+            <button (click)="displayType = 'grid';" class="btn btn-circle btn-ghost text-primary-content">
                 <ion-icon name="grid" size="large"></ion-icon>
             </button>
             }
             @if (displayType =='grid') {
-            <button (click)="displayType = 'list';" class="btn btn-circle btn-ghost">
+            <button (click)="displayType = 'list';" class="btn btn-circle btn-ghost text-primary-content">
                 <ion-icon name="list" size="large"></ion-icon>
             </button>
             }
@@ -30,7 +30,7 @@
     <div class="grid grid-cols-3 md:flex md:flex-wrap">
         @if (folders && folders.length) {
         @for (folder of folders; track $index) {
-        <ion-card class="w-32 animate-fade-up animate-duration-300" [routerLink]="['../', folder.id]">
+        <ion-card class="bg-base-100 w-32 animate-fade-up animate-duration-300" [routerLink]="['../', folder.id]">
             <ion-card-content>
                 <div class="flex flex-col w-full justify-center">
                     <ion-icon name="folder" size="large"></ion-icon>
@@ -47,7 +47,7 @@
         }
         @if (files && files.length) {
         @for (file of files; track $index) {
-        <ion-card class="w-32 animate-fade-up animate-duration-300">
+        <ion-card class="bg-base-100 w-32 animate-fade-up animate-duration-300">
             <ion-card-content>
                 <div class="flex flex-col w-full justify-center">
                     <div class="indicator">
@@ -72,70 +72,68 @@
     }
 
     @if (displayType == 'list') {
-    <ion-list>
-        @for (folder of folders; track $index) {
-        <ion-item-sliding class="animate-fade-left  animate-duration-300">
-            <ion-item-options side="start">
-                <ion-item-option>
-                    <ion-icon slot="icon-only" name="archive"></ion-icon>
-                </ion-item-option>
-            </ion-item-options>
-            <ion-item [routerLink]="['../', folder.id]" lines="none">
-                <div class="flex items-center justify-between w-full py-4">
-                    <div class="flex items-center gap-2">
-                        <ion-icon name="folder"></ion-icon>
-                        <div class="line-clamp-1">
-                            {{folder.name}}
-                        </div>
-                    </div>
-                    <div>
-                        {{folder.contents}}
+    @for (folder of folders; track $index) {
+    <ion-item-sliding class="animate-fade-left  animate-duration-300">
+        <ion-item-options side="start">
+            <ion-item-option>
+                <ion-icon slot="icon-only" name="archive"></ion-icon>
+            </ion-item-option>
+        </ion-item-options>
+        <ion-item [routerLink]="['../', folder.id]" lines="none">
+            <div class="flex items-center justify-between w-full py-4">
+                <div class="flex items-center gap-2">
+                    <ion-icon name="folder"></ion-icon>
+                    <div class="line-clamp-1">
+                        {{folder.name}}
                     </div>
                 </div>
-            </ion-item>
-            <ion-item-options side="end">
-                <ion-item-option>
-                    <ion-icon slot="icon-only" name="information"></ion-icon>
-                </ion-item-option>
-                <ion-item-option color="danger">
-                    <ion-icon slot="icon-only" name="trash"></ion-icon>
-                </ion-item-option>
-            </ion-item-options>
-        </ion-item-sliding>
-        }
+                <div>
+                    {{folder.contents}}
+                </div>
+            </div>
+        </ion-item>
+        <ion-item-options side="end">
+            <ion-item-option>
+                <ion-icon slot="icon-only" name="information"></ion-icon>
+            </ion-item-option>
+            <ion-item-option color="danger">
+                <ion-icon slot="icon-only" name="trash"></ion-icon>
+            </ion-item-option>
+        </ion-item-options>
+    </ion-item-sliding>
+    }
 
-        @for (file of files; track $index) {
-        <ion-item-sliding class="animate-fade-left  animate-duration-300">
-            <ion-item-options side="start">
-                <ion-item-option>
-                    <ion-icon slot="icon-only" name="archive"></ion-icon>
-                </ion-item-option>
-            </ion-item-options>
-            <ion-item lines="none">
-                <div class="flex items-center justify-between w-full py-4">
-                    <div class="flex items-center gap-2">
-                        <div class="badge badge-secondary">
-                            {{file.type}}
-                        </div>
-                        <div class="truncate">
-                            {{file.name}}
-                        </div>
+    @for (file of files; track $index) {
+    <ion-item-sliding class="animate-fade-left  animate-duration-300">
+        <ion-item-options side="start">
+            <ion-item-option>
+                <ion-icon slot="icon-only" name="archive"></ion-icon>
+            </ion-item-option>
+        </ion-item-options>
+        <ion-item lines="none">
+            <div class="flex items-center justify-between w-full py-4">
+                <div class="flex items-center gap-2">
+                    <div class="badge badge-secondary">
+                        {{file.type}}
                     </div>
-                    <div>
-                        {{file.size}}
+                    <div class="truncate">
+                        {{file.name}}
                     </div>
                 </div>
-            </ion-item>
-            <ion-item-options side="end">
-                <ion-item-option>
-                    <ion-icon slot="icon-only" name="information"></ion-icon>
-                </ion-item-option>
-                <ion-item-option color="danger">
-                    <ion-icon slot="icon-only" name="trash"></ion-icon>
-                </ion-item-option>
-            </ion-item-options>
-        </ion-item-sliding>
-        }
-    </ion-list>
+                <div>
+                    {{file.size}}
+                </div>
+            </div>
+        </ion-item>
+        <ion-item-options side="end">
+            <ion-item-option>
+                <ion-icon slot="icon-only" name="information"></ion-icon>
+            </ion-item-option>
+            <ion-item-option color="danger">
+                <ion-icon slot="icon-only" name="trash"></ion-icon>
+            </ion-item-option>
+        </ion-item-options>
+    </ion-item-sliding>
+    }
     }
 </ion-content>

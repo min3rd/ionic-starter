@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { takeUntil } from 'rxjs';
 import { BaseComponent } from 'src/app/core/base/base.component';
 import { ThemeService } from 'src/app/core/services/theme.service';
 import { ShareModule } from 'src/app/core/share/share.module';
@@ -15,7 +16,7 @@ import { ShareModule } from 'src/app/core/share/share.module';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ThemeConfiguratorComponent extends BaseComponent {
-  private _themeService: ThemeService = inject(ThemeService);
+  selected!: string;
   themes: string[] = [
     "light",
     "dark",
@@ -50,7 +51,14 @@ export class ThemeConfiguratorComponent extends BaseComponent {
     "nord",
     "sunset",
   ];
+  private _themeService: ThemeService = inject(ThemeService);
+  override ngOnInit(): void {
+    super.ngOnInit();
+    this._themeService.theme$.pipe(takeUntil(this.unsubscribeAll)).subscribe((theme) => {
+      this.selected = theme;
+    });
+  }
   onChange(event: any) {
-    this._themeService.set(event.target.value ?? 'light');
+    this._themeService.set(event.target.value ?? 'synthwave');
   }
 }

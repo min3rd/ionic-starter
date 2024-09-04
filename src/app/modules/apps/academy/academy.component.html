@@ -2,14 +2,14 @@
     <div class="navbar bg-primary">
         @if (!onSearch) {
         <div class="navbar-start animate-fade-up animate-duration-300">
-            <button [routerLink]="['../']" class="btn btn-circle btn-ghost">
+            <button [routerLink]="['../']" class="btn btn-circle btn-ghost text-primary-content">
                 <ion-icon name="arrow-back" size="large"></ion-icon>
             </button>
         </div>
         }
         @if (onSearch) {
         <div class="w-full">
-            <button (click)="onSearch = false;" class="btn btn-circle btn-ghost animate-fade-up animate-duration-300">
+            <button (click)="onSearch = false;" class="btn btn-circle btn-ghost text-primary-content animate-fade-up animate-duration-300">
                 <ion-icon name="arrow-back" size="large"></ion-icon>
             </button>
             <label class="input input-bordered flex items-center gap-2 w-full animate-fade-left animate-duration-300">
@@ -20,10 +20,10 @@
         }
         @if(!onSearch){
         <div class="navbar-end animate-fade-up animate-duration-300">
-            <button (click)="onSearch = true;" class="btn btn-circle btn-ghost">
+            <button (click)="onSearch = true;" class="btn btn-circle btn-ghost text-primary-content">
                 <ion-icon size="large" name="search"></ion-icon>
             </button>
-            <button id="click-trigger" class="btn btn-circle btn-ghost">
+            <button id="click-trigger" class="btn btn-circle btn-ghost text-primary-content">
                 <ion-icon size="large" name="filter"></ion-icon>
             </button>
             <ion-popover trigger="click-trigger" triggerAction="click">

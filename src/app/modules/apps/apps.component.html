@@ -3,19 +3,24 @@
         @if (apps) {
         @for (app of apps; track $index; let i = $index;) {
         <div [routerLink]="[app.link]" routerDirection="forward"
-            class="card bg-base-100 hover:cursor-pointer animate-flip-down animate-duration-700">
+            class="card bg-base-100 text-base-content animate-flip-down animate-duration-700">
             <div class="card-body">
                 <ion-icon name="{{app.icon}}" size="large"></ion-icon>
                 <div class="card-title">
-                    <div class="text-xl font-semibold truncate">
+                    <div class="text-xl font-semibold line-clamp-1">
                         {{ app.title | transloco | capitalize}}
                     </div>
                 </div>
                 @if (app.subtitle) {
-                <div class="text-sm truncate">
+                <div class="text-sm line-clamp-1">
                     {{ app.subtitle | transloco | capitalize}}
                 </div>
                 }
+                <div class="card-actions justify-end">
+                    <button class="btn btn-primary btn-circle">
+                        <ion-icon name="chevron-forward"></ion-icon>
+                    </button>
+                </div>
             </div>
         </div>
         }
