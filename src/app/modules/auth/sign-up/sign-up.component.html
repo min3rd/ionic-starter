@@ -1,1 +1,41 @@
-<p>sign-up works!</p>,
+<ion-content>
+    <ion-item lines="none">
+        <ion-avatar>
+            <img src="assets/icon/favicon.png" alt="" srcset="">
+        </ion-avatar>
+    </ion-item>
+    <ion-item lines="none">
+        <h1 class="text-2xl font-semibold py-4">
+            {{'sign up' | transloco | capitalize}}
+        </h1>
+    </ion-item>
+    <form [formGroup]="form">
+        <ion-item>
+            <ion-input formControlName="email" type="email" placeholder="{{'email@email.com' | transloco | capitalize}}"
+                label="{{'email' | transloco | capitalize}}"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-input formControlName="password" type="password" label="{{'password' | transloco | capitalize}}"
+                placeholder="{{'password' | transloco | capitalize}}">
+                <ion-input-password-toggle slot="end"></ion-input-password-toggle>
+            </ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-input formControlName="confirmPassword" type="password"
+                label="{{'confirm password' | transloco | capitalize}}"
+                placeholder="{{'confirm password' | transloco | capitalize}}">
+                <ion-input-password-toggle slot="end"></ion-input-password-toggle>
+            </ion-input>
+        </ion-item>
+    </form>
+    <ion-item lines="none" class="pt-4">
+        <button class="btn btn-primary w-full">
+            {{'sign up' | transloco | capitalize}}
+        </button>
+    </ion-item>
+    <ion-item lines="none">
+        <button [routerLink]="['/sign-in']" class="btn btn-secondary btn-outline w-full mt-4">
+            {{'sign in' | transloco | capitalize}}
+        </button>
+    </ion-item>
+</ion-content>

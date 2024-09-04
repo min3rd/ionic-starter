@@ -17,9 +17,9 @@
     <div class="join join-vertical w-full">
         @for (theme of themes; track $index) {
         <div
-            class="join-item flex items-center w-full justify-between py-4 px-2 animate-fade-left animate-duration-300">
+            class="join-item flex items-center w-full justify-between py-4 px-2 animate-fade-left animate-duration-300 bg-base-100">
             <label class="flex items-center w-full" for="theme_{{theme}}">
-                <span class="text-primary">
+                <span class="text-base-content">
                     {{theme | transloco | capitalize}}
                 </span>
             </label>

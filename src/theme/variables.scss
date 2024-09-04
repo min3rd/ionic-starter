@@ -1,8 +1,11 @@
 // For information on how to create your own theme, please see:
 // http://ionicframework.com/docs/theming/
 ion-item,
-ion-list,
 ion-content {
   --background: oklch(var(--b3));
+  --color: oklch(var(--bc));
+}
+ion-item-divider {
+  --background: oklch(var(--b1));
   --color: oklch(var(--bc));
 }

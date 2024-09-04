@@ -61,8 +61,8 @@
 
     @for (email of addressBook.emails; track $index) {
     <ion-item lines="none" class="mt-2">
-        <ion-icon name="mail" slot="start"></ion-icon>
-        <ion-label>
+        <ion-icon name="mail" class="text-primary"></ion-icon>
+        <ion-label class="ml-2">
             {{email.email}}
         </ion-label>
     </ion-item>
@@ -74,8 +74,8 @@
 
     @for (phone of addressBook.phones; track $index) {
     <ion-item lines="none" class="mt-2">
-        <ion-icon name="call" slot="start"></ion-icon>
-        <ion-label>
+        <ion-icon name="call" class="text-primary"></ion-icon>
+        <ion-label class="ml-2">
             (+{{phone.code}}) {{phone.number}}
         </ion-label>
     </ion-item>

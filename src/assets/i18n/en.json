@@ -70,5 +70,13 @@
   "subscribers": "subscribers",
   "subscribe": "subscribe",
   "theme configurator": "theme configurator",
-  "theme": "theme"
+  "theme": "theme",
+  "confirm password": "confirm password",
+  "dashboard": "dashboard",
+  "welcome to the dashboard": "welcome to the dashboard",
+  "see the latest movies": "see the latest movies",
+  "youtube": "youtube",
+  "vn": "vn",
+  "download": "download",
+  "share": "share"
 }
