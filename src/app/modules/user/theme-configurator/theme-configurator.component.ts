@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { BaseComponent } from 'src/app/core/base/base.component';
+import { ThemeService } from 'src/app/core/services/theme.service';
 import { ShareModule } from 'src/app/core/share/share.module';
 
 @Component({
@@ -14,6 +15,7 @@ import { ShareModule } from 'src/app/core/share/share.module';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ThemeConfiguratorComponent extends BaseComponent {
+  private _themeService: ThemeService = inject(ThemeService);
   themes: string[] = [
     "light",
     "dark",
@@ -48,4 +50,7 @@ export class ThemeConfiguratorComponent extends BaseComponent {
     "nord",
     "sunset",
   ];
+  onChange(event: any) {
+    this._themeService.set(event.target.value ?? 'light');
+  }
 }

@@ -15,19 +15,17 @@
     </div>
 </ion-header>
 <ion-content>
-    <div class="card bg-base-100">
+    <div class="join join-vertical w-full">
         @for (theme of themes; track $index) {
-        <ion-item lines="none" class="animate-fade-left animate-duration-300">
-            <div class="flex items-center w-full justify-between py-4">
-                <label class="flex items-center w-full" for="theme_{{theme}}">
-                    <span class="label-text text-primary">
-                        {{theme | transloco | capitalize}}
-                    </span>
-                </label>
-                <input id="theme_{{theme}}" type="radio" name="theme-radios" class="radio theme-controller ml-auto"
-                    value="{{theme}}" />
-            </div>
-        </ion-item>
+        <div
+            class="join-item flex items-center w-full justify-between py-4 px-2 animate-fade-left animate-duration-300">
+            <label class="flex items-center w-full" for="theme_{{theme}}">
+                <span class="text-primary">
+                    {{theme | transloco | capitalize}}
+                </span>
+            </label>
+            <input (change)="onChange($event)" id="theme_{{theme}}" type="radio" name="theme-radios" class="radio ml-auto" value="{{theme}}" />
+        </div>
         }
     </div>
 </ion-content>
