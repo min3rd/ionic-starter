@@ -1,29 +1,27 @@
 <ion-header>
     <div class="navbar bg-primary">
-        <div class="navbar-start">
-            <ion-buttons>
-                <ion-back-button class="animate-fade-up animate-duration-300"></ion-back-button>
-            </ion-buttons>
+        <div class="navbar-start animate-fade-up animate-duration-300">
+            <button [routerLink]="['/apps']" class="btn btn-circle btn-ghost">
+                <ion-icon name="arrow-back" size="large"></ion-icon>
+            </button>
         </div>
-        <div class="navbar-end">
-            <ion-buttons>
-                <ion-button class="animate-fade-up animate-duration-300">
-                    <ion-icon name="search" slot="icon-only"></ion-icon>
-                </ion-button>
-                <ion-button class="animate-fade-up animate-duration-300">
-                    <ion-icon name="add" slot="icon-only"></ion-icon>
-                </ion-button>
-                @if (displayType =='list') {
-                <ion-button (click)="displayType = 'grid';" class="animate-fade-up animate-duration-300">
-                    <ion-icon name="grid" slot="icon-only"></ion-icon>
-                </ion-button>
-                }
-                @if (displayType =='grid') {
-                <ion-button (click)="displayType = 'list';" class="animate-fade-up animate-duration-300">
-                    <ion-icon name="list" slot="icon-only"></ion-icon>
-                </ion-button>
-                }
-            </ion-buttons>
+        <div class="navbar-end animate-fade-up animate-duration-300">
+            <button class="btn btn-circle btn-ghost">
+                <ion-icon name="search" size="large"></ion-icon>
+            </button>
+            <button class="btn btn-circle btn-ghost">
+                <ion-icon name="add" size="large"></ion-icon>
+            </button>
+            @if (displayType =='list') {
+            <button (click)="displayType = 'grid';" class="btn btn-circle btn-ghost">
+                <ion-icon name="grid" size="large"></ion-icon>
+            </button>
+            }
+            @if (displayType =='grid') {
+            <button (click)="displayType = 'list';" class="btn btn-circle btn-ghost">
+                <ion-icon name="list" size="large"></ion-icon>
+            </button>
+            }
         </div>
     </div>
 </ion-header>

@@ -1,13 +1,11 @@
 <ion-header>
     <div class="navbar bg-primary">
-        <div class="navbar-start">
-            <ion-buttons class="animate-fade-up animate-duration-300">
-                <ion-button [routerLink]="['../']" routerDirection="backward">
-                    <ion-icon name="arrow-back" slot="icon-only"></ion-icon>
-                </ion-button>
-            </ion-buttons>
+        <div class="navbar-start animate-fade-up animate-duration-300">
+            <button [routerLink]="['../']" routerDirection="backward" class="btn btn-circle btn-ghost">
+                <ion-icon name="arrow-back" size="large"></ion-icon>
+            </button>
         </div>
-        <div class="navbar-end">
+        <div class=" navbar-end">
 
         </div>
     </div>
