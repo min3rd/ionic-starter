@@ -17,7 +17,7 @@ import { ShareModule } from 'src/app/core/share/share.module';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SignOutComponent extends BaseComponent {
-  countdown: number = 5; // redirect in 5s
+  countdown: number = 60; // redirect in 5s
   private _storageService: StorageService = inject(StorageService);
   private _authService: AuthService = inject(AuthService);
   override ngOnInit(): void {

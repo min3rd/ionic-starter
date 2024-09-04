@@ -15,72 +15,70 @@
 
 <ion-content>
     @if (addressBook) {
-    <ion-list>
-        <ion-item lines="none" class="mt-2">
-            <div class="flex items-start gap-2">
-                <div class="flex w-32 h-32 rounded-md">
-                    @if (!addressBook.avatar) {
-                    <ion-skeleton-text class="w-full h-full rounded-md" [animated]="true"></ion-skeleton-text>
-                    }
-                    @else {
-                    <img [src]="addressBook.avatar" class="w-full h-full rounded-md">
-                    }
-                </div>
-
-                <div class="flex flex-col">
-                    <div class="flex items-center font-semibold gap-2 flex-wrap">
-                        <div>
-                            {{addressBook.firstname}}
-                        </div>
-
-                        <div>
-                            {{addressBook.lastname}}
-                        </div>
-                    </div>
-                    @if (addressBook.address) {
-                    <div class="text-sm truncate">
-                        {{addressBook.address}}
-                    </div>
-                    }
-                    @if (addressBook.city) {
-                    <div class="text-sm truncate">
-                        {{addressBook.city}}
-                    </div>
-                    }
-                    @if (addressBook.country) {
-                    <div class="text-sm truncate">
-                        {{addressBook.country.name | transloco | capitalize}}
-                    </div>
-                    }
-                </div>
+    <ion-item lines="none" class="mt-2">
+        <div class="flex items-start gap-2">
+            <div class="flex w-32 h-32 rounded-md">
+                @if (!addressBook.avatar) {
+                <ion-skeleton-text class="w-full h-full rounded-md" [animated]="true"></ion-skeleton-text>
+                }
+                @else {
+                <img [src]="addressBook.avatar" class="w-full h-full rounded-md">
+                }
             </div>
-        </ion-item>
 
-        <ion-item-divider class="mt-4">
-            {{'email' | transloco | capitalize}}
-        </ion-item-divider>
+            <div class="flex flex-col">
+                <div class="flex items-center font-semibold gap-2 flex-wrap">
+                    <div>
+                        {{addressBook.firstname}}
+                    </div>
 
-        @for (email of addressBook.emails; track $index) {
-        <ion-item lines="none" class="mt-2">
-            <ion-icon name="mail" slot="start"></ion-icon>
-            <ion-label>
-                {{email.email}}
-            </ion-label>
-        </ion-item>
-        }
+                    <div>
+                        {{addressBook.lastname}}
+                    </div>
+                </div>
+                @if (addressBook.address) {
+                <div class="text-sm truncate">
+                    {{addressBook.address}}
+                </div>
+                }
+                @if (addressBook.city) {
+                <div class="text-sm truncate">
+                    {{addressBook.city}}
+                </div>
+                }
+                @if (addressBook.country) {
+                <div class="text-sm truncate">
+                    {{addressBook.country.name | transloco | capitalize}}
+                </div>
+                }
+            </div>
+        </div>
+    </ion-item>
 
-        <ion-item-divider class="mt-4">
-            {{'phone' | transloco | capitalize}}
-        </ion-item-divider>
+    <ion-item-divider class="mt-4">
+        {{'email' | transloco | capitalize}}
+    </ion-item-divider>
 
-        @for (phone of addressBook.phones; track $index) {
-        <ion-item lines="none" class="mt-2">
-            <ion-icon name="call" slot="start"></ion-icon>
-            <ion-label>
-                (+{{phone.code}}) {{phone.number}}
-            </ion-label>
-        </ion-item>
-        }
-    </ion-list>
+    @for (email of addressBook.emails; track $index) {
+    <ion-item lines="none" class="mt-2">
+        <ion-icon name="mail" slot="start"></ion-icon>
+        <ion-label>
+            {{email.email}}
+        </ion-label>
+    </ion-item>
+    }
+
+    <ion-item-divider class="mt-4">
+        {{'phone' | transloco | capitalize}}
+    </ion-item-divider>
+
+    @for (phone of addressBook.phones; track $index) {
+    <ion-item lines="none" class="mt-2">
+        <ion-icon name="call" slot="start"></ion-icon>
+        <ion-label>
+            (+{{phone.code}}) {{phone.number}}
+        </ion-label>
+    </ion-item>
+    }
     }
 </ion-content>

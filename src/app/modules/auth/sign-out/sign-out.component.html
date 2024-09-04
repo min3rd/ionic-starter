@@ -1,17 +1,17 @@
 <ion-content>
-    <div class="flex flex-col w-full items-center justify-center">
+    <div class="flex flex-col w-full items-center justify-center p-4 gap-4">
         <h1 class="font-semibold text-2xl truncate">
             {{'good bye' | transloco | capitalize}}
         </h1>
         <p>
             {{'you have been signed out' | transloco | capitalize}}
         </p>
-        <p>
+        <p class="countdown">
             {{'redirecting to sign in page in' | transloco | capitalize}}
-            {{countdown}}s
+            {{countdown}}
         </p>
-        <ion-button [routerLink]="['/sign-in']">
+        <button [routerLink]="['/sign-in']" class="btn btn-primary w-full">
             {{'sign in' | transloco | capitalize}}
-        </ion-button>
+        </button>
     </div>
 </ion-content>

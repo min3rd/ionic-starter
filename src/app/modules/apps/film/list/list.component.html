@@ -1,7 +1,7 @@
 <ion-content class="ion-padding">
     @for (film of films; track $index) {
     <div class="flex flex-col w-full mt-2">
-        <div class="relative w-full max-h-48 bg-cover overflow-hidden rounded-md" [routerLink]="['./', film.id]">
+        <div class="relative aspect-video bg-cover overflow-hidden rounded-md" [routerLink]="['./', film.id]">
             <img [src]="film.thumbnail" />
             <div class="absolute bottom-2 right-2 bg-secondary text-secondary-content rounded-md p-1">
                 {{film.duration}}
