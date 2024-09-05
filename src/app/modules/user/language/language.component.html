@@ -1,0 +1,16 @@
+<ion-content>
+    <div class="join join-vertical w-full">
+        @for (language of languages; track $index) {
+        <div
+            class="join-item flex items-center w-full justify-between py-4 px-2 animate-fade-left animate-duration-300 bg-base-100">
+            <label class="flex items-center w-full" for="language_{{language.id}}">
+                <span class="text-base-content">
+                    {{language.label| transloco | capitalize}}
+                </span>
+            </label>
+            <input (change)="onChanges($event)" id="language_{{language.id}}" type="radio" name="theme-radios"
+                class="radio ml-auto" value="{{language.id}}" [checked]="language.id === selected" />
+        </div>
+        }
+    </div>
+</ion-content>

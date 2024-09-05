@@ -17,7 +17,7 @@ export class StorageService {
     return this.storage;
   }
 
-  get<T>(key: string): Observable<T> {
+  get<T>(key: string): Observable<T> {   
     if (!this.storage) {
       return from(this.init().then(() => this.storage.get(key)));
     }

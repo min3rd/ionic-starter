@@ -6,6 +6,7 @@ import { ProfileComponent } from "./profile/profile.component";
 import { ChangePasswordComponent } from "./change-password/change-password.component";
 import { EditProfileComponent } from "./profile/edit-profile/edit-profile.component";
 import { ThemeConfiguratorComponent } from "./theme-configurator/theme-configurator.component";
+import { LanguageComponent } from "./language/language.component";
 
 export const routes: Routes = [
     {
@@ -35,6 +36,10 @@ export const routes: Routes = [
             {
                 path: 'sign-out',
                 component: SignOutComponent,
+            },
+            {
+                path: 'language',
+                component: LanguageComponent,
             }
         ]
     }

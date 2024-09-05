@@ -9,6 +9,7 @@ import { provideVn9Melody } from "./@vn9melody/provider";
 import { routes } from "./app.routes";
 import { IonicStorageModule } from "@ionic/storage-angular";
 import { provideServiceWorker } from '@angular/service-worker';
+import { languagesData } from "./core/transloco/languages";
 
 export const applicationConfig: ApplicationConfig = {
     providers: [
@@ -19,7 +20,7 @@ export const applicationConfig: ApplicationConfig = {
         importProvidersFrom(IonicStorageModule.forRoot()),
         provideTransloco({
             config: {
-                availableLangs: ['en', 'es', 'vi'],
+                availableLangs: languagesData.map(language => language.id),
                 defaultLang: 'en',
                 reRenderOnLangChange: true,
                 prodMode: !isDevMode(),
