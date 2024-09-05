@@ -69,8 +69,8 @@
   "notification": "notificación",
   "subscribers": "suscriptores",
   "subscribe": "suscribir",
-  "share": "",
-  "download": "",
+  "share": "compartir",
+  "download": "descargar",
   "theme configurator": "configurador de temas",
   "theme": "tema",
   "confirm password": "confirmar Contraseña",
@@ -79,5 +79,7 @@
   "vn": "vn",
   "welcome to the dashboard": "bienvenido al tablero",
   "youtube": "YouTube",
-  "videos": "vídeos"
+  "videos": "vídeos",
+  "home page": "pagina de inicio",
+  "shorts": "bermudas"
 }
