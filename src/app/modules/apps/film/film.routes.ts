@@ -15,9 +15,7 @@ const notificationResolve = (route: ActivatedRouteSnapshot, state: RouterStateSn
 
 const filterResolve = (route: ActivatedRouteSnapshot, state: RouterStateSnapshot) => {
     const filmService: FilmService = inject(FilmService);
-    return filmService.search({
-        query: getParam(route, 'filterFilm')
-    });
+    return filmService.search();
 };
 
 const detailResolve = (route: ActivatedRouteSnapshot, state: RouterStateSnapshot) => {
@@ -32,6 +30,23 @@ const channelResolve = (route: ActivatedRouteSnapshot, state: RouterStateSnapsho
 
 export const routes: Routes = [
     {
+        path: '',
+        component: FilmComponent,
+        resolve: [notificationResolve],
+        children: [
+            {
+                path: '',
+                resolve: [filterResolve],
+                component: ListComponent,
+            },
+            {
+                path: ':filmId',
+                resolve: [detailResolve, filterResolve],
+                component: DetailComponent,
+            }
+        ],
+    },
+    {
         path: 'notification',
         pathMatch: 'full',
         resolve: [notificationResolve],
@@ -41,27 +56,5 @@ export const routes: Routes = [
         path: 'channels/:channelId',
         resolve: [channelResolve],
         component: ChannelComponent,
-    },
-    {
-        path: '',
-        component: FilmComponent,
-        resolve: [notificationResolve],
-        children: [
-            {
-                path: '',
-                pathMatch: 'full',
-                redirectTo: 'all'
-            },
-            {
-                path: ':filterFilm',
-                resolve: [filterResolve],
-                component: ListComponent,
-            },
-            {
-                path: ':filterFilm/:filmId',
-                resolve: [detailResolve, filterResolve],
-                component: DetailComponent,
-            }
-        ],
     },
 ];

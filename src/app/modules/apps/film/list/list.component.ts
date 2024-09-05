@@ -20,7 +20,7 @@ export class ListComponent extends BaseComponent implements OnInit {
   films!: Film[];
   private _filmService: FilmService = inject(FilmService);
   override ngOnInit(): void {
-    super.ngOnInit();
+    super.ngOnInit();   
     this._filmService.films$.pipe(takeUntil(this.unsubscribeAll)).subscribe(films => {
       if (!films) {
         return;

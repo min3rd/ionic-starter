@@ -31,7 +31,7 @@ export class FilmService extends BaseService {
       this._notifications.next(notifications);
     }));
   }
-  search(pageable: Pageable): Observable<Film[]> {
+  search(pageable: Pageable | undefined = undefined): Observable<Film[]> {
     return this.httpClient.get<Film[]>(Endpoint.films(), {
       params: new HttpParams({ fromObject: pageable as any })
     }).pipe(tap(films => {

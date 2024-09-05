@@ -22,16 +22,16 @@
         @else {
         <div class="skeleton w-full h-full rounded-none"></div>
         }
-        <div class="absolute bottom-0 w-full backdrop-blur-md p-2">
+        <div class="absolute bottom-0 w-full backdrop-blur-sm p-2">
             <div class="flex gap-2">
-                <div class="avatar online">
-                    <div class="w-24 rounded-full">
+                <div class="avatar">
+                    <div class="w-24 h-24 rounded-full">
                         @if (channel.avatar) {
-                        <img src="{{channel.avatar}}" />
+                        <img [src]="channel.avatar" />
                         }
                     </div>
                 </div>
-                <div>
+                <div class="text-neutral-content">
                     <div class="font-semibold text-xl line-clamp-1">
                         {{channel.title}}
                     </div>
@@ -39,9 +39,89 @@
                         <div>
                             {{channel.subscription | abbreviate}} {{'subscribers' | transloco}}
                         </div>
+                        @if (channel.films) {
+                        <div>
+                            •
+                        </div>
+                        <div>
+                            {{channel.films?.length | abbreviate}} {{'videos' | transloco}}
+                        </div>
+                        }
                     </div>
+                    <div>
+                        <button class="btn btn-primary text-primary-content">
+                            {{'subscribe' | transloco | capitalize}}
+                        </button>
+                    </div>
+                    @if (channel.description) {
+                    <div class="font-thin line-clamp-2">
+                        {{channel.description | capitalize}}
+                    </div>
+                    }
                 </div>
             </div>
         </div>
+    </div>
+
+    <div class="p-2">
+        <div role="tablist" class="tabs tabs-bordered">
+            <a role="tab" class="tab tab-active">
+                {{'home page' | transloco | capitalize}}
+            </a>
+            <a role="tab" class="tab">
+                {{'videos' | transloco | capitalize}}
+            </a>
+            <a role="tab" class="tab">
+                {{'shorts' | transloco | capitalize}}
+            </a>
+        </div>
+    </div>
+
+    <div class="flex flex-col w-full mt-2">
+        @for (film of channel.films; track $index) {
+        <div class="flex flex-col w-full mb-2">
+            <div class="relative aspect-video bg-cover overflow-hidden" [routerLink]="['/apps', 'film', film.id]">
+                <img [src]="film.thumbnail" />
+                <div class="absolute bottom-2 right-2 bg-secondary text-secondary-content p-1">
+                    {{film.duration}}
+                </div>
+            </div>
+            <div class="flex items-center justify-between w-full p-2">
+                <div class="flex items-center gap-2">
+                    <div class="avatar">
+                        <div class="w-12 rounded-full">
+                            <img [src]="film.avatar" />
+                        </div>
+                    </div>
+                    <div>
+                        <div class="font-semibold line-clamp-1">
+                            {{film.title}}
+                        </div>
+                        <div class="flex items-center gap-2 text-sm">
+                            <a [routerLink]="['/apps','film','channels', film.channel?.id]"
+                                class="font-semibold line-clamp-1">
+                                {{film.channel?.title}}
+                            </a>
+                            <div>
+                                •
+                            </div>
+                            <div>
+                                {{film.view | abbreviate}}
+                            </div>
+                            <div>
+                                •
+                            </div>
+                            <div>
+                                {{film.createdDate | uploadTime}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button class="btn btn-circle btn-ghost text-primary">
+                    <ion-icon name="ellipsis-vertical" size="large"></ion-icon>
+                </button>
+            </div>
+        </div>
+        }
     </div>
 </ion-content>

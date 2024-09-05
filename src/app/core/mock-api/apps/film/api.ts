@@ -35,6 +35,7 @@ export class FilmMockAPi extends MockApi {
         });
         channelsData.forEach((channel) => {
             this.mockupApiService.onGet(Endpoint.films_channels_id(channel.id ?? '')).reply(() => {
+                channel.films = temp.filter((film) => Math.random() > 0.5);
                 return [200, cloneDeep(channel)];
             }
             );

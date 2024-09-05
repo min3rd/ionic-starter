@@ -1,13 +1,13 @@
-<ion-content class="ion-padding">
+<ion-content>
     @for (film of films; track $index) {
-    <div class="flex flex-col w-full mt-2">
-        <div class="relative aspect-video bg-cover overflow-hidden rounded-md" [routerLink]="['./', film.id]">
+    <div class="flex flex-col w-full mb-2">
+        <div class="relative aspect-video bg-cover overflow-hidden" [routerLink]="['./', film.id]">
             <img [src]="film.thumbnail" />
-            <div class="absolute bottom-2 right-2 bg-secondary text-secondary-content rounded-md p-1">
+            <div class="absolute bottom-2 right-2 bg-secondary text-secondary-content p-1">
                 {{film.duration}}
             </div>
         </div>
-        <div class="flex items-center justify-between w-full mt-2">
+        <div class="flex items-center justify-between w-full p-2">
             <div class="flex items-center gap-2">
                 <div class="avatar">
                     <div class="w-12 rounded-full">
@@ -38,11 +38,9 @@
                     </div>
                 </div>
             </div>
-            <ion-buttons>
-                <ion-button>
-                    <ion-icon name="ellipsis-vertical" slot="icon-only"></ion-icon>
-                </ion-button>
-            </ion-buttons>
+            <button class="btn btn-circle btn-ghost text-primary">
+                <ion-icon name="ellipsis-vertical" size="large"></ion-icon>
+            </button>
         </div>
     </div>
     }
