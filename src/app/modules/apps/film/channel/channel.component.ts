@@ -1,6 +1,8 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { BaseComponent } from 'src/app/core/base/base.component';
+import { FilmService } from 'src/app/core/services/apps/film/film.service';
+import { Channel } from 'src/app/core/services/apps/film/film.types';
 import { ShareModule } from 'src/app/core/share/share.module';
 
 @Component({
@@ -13,4 +15,15 @@ import { ShareModule } from 'src/app/core/share/share.module';
   templateUrl: './channel.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ChannelComponent extends BaseComponent { }
+export class ChannelComponent extends BaseComponent {
+  channel!: Channel;
+  private _filmService: FilmService = inject(FilmService);
+  override ngOnInit(): void {
+    super.ngOnInit();
+    this._filmService.channel$.subscribe(channel => {
+      if (!channel) return;
+      this.channel = channel;
+      this.changeDetectorRef.markForCheck();
+    });
+  }
+}

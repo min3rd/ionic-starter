@@ -8,7 +8,7 @@ import { forkJoin, of } from "rxjs";
 import { EditComponent } from "./edit/edit.component";
 import { DetailComponent } from "./detail/detail.component";
 
-export const listResolve = (route: ActivatedRouteSnapshot, state: RouterStateSnapshot) => {
+const listResolve = (route: ActivatedRouteSnapshot, state: RouterStateSnapshot) => {
     const addressBookService: AddressBookService = inject(AddressBookService);
     return addressBookService.search({
         query: getParam(route, 'filterAddressBook'),
@@ -17,20 +17,20 @@ export const listResolve = (route: ActivatedRouteSnapshot, state: RouterStateSna
     });
 }
 
-export const metaDataResolve = (route: ActivatedRouteSnapshot, state: RouterStateSnapshot) => {
+const metaDataResolve = (route: ActivatedRouteSnapshot, state: RouterStateSnapshot) => {
     const countryService: CountryService = inject(CountryService);
     return forkJoin([
         countryService.get(),
     ]);
 }
 
-export const createResolve = (route: ActivatedRouteSnapshot, state: RouterStateSnapshot) => {
+const createResolve = (route: ActivatedRouteSnapshot, state: RouterStateSnapshot) => {
     const addressBookService: AddressBookService = inject(AddressBookService);
     addressBookService.clear();
     return of(true);
 }
 
-export const detailResolve = (route: ActivatedRouteSnapshot, state: RouterStateSnapshot) => {
+const detailResolve = (route: ActivatedRouteSnapshot, state: RouterStateSnapshot) => {
     const addressBookService: AddressBookService = inject(AddressBookService);
     return addressBookService.get(getParam(route, 'addressBookId'));
 }

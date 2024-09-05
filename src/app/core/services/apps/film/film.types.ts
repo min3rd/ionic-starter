@@ -23,10 +23,9 @@ export interface Film extends Base {
 export interface Channel extends Base {
     title?: string;
     avatar?: string;
+    thumbnail?: string;
     description?: string;
     view?: number;
     subscription?: number;
     films?: Film[];
-    createdDate?: string;
-    updatedDate?: string;
 }

@@ -12,7 +12,7 @@ export const notificationsData: Notification[] = [
 export const filmsData: Film[] = [
     {
         id: 'a5ace987-9c8b-4db4-acd9-ab1351b6370d',
-        title: 'Warner Bros. Pictures Warner Bros. Pictures Warner Bros. Pictures Warner Bros. Pictures Warner Bros. Pictures Warner Bros. Pictures Warner Bros. Pictures Warner Bros. Pictures',
+        title: 'The Shawshank Redemption',
         subtitle: 'Drama',
         avatar: 'assets/images/avatars/1.jpg',
         thumbnail: 'assets/images/thumbnails/1.jpg',
@@ -29,6 +29,7 @@ export const channelsData: Channel[] = [
         id: 'a5ace987-9c8b-4db4-acd9-ab1351b6370d',
         title: 'Warner Bros. Pictures',
         avatar: 'assets/images/avatars/1.jpg',
+        thumbnail: 'assets/images/thumbnails/1.jpg',
         description: 'Warner Bros. Pictures',
         view: 1250000,
         subscription: 1250000,

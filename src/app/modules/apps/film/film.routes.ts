@@ -8,21 +8,26 @@ import { ListComponent } from "./list/list.component";
 import { DetailComponent } from "./detail/detail.component";
 import { ChannelComponent } from "./channel/channel.component";
 
-export const notificationResolve = (route: ActivatedRouteSnapshot, state: RouterStateSnapshot) => {
+const notificationResolve = (route: ActivatedRouteSnapshot, state: RouterStateSnapshot) => {
     const filmService: FilmService = inject(FilmService);
     return filmService.notifications();
 };
 
-export const filterResolve = (route: ActivatedRouteSnapshot, state: RouterStateSnapshot) => {
+const filterResolve = (route: ActivatedRouteSnapshot, state: RouterStateSnapshot) => {
     const filmService: FilmService = inject(FilmService);
     return filmService.search({
         query: getParam(route, 'filterFilm')
     });
 };
 
-export const detailResolve = (route: ActivatedRouteSnapshot, state: RouterStateSnapshot) => {
+const detailResolve = (route: ActivatedRouteSnapshot, state: RouterStateSnapshot) => {
     const filmService: FilmService = inject(FilmService);
     return filmService.get(getParam(route, 'filmId'));
+}
+
+const channelResolve = (route: ActivatedRouteSnapshot, state: RouterStateSnapshot) => {
+    const filmService: FilmService = inject(FilmService);
+    return filmService.channel(getParam(route, 'channelId'));
 }
 
 export const routes: Routes = [
@@ -34,7 +39,7 @@ export const routes: Routes = [
     },
     {
         path: 'channels/:channelId',
-        resolve: [],
+        resolve: [channelResolve],
         component: ChannelComponent,
     },
     {

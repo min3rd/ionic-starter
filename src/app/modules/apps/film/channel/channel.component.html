@@ -5,8 +5,43 @@
                 <ion-icon name="arrow-back" size="large"></ion-icon>
             </button>
         </div>
+        <div class="navbar-center animate-fade-left animate-duration-300">
+            @if (channel) {
+            <ion-title class="text-primary-content">
+                {{channel.title}}
+            </ion-title>
+            }
+        </div>
     </div>
 </ion-header>
 <ion-content>
-
+    <div class="relative h-48 bg-contain overflow-hidden rounded-none">
+        @if (channel.thumbnail) {
+        <img [src]="channel.thumbnail" alt="thumbnail">
+        }
+        @else {
+        <div class="skeleton w-full h-full rounded-none"></div>
+        }
+        <div class="absolute bottom-0 w-full backdrop-blur-md p-2">
+            <div class="flex gap-2">
+                <div class="avatar online">
+                    <div class="w-24 rounded-full">
+                        @if (channel.avatar) {
+                        <img src="{{channel.avatar}}" />
+                        }
+                    </div>
+                </div>
+                <div>
+                    <div class="font-semibold text-xl line-clamp-1">
+                        {{channel.title}}
+                    </div>
+                    <div class="flex gap-2">
+                        <div>
+                            {{channel.subscription | abbreviate}} {{'subscribers' | transloco}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </ion-content>

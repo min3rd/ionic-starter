@@ -5,7 +5,7 @@ import { inject } from "@angular/core";
 import { getParam } from "src/app/core/utils/functions";
 import { ChatComponent } from "./chat/chat.component";
 
-export const conversationResolve = (route: ActivatedRouteSnapshot, state: RouterStateSnapshot) => {
+const conversationResolve = (route: ActivatedRouteSnapshot, state: RouterStateSnapshot) => {
     const conversationService: ConversationService = inject(ConversationService);
     return conversationService.search({
         query: getParam(route, 'filterConversation'),
@@ -14,7 +14,7 @@ export const conversationResolve = (route: ActivatedRouteSnapshot, state: Router
     });
 }
 
-export const messageResolve = (route: ActivatedRouteSnapshot, state: RouterStateSnapshot) => {
+const messageResolve = (route: ActivatedRouteSnapshot, state: RouterStateSnapshot) => {
     const conversationService: ConversationService = inject(ConversationService);
     return conversationService.messages(getParam(route, 'conversationId'), {
         query: getParam(route, 'filterMessage'),
@@ -23,7 +23,7 @@ export const messageResolve = (route: ActivatedRouteSnapshot, state: RouterState
     });
 }
 
-export const detailResolve = (route: ActivatedRouteSnapshot, state: RouterStateSnapshot) => {
+const detailResolve = (route: ActivatedRouteSnapshot, state: RouterStateSnapshot) => {
     const conversationService: ConversationService = inject(ConversationService);
     return conversationService.get(getParam(route, 'conversationId'));
 }

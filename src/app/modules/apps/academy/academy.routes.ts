@@ -6,11 +6,11 @@ import { inject } from "@angular/core";
 import { getParam } from "src/app/core/utils/functions";
 import { DetailComponent } from "./detail/detail.component";
 
-export const categoriesResolve = (route: ActivatedRouteSnapshot, state: RouterStateSnapshot) => {
+const categoriesResolve = (route: ActivatedRouteSnapshot, state: RouterStateSnapshot) => {
     const academyService: AcademyService = inject(AcademyService);
     return academyService.categories();
 }
-export const listResolve = (route: ActivatedRouteSnapshot, state: RouterStateSnapshot) => {
+const listResolve = (route: ActivatedRouteSnapshot, state: RouterStateSnapshot) => {
     const academyService: AcademyService = inject(AcademyService);
     return academyService.search({
         query: getParam(route, 'categoryCourse'),
@@ -19,12 +19,12 @@ export const listResolve = (route: ActivatedRouteSnapshot, state: RouterStateSna
     });
 }
 
-export const detailResolve = (route: ActivatedRouteSnapshot, state: RouterStateSnapshot) => {
+const detailResolve = (route: ActivatedRouteSnapshot, state: RouterStateSnapshot) => {
     const academyService: AcademyService = inject(AcademyService);
     return academyService.get(getParam(route, 'courseId'));
 }
 
-export const stepsResolve = (route: ActivatedRouteSnapshot, state: RouterStateSnapshot) => {
+const stepsResolve = (route: ActivatedRouteSnapshot, state: RouterStateSnapshot) => {
     const academyService: AcademyService = inject(AcademyService);
     return academyService.steps(getParam(route, 'courseId'));
 }

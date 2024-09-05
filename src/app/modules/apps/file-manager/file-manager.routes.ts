@@ -4,7 +4,7 @@ import { FileManagerService } from "src/app/core/services/apps/file-manager/file
 import { inject } from "@angular/core";
 import { getParam } from "src/app/core/utils/functions";
 
-export const listResolve = (route: ActivatedRouteSnapshot, state: RouterStateSnapshot) => {
+const listResolve = (route: ActivatedRouteSnapshot, state: RouterStateSnapshot) => {
     const fileManagerService: FileManagerService = inject(FileManagerService);
     return fileManagerService.search({
         query: getParam(route, 'folderId'),
