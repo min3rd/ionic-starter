@@ -84,4 +84,11 @@ export class Endpoint {
         return this.film('notifications', path.join('/'));
     }
 
+    static film_channel(...path: string[] | undefined[]): string {
+        return this.film('channels', path.join('/'));
+    }
+    static film_channel_id(id: string, ...path: string[] | undefined[]): string {
+        return this.film_channel(id, path.join('/'));
+    }
+
 }

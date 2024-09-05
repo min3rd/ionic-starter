@@ -6,6 +6,7 @@ import { NotificationComponent } from "./notification/notification.component";
 import { getParam } from "src/app/core/utils/functions";
 import { ListComponent } from "./list/list.component";
 import { DetailComponent } from "./detail/detail.component";
+import { ChannelComponent } from "./channel/channel.component";
 
 export const notificationResolve = (route: ActivatedRouteSnapshot, state: RouterStateSnapshot) => {
     const filmService: FilmService = inject(FilmService);
@@ -30,6 +31,11 @@ export const routes: Routes = [
         pathMatch: 'full',
         resolve: [notificationResolve],
         component: NotificationComponent,
+    },
+    {
+        path: 'channel/:channelId',
+        resolve: [],
+        component: ChannelComponent,
     },
     {
         path: '',

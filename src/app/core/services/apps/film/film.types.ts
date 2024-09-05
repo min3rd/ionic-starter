@@ -9,8 +9,7 @@ export interface Notification extends Base {
 
 export interface Film extends Base {
     title?: string;
-    channel?: string;
-    subscription?: number;
+    channel?: Channel;
     subtitle?: string;
     avatar?: string;
     thumbnail?: string;
@@ -18,5 +17,16 @@ export interface Film extends Base {
     view?: number;
     duration?: string;
     video?: string;
-    like?:number;
+    like?: number;
+}
+
+export interface Channel extends Base {
+    title?: string;
+    avatar?: string;
+    description?: string;
+    view?: number;
+    subscription?: number;
+    films?: Film[];
+    createdDate?: string;
+    updatedDate?: string;
 }

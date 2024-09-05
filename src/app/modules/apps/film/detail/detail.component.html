@@ -11,11 +11,11 @@
                 </div>
             </div>
             <div class="flex flex-col">
-                <div class="truncate font-semibold">
-                    {{film.channel}}
-                </div>
+                <a [routerLink]="['/apps', 'film', 'channel', film.channel?.id]" class="line-clamp-1 font-semibold">
+                    {{film.channel?.title}}
+                </a>
                 <div>
-                    {{film.subscription | abbreviate}} {{'subscribers' | transloco}}
+                    {{film.channel?.subscription| abbreviate}} {{'subscribers' | transloco}}
                 </div>
             </div>
 
@@ -54,8 +54,7 @@
         <div class="flex flex-col w-full mt-2">
             @for (film of films; track $index) {
             <div class="flex flex-col w-full mt-2">
-                <div class="relative aspect-video bg-cover overflow-hidden rounded-md"
-                    [routerLink]="['../', film.id]">
+                <div class="relative aspect-video bg-cover overflow-hidden rounded-md" [routerLink]="['../', film.id]">
                     <img [src]="film.thumbnail" />
                     <div class="absolute bottom-2 right-2 bg-secondary text-secondary-content rounded-md p-1">
                         {{film.duration}}
@@ -74,7 +73,7 @@
                             </div>
                             <div class="flex items-center gap-2 text-sm">
                                 <div class="text-secondary line-clamp-1">
-                                    {{film.channel}}
+                                    {{film.channel?.title}}
                                 </div>
                                 <div>
                                     •
