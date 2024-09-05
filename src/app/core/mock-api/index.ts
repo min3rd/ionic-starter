@@ -1,6 +1,7 @@
 import { AcademyMockApi } from "./apps/academy/api";
 import { AddressBookMockApi } from "./apps/address-book/api";
 import { ConversationMockApi } from "./apps/conversation/api";
+import { FeedMockApi } from "./apps/feed/api";
 import { FileManagerMockApi } from "./apps/file-manager/api";
 import { FilmMockAPi } from "./apps/film/api";
 import { AuthMockApi } from "./auth/api";
@@ -18,4 +19,5 @@ export const mockApi = [
     AcademyMockApi,
     FileManagerMockApi,
     FilmMockAPi,
+    FeedMockApi,
 ];

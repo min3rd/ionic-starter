@@ -7,17 +7,7 @@ import { Conversation, Message } from 'src/app/core/services/apps/conversation/c
 import { User } from 'src/app/core/services/user/user';
 import { UserService } from 'src/app/core/services/user/user.service';
 import { ShareModule } from 'src/app/core/share/share.module';
-import { addIcons } from "ionicons";
-import { arrowBack } from "ionicons/icons";
-import { search } from "ionicons/icons";
-import { ellipsisVertical } from "ionicons/icons";
-import { people } from "ionicons/icons";
-import { checkmarkCircle } from "ionicons/icons";
-import { trash } from "ionicons/icons";
-import { add } from "ionicons/icons";
-import { image } from "ionicons/icons";
-import { send } from "ionicons/icons";
-
+import { ActionSheetButton } from "@ionic/angular";
 @Component({
   selector: 'app-chat',
   standalone: true,
@@ -32,10 +22,37 @@ export class ChatComponent extends BaseComponent implements OnInit {
   conversation!: Conversation;
   messages!: Message[];
   user!: User;
+  actionSheetButtons!: ActionSheetButton[];
   private _conversationService: ConversationService = inject(ConversationService);
   private _userService: UserService = inject(UserService);
   override ngOnInit(): void {
     super.ngOnInit();
+    this.actionSheetButtons = [
+      {
+        id: 'memebers',
+        text: this.capitalize.translate('members'),
+        icon: 'people',
+        handler: () => {
+          console.log('memebers');
+        },
+      },
+      {
+        id: 'mark-as-readed',
+        text: this.capitalize.translate('mark as readed'),
+        icon: 'checkmark-circle',
+        handler: () => {
+          console.log('mark-as-readed');
+        },
+      },
+      {
+        id: 'delete-chat',
+        text: this.capitalize.translate('delete chat'),
+        icon: 'trash',
+        handler: () => {
+          console.log('delete-chat');
+        },
+      },
+    ];
     this._conversationService.conversation$.pipe(takeUntil(this.unsubscribeAll)).subscribe(conversation => {
       if (!conversation) return;
       this.conversation = conversation;

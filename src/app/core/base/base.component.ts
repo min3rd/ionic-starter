@@ -7,6 +7,7 @@ import { UntypedFormBuilder, UntypedFormGroup } from '@angular/forms';
 import { addIcons } from 'ionicons';
 import * as allIcons from 'ionicons/icons';
 import { Platform } from '@ionic/angular';
+import { CapitalizePipe } from '../pipe/capitalize.pipe';
 @Component({
   selector: 'app-base',
   standalone: true,
@@ -25,6 +26,7 @@ export class BaseComponent implements OnInit, OnDestroy {
   router: Router = inject(Router);
   changeDetectorRef: ChangeDetectorRef = inject(ChangeDetectorRef);
   platform: Platform = inject(Platform);
+  capitalize:CapitalizePipe = new CapitalizePipe();
   unsubscribeAll: Subject<any> = new Subject();
   ngOnInit(): void {
     addIcons(allIcons);

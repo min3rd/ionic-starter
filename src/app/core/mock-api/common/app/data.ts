@@ -44,4 +44,11 @@ export const appsData: App[] = [
         icon: 'film',
         link: '/apps/film',
     },
+    {
+        id: 'feed',
+        title: 'feed',
+        subtitle: 'see the latest feeds',
+        icon: 'newspaper',
+        link: '/apps/feed',
+    },
 ]
