@@ -5,8 +5,6 @@ import { BaseComponent } from 'src/app/core/base/base.component';
 import { FilmService } from 'src/app/core/services/apps/film/film.service';
 import { Film } from 'src/app/core/services/apps/film/film.types';
 import { ShareModule } from 'src/app/core/share/share.module';
-import { addIcons } from "ionicons";
-import { ellipsisVertical } from "ionicons/icons";
 
 @Component({
   selector: 'app-list',
@@ -23,7 +21,7 @@ export class ListComponent extends BaseComponent {
   private _filmService: FilmService = inject(FilmService);
   override ngOnInit(): void {
     super.ngOnInit();
-    this._filmService.films$.pipe(takeUntil(this.unsubscribeAll)).subscribe(films => {     
+    this._filmService.films$.pipe(takeUntil(this.unsubscribeAll)).subscribe(films => {
       if (!films) {
         return;
       }

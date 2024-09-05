@@ -23,7 +23,7 @@ export class AddressBookService extends BaseService {
   }
 
   search(pageable: Pageable): Observable<AddressBook[]> {
-    return this.httpClient.get<AddressBook[]>(Endpoint.address_book(), {
+    return this.httpClient.get<AddressBook[]>(Endpoint.address_books(), {
       params: new HttpParams({ fromObject: pageable as any }),
     }).pipe(tap(addressBooks => {
       this._addressBooks.next(addressBooks);
@@ -32,20 +32,20 @@ export class AddressBookService extends BaseService {
   create(addressBook: AddressBook): Observable<AddressBook> {
     return this._addressBooks.pipe(
       take(1),
-      switchMap(addressBooks => this.httpClient.post(Endpoint.address_book(), addressBook).pipe(tap(newAddressBook => {
+      switchMap(addressBooks => this.httpClient.post(Endpoint.address_books(), addressBook).pipe(tap(newAddressBook => {
         this._addressBooks.next([...addressBooks ?? [], newAddressBook]);
         this._addressBook.next(newAddressBook);
         return of(newAddressBook);
       }))));
   }
   get(id: string): Observable<AddressBook> {
-    return this.httpClient.get<AddressBook>(Endpoint.address_book_id(id)).pipe(tap(addressBook => {
+    return this.httpClient.get<AddressBook>(Endpoint.address_books_id(id)).pipe(tap(addressBook => {
       this._addressBook.next(addressBook);
     }));
   }
 
   update(addressBook: AddressBook): Observable<AddressBook> {
-    return this.httpClient.put<AddressBook>(Endpoint.address_book_id(addressBook.id), addressBook).pipe(tap(updatedAddressBook => {     
+    return this.httpClient.put<AddressBook>(Endpoint.address_books_id(addressBook.id), addressBook).pipe(tap(updatedAddressBook => {     
       this._addressBook.next(updatedAddressBook);
     }));
   }

@@ -33,7 +33,7 @@ export const routes: Routes = [
         component: NotificationComponent,
     },
     {
-        path: 'channel/:channelId',
+        path: 'channels/:channelId',
         resolve: [],
         component: ChannelComponent,
     },

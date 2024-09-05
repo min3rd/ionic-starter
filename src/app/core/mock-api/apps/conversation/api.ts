@@ -11,14 +11,14 @@ import { userData } from "../../common/user/data";
 })
 export class ConversationMockApi extends MockApi {
     override registerHandlers(): void {
-        this.mockupApiService.onGet(Endpoint.conversation()).reply(({ request }) => {
+        this.mockupApiService.onGet(Endpoint.conversations()).reply(({ request }) => {
             return [200, MockApiUtils.filterData(conversationsData, 'title', request.params.get('query') ?? '', +(request.params.get('page') ?? 1), +(request.params.get('size') ?? 10))];
         });
         conversationsData.forEach(conversation => {
-            this.mockupApiService.onGet(Endpoint.conversation_id(conversation.id)).reply(() => {
+            this.mockupApiService.onGet(Endpoint.conversations_id(conversation.id)).reply(() => {
                 return [200, cloneDeep(conversation)];
             });
-            this.mockupApiService.onGet(Endpoint.conversation_id_messages(conversation.id)).reply(({ request }) => {
+            this.mockupApiService.onGet(Endpoint.conversations_id_messages(conversation.id)).reply(({ request }) => {
                 const messages = cloneDeep(messagesData).map(e => {
                     e.conversationId = conversation.id;
                     if (Math.random() > 0.5) {

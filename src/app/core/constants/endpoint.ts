@@ -33,24 +33,24 @@ export class Endpoint {
         return this.common('countries');
     }
 
-    static conversation(...path: string[] | any[]): string {
+    static conversations(...path: string[] | any[]): string {
         return this.api('conversations', path.join('/'));
     }
 
-    static conversation_id(id: string | undefined, ...path: string[] | any[]): string {
-        return this.conversation(id, path.join('/'));
+    static conversations_id(id: string | undefined, ...path: string[] | any[]): string {
+        return this.conversations(id, path.join('/'));
     }
 
-    static conversation_id_messages(conversationId: string | undefined, ...path: string[] | any[]): string {
-        return this.conversation(conversationId, 'messages', path.join('/'));
+    static conversations_id_messages(conversationId: string | undefined, ...path: string[] | any[]): string {
+        return this.conversations(conversationId, 'messages', path.join('/'));
     }
 
-    static address_book(...path: string[] | any[]): string {
+    static address_books(...path: string[] | any[]): string {
         return this.api('address-books', path.join('/'));
     }
 
-    static address_book_id(id: string | undefined, ...path: string[] | any[]): string {
-        return this.address_book(id, path.join('/'));
+    static address_books_id(id: string | undefined, ...path: string[] | any[]): string {
+        return this.address_books(id, path.join('/'));
     }
 
     static academy(...path: string[] | any[]): string {
@@ -76,19 +76,19 @@ export class Endpoint {
         return this.api('file-manager', path.join('/'));
     }
 
-    static film(...path: string[] | undefined[]): string {
+    static films(...path: string[] | undefined[]): string {
         return this.api('films', path.join('/'));
     }
 
-    static film_notifications(...path: string[] | undefined[]): string {
-        return this.film('notifications', path.join('/'));
+    static films_notifications(...path: string[] | undefined[]): string {
+        return this.films('notifications', path.join('/'));
     }
 
-    static film_channel(...path: string[] | undefined[]): string {
-        return this.film('channels', path.join('/'));
+    static films_channels(...path: string[] | undefined[]): string {
+        return this.films('channels', path.join('/'));
     }
-    static film_channel_id(id: string, ...path: string[] | undefined[]): string {
-        return this.film_channel(id, path.join('/'));
+    static films_channels_id(id: string, ...path: string[] | undefined[]): string {
+        return this.films_channels(id, path.join('/'));
     }
 
 }

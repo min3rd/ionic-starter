@@ -23,19 +23,19 @@ export class FilmService extends BaseService {
     return this._film.asObservable();
   }
   notifications(): Observable<Notification[]> {
-    return this.httpClient.get<Notification[]>(Endpoint.film_notifications()).pipe(tap(notifications => {
+    return this.httpClient.get<Notification[]>(Endpoint.films_notifications()).pipe(tap(notifications => {
       this._notifications.next(notifications);
     }));
   }
   search(pageable: Pageable): Observable<Film[]> {
-    return this.httpClient.get<Film[]>(Endpoint.film(), {
+    return this.httpClient.get<Film[]>(Endpoint.films(), {
       params: new HttpParams({ fromObject: pageable as any })
     }).pipe(tap(films => {
       this._films.next(films);
     }));
   }
   get(id: string): Observable<Film> {
-    return this.httpClient.get<Film>(Endpoint.film(id)).pipe(tap(film => {
+    return this.httpClient.get<Film>(Endpoint.films(id)).pipe(tap(film => {
       this._film.next(film);
     }));
   }

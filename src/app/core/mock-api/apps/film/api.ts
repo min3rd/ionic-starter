@@ -16,11 +16,11 @@ export class FilmMockAPi extends MockApi {
         });
 
 
-        this.mockupApiService.onGet(Endpoint.film_notifications()).reply(() => {
+        this.mockupApiService.onGet(Endpoint.films_notifications()).reply(() => {
             return [200, cloneDeep(notificationsData)];
         });
 
-        this.mockupApiService.onGet(Endpoint.film()).reply(({ request }) => {
+        this.mockupApiService.onGet(Endpoint.films()).reply(({ request }) => {
             return [200, MockApiUtils.filterData(
                 temp,
                 'title',
@@ -28,13 +28,13 @@ export class FilmMockAPi extends MockApi {
             )];
         });
         temp.forEach((film) => {
-            this.mockupApiService.onGet(Endpoint.film(film.id ?? '')).reply(() => {
+            this.mockupApiService.onGet(Endpoint.films(film.id ?? '')).reply(() => {
                 return [200, cloneDeep(film)];
             }
             );
         });
         channelsData.forEach((channel) => {
-            this.mockupApiService.onGet(Endpoint.film_channel_id(channel.id ?? '')).reply(() => {
+            this.mockupApiService.onGet(Endpoint.films_channels_id(channel.id ?? '')).reply(() => {
                 return [200, cloneDeep(channel)];
             }
             );

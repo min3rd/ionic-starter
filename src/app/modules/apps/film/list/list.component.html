@@ -19,9 +19,10 @@
                         {{film.title}}
                     </div>
                     <div class="flex items-center gap-2 text-sm">
-                        <div class="text-secondary line-clamp-1">
+                        <a [routerLink]="['/apps','film','channels', film.channel?.id]"
+                            class="font-semibold line-clamp-1">
                             {{film.channel?.title}}
-                        </div>
+                        </a>
                         <div>
                             •
                         </div>

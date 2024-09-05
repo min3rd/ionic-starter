@@ -2,7 +2,6 @@ import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { BaseComponent } from 'src/app/core/base/base.component';
 import { ShareModule } from 'src/app/core/share/share.module';
-import { addIcons } from "ionicons";
 
 @Component({
   selector: 'app-channel',
