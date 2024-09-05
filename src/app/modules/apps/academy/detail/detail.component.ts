@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, OnInit } from '@angular/core';
 import { BaseComponent } from 'src/app/core/base/base.component';
 import { AcademyService } from 'src/app/core/services/apps/academy/academy.service';
 import { Course, Step } from 'src/app/core/services/apps/academy/academy.types';
@@ -16,7 +16,7 @@ import { from, takeUntil } from 'rxjs';
   templateUrl: './detail.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class DetailComponent extends BaseComponent {
+export class DetailComponent extends BaseComponent implements OnInit {
   course!: Course;
   steps!: Step[];
   currentStep!: number;

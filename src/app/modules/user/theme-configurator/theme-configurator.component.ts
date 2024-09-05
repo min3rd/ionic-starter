@@ -1,9 +1,11 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, OnInit } from '@angular/core';
 import { takeUntil } from 'rxjs';
 import { BaseComponent } from 'src/app/core/base/base.component';
 import { ThemeService } from 'src/app/core/services/theme.service';
 import { ShareModule } from 'src/app/core/share/share.module';
+import { addIcons } from "ionicons";
+import { arrowBack } from "ionicons/icons";
 
 @Component({
   selector: 'app-theme-configurator',
@@ -15,7 +17,7 @@ import { ShareModule } from 'src/app/core/share/share.module';
   templateUrl: './theme-configurator.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ThemeConfiguratorComponent extends BaseComponent {
+export class ThemeConfiguratorComponent extends BaseComponent implements OnInit {
   selected!: string;
   themes: string[] = [
     "light",

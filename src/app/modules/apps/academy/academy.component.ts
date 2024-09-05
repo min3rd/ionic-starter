@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, OnInit } from '@angular/core';
 import { takeUntil } from 'rxjs';
 import { BaseComponent } from 'src/app/core/base/base.component';
 import { AcademyService } from 'src/app/core/services/apps/academy/academy.service';
@@ -17,7 +17,7 @@ import { getParam } from 'src/app/core/utils/functions';
   templateUrl: './academy.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class AcademyComponent extends BaseComponent {
+export class AcademyComponent extends BaseComponent implements OnInit {
   onSearch: boolean = false;
   categories!: CourseCategory[];
   category!: string;

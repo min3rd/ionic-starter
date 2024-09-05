@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, OnInit } from '@angular/core';
 import { UntypedFormArray, UntypedFormControl, Validators } from '@angular/forms';
 import { Camera, CameraResultType } from '@capacitor/camera';
 import { from, takeUntil } from 'rxjs';
@@ -21,7 +21,7 @@ import { IonHeader, IonToolbar, IonLabel } from "@ionic/angular/standalone";
   templateUrl: './detail.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class DetailComponent extends BaseComponent {
+export class DetailComponent extends BaseComponent implements OnInit {
   addressBook!: AddressBook;
   countries!: Country[];
   private _addressBookService: AddressBookService = inject(AddressBookService);

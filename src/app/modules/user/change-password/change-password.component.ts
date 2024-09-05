@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, OnInit } from '@angular/core';
 import { BaseComponent } from 'src/app/core/base/base.component';
 import { ShareModule } from 'src/app/core/share/share.module';
 import { IonBackButton } from "@ionic/angular/standalone";
@@ -17,7 +17,7 @@ import { UserService } from 'src/app/core/services/user/user.service';
   templateUrl: './change-password.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ChangePasswordComponent extends BaseComponent {
+export class ChangePasswordComponent extends BaseComponent implements OnInit {
   private _toastService: ToastService = inject(ToastService);
   private _userService: UserService = inject(UserService);
   override ngOnInit(): void {

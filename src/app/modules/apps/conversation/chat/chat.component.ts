@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, OnInit } from '@angular/core';
 import { takeUntil } from 'rxjs';
 import { BaseComponent } from 'src/app/core/base/base.component';
 import { ConversationService } from 'src/app/core/services/apps/conversation/conversation.service';
@@ -7,6 +7,16 @@ import { Conversation, Message } from 'src/app/core/services/apps/conversation/c
 import { User } from 'src/app/core/services/user/user';
 import { UserService } from 'src/app/core/services/user/user.service';
 import { ShareModule } from 'src/app/core/share/share.module';
+import { addIcons } from "ionicons";
+import { arrowBack } from "ionicons/icons";
+import { search } from "ionicons/icons";
+import { ellipsisVertical } from "ionicons/icons";
+import { people } from "ionicons/icons";
+import { checkmarkCircle } from "ionicons/icons";
+import { trash } from "ionicons/icons";
+import { add } from "ionicons/icons";
+import { image } from "ionicons/icons";
+import { send } from "ionicons/icons";
 
 @Component({
   selector: 'app-chat',
@@ -18,7 +28,7 @@ import { ShareModule } from 'src/app/core/share/share.module';
   templateUrl: './chat.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ChatComponent extends BaseComponent {
+export class ChatComponent extends BaseComponent implements OnInit {
   conversation!: Conversation;
   messages!: Message[];
   user!: User;

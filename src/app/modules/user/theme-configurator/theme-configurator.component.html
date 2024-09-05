@@ -24,7 +24,7 @@
                 </span>
             </label>
             <input (change)="onChange($event)" id="theme_{{theme}}" type="radio" name="theme-radios"
-                class="radio ml-auto" value="{{theme}}" [checked]="theme == selected" />
+                class="radio ml-auto" value="{{theme}}" [checked]="theme === selected" />
         </div>
         }
     </div>

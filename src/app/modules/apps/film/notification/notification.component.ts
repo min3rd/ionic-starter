@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, OnInit } from '@angular/core';
 import { takeUntil } from 'rxjs';
 import { BaseComponent } from 'src/app/core/base/base.component';
 import { FilmService } from 'src/app/core/services/apps/film/film.service';
@@ -16,7 +16,7 @@ import { ActionSheetButton } from "@ionic/angular/standalone";
   templateUrl: './notification.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class NotificationComponent extends BaseComponent {
+export class NotificationComponent extends BaseComponent implements OnInit {
   notifications!: Notification[];
   private _filmService: FilmService = inject(FilmService);
   actionSheetButtons!: ActionSheetButton[];

@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { BaseComponent } from 'src/app/core/base/base.component';
 import { ShareModule } from 'src/app/core/share/share.module';
 @Component({
@@ -12,7 +12,7 @@ import { ShareModule } from 'src/app/core/share/share.module';
   templateUrl: './user.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class UserComponent extends BaseComponent {
+export class UserComponent extends BaseComponent implements OnInit {
   override ngOnInit(): void {
     super.ngOnInit();
   }

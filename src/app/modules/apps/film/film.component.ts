@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, OnInit } from '@angular/core';
 import { takeUntil } from 'rxjs';
 import { BaseComponent } from 'src/app/core/base/base.component';
 import { FilmService } from 'src/app/core/services/apps/film/film.service';
@@ -16,7 +16,7 @@ import { ShareModule } from 'src/app/core/share/share.module';
   templateUrl: './film.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class FilmComponent extends BaseComponent {
+export class FilmComponent extends BaseComponent implements OnInit {
   onSearch: boolean = false;
   notifications!: Notification[];
   private _filmService: FilmService = inject(FilmService);

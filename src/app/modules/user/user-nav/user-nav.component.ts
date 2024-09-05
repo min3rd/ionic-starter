@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, OnInit } from '@angular/core';
 import { takeUntil } from 'rxjs';
 import { BaseComponent } from 'src/app/core/base/base.component';
 import { UserService } from 'src/app/core/services/user/user.service';
@@ -19,7 +19,7 @@ import { User } from 'src/app/core/services/user/user';
   templateUrl: './user-nav.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class UserNavComponent extends BaseComponent {
+export class UserNavComponent extends BaseComponent implements OnInit {
   user!: User;
   private _userService: UserService = inject(UserService);
   private _authService:AuthService = inject(AuthService);

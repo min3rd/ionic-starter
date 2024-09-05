@@ -1,6 +1,6 @@
 import videojs from 'video.js';
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component, ElementRef, inject, ViewChild } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ElementRef, inject, ViewChild, OnInit } from '@angular/core';
 import { BaseComponent } from 'src/app/core/base/base.component';
 import { ShareModule } from 'src/app/core/share/share.module';
 import { FilmService } from 'src/app/core/services/apps/film/film.service';
@@ -17,7 +17,7 @@ import { Film } from 'src/app/core/services/apps/film/film.types';
   templateUrl: './detail.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class DetailComponent extends BaseComponent {
+export class DetailComponent extends BaseComponent implements OnInit {
   @ViewChild('target', { static: true }) target!: ElementRef;
   film!: Film;
   films!: Film[];

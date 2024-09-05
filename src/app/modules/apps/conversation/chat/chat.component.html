@@ -47,7 +47,7 @@
 <ion-content>
     @if (messages && messages.length) {
     @for (message of messages; track $index) {
-    @if (message.sender == user.fullname) {
+    @if (message.sender === user.fullname) {
     <div class="chat chat-end">
         <div class="chat-image avatar">
             <div class="w-10 rounded-full">

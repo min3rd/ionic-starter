@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component, ElementRef, inject, ViewChild } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ElementRef, inject, ViewChild, OnInit } from '@angular/core';
 import { BaseComponent } from 'src/app/core/base/base.component';
 import { ShareModule } from 'src/app/core/share/share.module';
 import { Camera, CameraResultType, CameraSource } from '@capacitor/camera';
@@ -18,7 +18,7 @@ import { User } from 'src/app/core/services/user/user';
   templateUrl: './edit-profile.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class EditProfileComponent extends BaseComponent {
+export class EditProfileComponent extends BaseComponent implements OnInit {
   @ViewChild('modal') modal!: ElementRef;
   user!: User;
   isMobile: boolean = this.platform.is('mobile');

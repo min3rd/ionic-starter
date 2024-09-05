@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { BaseComponent } from '../../../base/base.component';
 import { ShareModule } from '../../../share/share.module';
 import { IonApp, IonHeader, IonRouterOutlet, IonToolbar, IonTitle } from "@ionic/angular/standalone";
@@ -21,7 +21,7 @@ import { UserComponent } from '../../components/user/user.component';
   templateUrl: './classic-layout.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ClassicLayoutComponent extends BaseComponent {
+export class ClassicLayoutComponent extends BaseComponent implements OnInit {
   title!: string;
   override ngOnInit(): void {
     super.ngOnInit();

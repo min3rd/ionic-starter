@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, OnInit } from '@angular/core';
 import { takeUntil } from 'rxjs';
 import { BaseComponent } from 'src/app/core/base/base.component';
 import { UserService } from 'src/app/core/services/user/user.service';
@@ -17,7 +17,7 @@ import { User } from 'src/app/core/services/user/user';
   templateUrl: './profile.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ProfileComponent extends BaseComponent {
+export class ProfileComponent extends BaseComponent implements OnInit {
   private _userService: UserService = inject(UserService);
   user!: User;
   editProfileComponent = EditProfileComponent;

@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, OnInit } from '@angular/core';
 import { takeUntil } from 'rxjs';
 import { BaseComponent } from 'src/app/core/base/base.component';
 import { ConversationService } from 'src/app/core/services/apps/conversation/conversation.service';
@@ -16,7 +16,7 @@ import { ShareModule } from 'src/app/core/share/share.module';
   templateUrl: './list.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ListComponent extends BaseComponent {
+export class ListComponent extends BaseComponent implements OnInit {
   onSearch: boolean = false;
   conversations!: Conversation[];
   private _conversationService: ConversationService = inject(ConversationService);

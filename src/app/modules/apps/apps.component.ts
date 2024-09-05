@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, OnInit } from '@angular/core';
 import { takeUntil } from 'rxjs';
 import { BaseComponent } from 'src/app/core/base/base.component';
 import { AppsService } from 'src/app/core/services/apps/apps.service';
@@ -15,7 +15,7 @@ import { App } from 'src/app/core/services/apps/apps.types';
   templateUrl: './apps.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class AppsComponent extends BaseComponent {
+export class AppsComponent extends BaseComponent implements OnInit {
   apps!: App[];
   private _appsService: AppsService = inject(AppsService);
   override ngOnInit(): void {

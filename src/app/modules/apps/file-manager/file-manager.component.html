@@ -12,12 +12,12 @@
             <button class="btn btn-circle btn-ghost text-primary-content">
                 <ion-icon name="add" size="large"></ion-icon>
             </button>
-            @if (displayType =='list') {
+            @if (displayType ==='list') {
             <button (click)="displayType = 'grid';" class="btn btn-circle btn-ghost text-primary-content">
                 <ion-icon name="grid" size="large"></ion-icon>
             </button>
             }
-            @if (displayType =='grid') {
+            @if (displayType ==='grid') {
             <button (click)="displayType = 'list';" class="btn btn-circle btn-ghost text-primary-content">
                 <ion-icon name="list" size="large"></ion-icon>
             </button>
@@ -26,7 +26,7 @@
     </div>
 </ion-header>
 <ion-content>
-    @if (displayType == 'grid') {
+    @if (displayType === 'grid') {
     <div class="grid grid-cols-3 md:flex md:flex-wrap">
         @if (folders && folders.length) {
         @for (folder of folders; track $index) {
@@ -71,7 +71,7 @@
     </div>
     }
 
-    @if (displayType == 'list') {
+    @if (displayType === 'list') {
     @for (folder of folders; track $index) {
     <ion-item-sliding class="animate-fade-left  animate-duration-300">
         <ion-item-options side="start">

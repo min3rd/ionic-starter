@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, OnInit } from '@angular/core';
 import { UntypedFormArray, UntypedFormControl, Validators } from '@angular/forms';
 import { Camera, CameraResultType } from '@capacitor/camera';
 import { from, takeUntil } from 'rxjs';
@@ -20,7 +20,7 @@ import { ShareModule } from 'src/app/core/share/share.module';
   templateUrl: './edit.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class EditComponent extends BaseComponent {
+export class EditComponent extends BaseComponent implements OnInit {
   addressBook!: AddressBook;
   countries!: Country[];
   private _addressBookService: AddressBookService = inject(AddressBookService);

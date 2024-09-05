@@ -1,11 +1,12 @@
 import { CommonModule, DOCUMENT } from '@angular/common';
-import { ChangeDetectionStrategy, Component, inject, Inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, Inject, OnInit } from '@angular/core';
 import { BaseComponent } from '../base/base.component';
 import { ShareModule } from '../share/share.module';
 import { EmptyLayoutComponent } from './layouts/empty-layout/empty-layout.component';
 import { ClassicLayoutComponent } from './layouts/classic-layout/classic-layout.component';
 import { ThemeService } from '../services/theme.service';
 import { takeUntil } from 'rxjs';
+
 @Component({
   selector: 'app-layout',
   standalone: true,
@@ -18,7 +19,7 @@ import { takeUntil } from 'rxjs';
   templateUrl: './layout.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class LayoutComponent extends BaseComponent {
+export class LayoutComponent extends BaseComponent implements OnInit {
   layout: string | 'empty' | 'classic' = 'empty';
   private _themeService: ThemeService = inject(ThemeService);
   constructor(

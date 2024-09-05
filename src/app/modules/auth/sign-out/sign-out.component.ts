@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, OnInit } from '@angular/core';
 import { finalize, takeWhile, tap, timer } from 'rxjs';
 import { AuthService } from 'src/app/core/auth/auth.service';
 import { BaseComponent } from 'src/app/core/base/base.component';
@@ -16,7 +16,7 @@ import { ShareModule } from 'src/app/core/share/share.module';
   templateUrl: './sign-out.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class SignOutComponent extends BaseComponent {
+export class SignOutComponent extends BaseComponent implements OnInit {
   countdown: number = 60; // redirect in 5s
   private _storageService: StorageService = inject(StorageService);
   private _authService: AuthService = inject(AuthService);

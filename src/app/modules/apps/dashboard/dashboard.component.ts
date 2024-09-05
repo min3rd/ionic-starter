@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { BaseComponent } from 'src/app/core/base/base.component';
 import { ShareModule } from 'src/app/core/share/share.module';
 
@@ -13,7 +13,7 @@ import { ShareModule } from 'src/app/core/share/share.module';
   templateUrl: './dashboard.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class DashboardComponent extends BaseComponent {
+export class DashboardComponent extends BaseComponent implements OnInit {
   counter: number = 59;
   override ngOnInit(): void {
     super.ngOnInit();

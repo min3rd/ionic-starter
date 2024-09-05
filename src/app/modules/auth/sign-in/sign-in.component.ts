@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, OnInit } from '@angular/core';
 import { Validators } from '@angular/forms';
 import { AuthService } from 'src/app/core/auth/auth.service';
 import { BaseComponent } from 'src/app/core/base/base.component';
@@ -18,7 +18,7 @@ import { getQuery } from 'src/app/core/utils/functions';
   templateUrl: './sign-in.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class SignInComponent extends BaseComponent {
+export class SignInComponent extends BaseComponent implements OnInit {
   private _authService: AuthService = inject(AuthService);
   private _toastService: ToastService = inject(ToastService);
   override ngOnInit(): void {
