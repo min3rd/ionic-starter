@@ -15,14 +15,14 @@
     </div>
 </ion-header>
 <ion-content>
-    <div class="relative h-48 bg-contain overflow-hidden rounded-none">
+    <div class="relative aspect-video bg-contain overflow-hidden rounded-none">
         @if (channel.thumbnail) {
         <img [src]="channel.thumbnail" alt="thumbnail">
         }
         @else {
         <div class="skeleton w-full h-full rounded-none"></div>
         }
-        <div class="absolute bottom-0 w-full backdrop-blur-sm p-2">
+        <div class="absolute bottom-2 m-2 card bg-neutral bg-opacity-40 backdrop-blur-md p-2">
             <div class="flex gap-2">
                 <div class="avatar">
                     <div class="w-24 h-24 rounded-full">
@@ -31,7 +31,7 @@
                         }
                     </div>
                 </div>
-                <div class="text-neutral-content">
+                <div class="text-neutral-content p-2">
                     <div class="font-semibold text-xl line-clamp-1">
                         {{channel.title}}
                     </div>
@@ -49,13 +49,13 @@
                         }
                     </div>
                     <div>
-                        <button class="btn btn-primary text-primary-content">
-                            {{'subscribe' | transloco | capitalize}}
+                        <button class="btn btn-primary text-primary-content uppercase">
+                            {{'subscribe' | transloco}}
                         </button>
                     </div>
                     @if (channel.description) {
                     <div class="font-thin line-clamp-2">
-                        {{channel.description | capitalize}}
+                        {{channel.description}}
                     </div>
                     }
                 </div>
@@ -117,7 +117,7 @@
                         </div>
                     </div>
                 </div>
-                <button class="btn btn-circle btn-ghost text-primary">
+                <button class="btn btn-circle btn-ghost text-base-content">
                     <ion-icon name="ellipsis-vertical" size="large"></ion-icon>
                 </button>
             </div>
