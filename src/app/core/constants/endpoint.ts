@@ -87,8 +87,16 @@ export class Endpoint {
     static films_channels(...path: string[] | undefined[]): string {
         return this.films('channels', path.join('/'));
     }
+
     static films_channels_id(id: string, ...path: string[] | undefined[]): string {
         return this.films_channels(id, path.join('/'));
     }
 
+    static feeds(...path: string[] | undefined[]): string {
+        return this.api('feeds', path.join('/'));
+    }
+
+    static feed_posts(...path: string[] | undefined[]): string {
+        return this.feeds('posts', path.join('/'));
+    }
 }

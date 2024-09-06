@@ -1,12 +1,12 @@
 import { Comment, Like, Post, Share } from "src/app/core/services/apps/feed/feed.types";
 
 export const emojisData: string[] = [
-    'thumbs-up',
-    'heart',
-    'laugh',
-    'surprised',
-    'cry',
-    'angry',
+    '👍',
+    '❤️',
+    '😂',
+    '😯',
+    '😢',
+    '😡',
 ];
 
 export const likesData: Like[] = [
@@ -115,6 +115,7 @@ export const postsData: Post[] = [
     {
         id: '95acc492-9721-4c63-bf23-5006c84e78cc',
         avatar: 'assets/images/avatars/1.jpg',
+        fullname: 'Cristian Torres',
         title: 'The best way to spend your weekend',
         content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
         thumbnail: 'assets/images/thumbnails/1.jpg',
@@ -123,29 +124,36 @@ export const postsData: Post[] = [
             'assets/images/thumbnails/2.jpg',
             'assets/images/thumbnails/3.jpg',
         ],
+        createdDate: '2021-09-01T12:00:00',
     },
+
     {
-        id: '4d2e1d12-1297-4237-ae2a-b65d26932be4',
-        avatar: 'assets/images/avatars/2.jpg',
+        id: '95acc492-9721-4c63-bf23-5006c84e78cc',
+        avatar: 'assets/images/avatars/1.jpg',
+        fullname: 'Cristian Torres',
         title: 'The best way to spend your weekend',
         content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-        thumbnail: 'assets/images/thumbnails/2.jpg',
+        thumbnail: 'assets/images/thumbnails/1.jpg',
         images: [
             'assets/images/thumbnails/1.jpg',
             'assets/images/thumbnails/2.jpg',
             'assets/images/thumbnails/3.jpg',
         ],
+        createdDate: '2021-09-01T12:00:00',
     },
+
     {
-        id: '86477f8d-c57c-46b9-9fc1-981b744ab9e7',
-        avatar: 'assets/images/avatars/3.jpg',
+        id: '95acc492-9721-4c63-bf23-5006c84e78cc',
+        avatar: 'assets/images/avatars/1.jpg',
+        fullname: 'Cristian Torres',
         title: 'The best way to spend your weekend',
         content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-        thumbnail: 'assets/images/thumbnails/3.jpg',
+        thumbnail: 'assets/images/thumbnails/1.jpg',
         images: [
             'assets/images/thumbnails/1.jpg',
             'assets/images/thumbnails/2.jpg',
             'assets/images/thumbnails/3.jpg',
         ],
-    }
+        createdDate: '2021-09-01T12:00:00',
+    },
 ];
