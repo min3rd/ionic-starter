@@ -55,6 +55,7 @@ import {
 } from "@ionic/angular/standalone";
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { LongPressDirective } from '../directives/long-press.directive';
 
 @NgModule({
   declarations: [],
@@ -65,6 +66,7 @@ import { RouterModule } from '@angular/router';
     FormsModule,
     TranslocoModule,
     PipeModule,
+    LongPressDirective,
     IonApp,
     IonHeader,
     IonRouterOutlet,
@@ -121,6 +123,7 @@ import { RouterModule } from '@angular/router';
     FormsModule,
     TranslocoModule,
     PipeModule,
+    LongPressDirective,
     IonApp,
     IonHeader,
     IonRouterOutlet,

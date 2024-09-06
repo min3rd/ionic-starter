@@ -1,3 +1,12 @@
+<ion-header>
+    <div class="navbar bg-primary">
+        <div class="navbar-start animate-fade-up animate-duration-300">
+            <button [routerLink]="['../']" class="btn btn-circle btn-ghost text-primary-content">
+                <ion-icon name="arrow-back" size="large"></ion-icon>
+            </button>
+        </div>
+    </div>
+</ion-header>
 <ion-content>
     <div class="flex gap-2 p-2">
         <div class="avatar">
@@ -77,24 +86,25 @@
             }
         </div>
         }
-        <div class="flex items-center px-2 gap-2 py-2">
-            @for (emoji of emojis(post.likes); track $index) {
-            <div>
-                {{emoji}}
-            </div>
+        <div class="flex items-center px-2 py-2">
+            @for (emoji of emojis(post.likes); track $index; let i = $index;) {
+            <button class="btn btn-sm btn-circle text-{{emoji.color}}" [ngClass]="{'-ml-3': i > 0}">
+                <ion-icon [name]="emoji.icon"></ion-icon>
+            </button>
             }
-            <div class="text-base-content">
+            <div class="ml-2 text-base-content">
                 {{post.likes?.length| abbreviate}}
             </div>
             <div class="ml-auto lowercase text-base-content">
                 {{post.comments?.length | abbreviate}} {{'comments' | transloco}}
             </div>
-            <div class="lowercase text-base-content">
+            <div class="ml-2 lowercase text-base-content">
                 {{post.shares?.length | abbreviate}} {{'shares' | transloco}}
             </div>
         </div>
         <div class="flex items-center gap-2 px-2">
-            <button class="btn btn-ghost capitalize">
+            <button id="more-emoji-{{post.id}}" long-press (press)="longPressLike(post)"
+                class="btn btn-ghost capitalize">
                 <ion-icon name="thumbs-up"></ion-icon>
                 {{'like' | transloco}}
             </button>
@@ -102,12 +112,11 @@
                 <ion-icon name="chatbubble"></ion-icon>
                 {{'comment' | transloco}}
             </button>
-            <button class="ml-auto btn btn-ghost capitalize">
+            <button (click)="share(post)" class="ml-auto btn btn-ghost capitalize">
                 <ion-icon name="arrow-redo"></ion-icon>
                 {{'share' | transloco}}
             </button>
         </div>
     </div>
     }
-
 </ion-content>

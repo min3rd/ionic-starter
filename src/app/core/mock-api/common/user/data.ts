@@ -1,9 +1,8 @@
 import { User } from "src/app/core/services/user/user";
 import { adminCredential } from "../../auth/data";
-import { MockApiUtils } from "src/app/@vn9melody/lib/mock-api";
 
 export const userData: User = {
-    id: MockApiUtils.guid(),
+    id: '8d12fa2c-6057-4f40-97b4-c207a07a8b6e',
     email: adminCredential.email,
     fullname: 'Vũ Văn Minh',
     avatar: 'assets/images/avatars/1.jpg',

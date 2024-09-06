@@ -98,5 +98,9 @@
   "vietnamese": "vietnamese",
   "feed": "feed",
   "see the latest feeds": "see the latest feeds",
-  "language": "language"
+  "language": "language",
+  "comments": "comments",
+  "comment": "comment",
+  "like": "like",
+  "shares": "shares"
 }

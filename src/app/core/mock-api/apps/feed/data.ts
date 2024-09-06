@@ -1,12 +1,26 @@
-import { Comment, Like, Post, Share } from "src/app/core/services/apps/feed/feed.types";
+import { Comment, Emoji, Like, Post, Share } from "src/app/core/services/apps/feed/feed.types";
 
-export const emojisData: string[] = [
-    '👍',
-    '❤️',
-    '😂',
-    '😯',
-    '😢',
-    '😡',
+export const emojisData: Emoji[] = [
+    {
+        icon: 'thumbs-up',
+        color: 'primary',
+        label: 'like',
+    },
+    {
+        icon: 'heart',
+        color: 'red-500',
+        label: 'love',
+    },
+    {
+        icon: 'happy',
+        color: 'orange-500',
+        label: 'happy',
+    },
+    {
+        icon:'sad',
+        color: 'blue-500',
+        label: 'sad',
+    }
 ];
 
 export const likesData: Like[] = [
@@ -128,7 +142,7 @@ export const postsData: Post[] = [
     },
 
     {
-        id: '95acc492-9721-4c63-bf23-5006c84e78cc',
+        id: '95acc492-9721-4c63-bf23-5006c84e78cd',
         avatar: 'assets/images/avatars/1.jpg',
         fullname: 'Cristian Torres',
         title: 'The best way to spend your weekend',
@@ -143,7 +157,7 @@ export const postsData: Post[] = [
     },
 
     {
-        id: '95acc492-9721-4c63-bf23-5006c84e78cc',
+        id: '95acc492-9721-4c63-bf23-5006c84e78cz',
         avatar: 'assets/images/avatars/1.jpg',
         fullname: 'Cristian Torres',
         title: 'The best way to spend your weekend',

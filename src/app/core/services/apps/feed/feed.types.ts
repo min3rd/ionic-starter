@@ -16,7 +16,8 @@ export interface Post extends Base {
 export interface Like extends Base {
     avatar?: string;
     fullname?: string;
-    emoji?: string;
+    emoji?: Emoji;
+    userId?: string;
 };
 
 export interface Comment extends Base {
@@ -38,4 +39,5 @@ export interface Share extends Base {
 export interface Emoji {
     icon?: string;
     color?: string;
+    label?: string;
 };

@@ -14,36 +14,9 @@
 
 <ion-content class="ion-padding">
     <div class="flex flex-col gap-4">
-        <div class="grid auto-cols-max grid-flow-col gap-5 text-center justify-center">
-            <div class="bg-neutral rounded-box text-neutral-content flex flex-col p-2">
-                <span class="countdown font-mono text-5xl">
-                    <span style="--value:15;"></span>
-                </span>
-                days
-            </div>
-            <div class="bg-neutral rounded-box text-neutral-content flex flex-col p-2">
-                <span class="countdown font-mono text-5xl">
-                    <span style="--value:10;"></span>
-                </span>
-                hours
-            </div>
-            <div class="bg-neutral rounded-box text-neutral-content flex flex-col p-2">
-                <span class="countdown font-mono text-5xl">
-                    <span style="--value:24;"></span>
-                </span>
-                min
-            </div>
-            <div class="bg-neutral rounded-box text-neutral-content flex flex-col p-2">
-                <span class="countdown font-mono text-5xl">
-                    <span style="--value:${counter};"></span>
-                </span>
-                sec
-            </div>
-        </div>
-
         <div class="stats bg-primary text-primary-content">
             <div class="stat">
-                <div class="stat-title">Account balance</div>
+                <div class="stat-title text-primary-content">Account balance</div>
                 <div class="stat-value">$89,400</div>
                 <div class="stat-actions">
                     <button class="btn btn-sm btn-success">Add funds</button>
@@ -51,7 +24,7 @@
             </div>
 
             <div class="stat">
-                <div class="stat-title">Current balance</div>
+                <div class="stat-title text-primary-content">Current balance</div>
                 <div class="stat-value">$89,400</div>
                 <div class="stat-actions">
                     <button class="btn btn-sm">Withdrawal</button>
@@ -77,20 +50,6 @@
                 <div class="stat-value">1,200</div>
                 <div class="stat-desc">↘︎ 90 (14%)</div>
             </div>
-        </div>
-
-        <div class="diff aspect-video">
-            <div class="diff-item-1">
-                <div class="bg-primary text-primary-content grid place-content-center text-9xl font-black">
-                    {{'vn' | transloco | capitalize}}
-                </div>
-            </div>
-            <div class="diff-item-2">
-                <div class="bg-base-200 grid place-content-center text-9xl font-black">
-                    {{'vn' | transloco | capitalize}}
-                </div>
-            </div>
-            <div class="diff-resizer mx-auto"></div>
         </div>
     </div>
 </ion-content>
