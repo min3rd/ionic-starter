@@ -1,0 +1,224 @@
+<ion-header>
+    <div class="navbar bg-primary">
+        <div class="navbar-start animate-fade-up animate-duration-300">
+            <button [routerLink]="['../']" class="btn btn-circle btn-ghost text-primary-content">
+                <ion-icon name="arrow-back" size="large"></ion-icon>
+            </button>
+        </div>
+    </div>
+</ion-header>
+<ion-content>
+    <div class="bg-base-100 py-2 mb-2">
+        <div class="flex items-center px-2 gap-2">
+            <div class="avatar">
+                <div class="w-12 h-12 rounded-full">
+                    @if (post.avatar) {
+                    <img [src]="post.avatar">
+                    }
+                    @else {
+                    <div class="skeleton w-full h-full"></div>
+                    }
+                </div>
+            </div>
+            <div>
+                @if (post.fullname) {
+                <div class="font-semibold line-clamp-1">
+                    {{post.fullname}}
+                </div>
+                }
+                @else {
+                <div class="skeleton w-48 h-4"></div>
+                }
+
+                @if (post.createdDate) {
+                <div class="font-thin text-sm">
+                    {{post.createdDate | uploadTime}}
+                </div>
+                }
+                @else {
+                <div class="skeleton w-16 h-4"></div>
+                }
+            </div>
+            <div class="ml-auto flex items-center gap-2">
+                <button id="actions" (click)="changeDetectorRef.markForCheck()"
+                    class="btn btn-circle btn-ghost text-base-content">
+                    <ion-icon name="ellipsis-vertical" size="large"></ion-icon>
+                </button>
+                <ion-action-sheet trigger="actions" [buttons]="actionSheetButtons"></ion-action-sheet>
+
+                <button class="btn btn-circle btn-ghost text-base-content">
+                    <ion-icon name="close" size="large"></ion-icon>
+                </button>
+            </div>
+        </div>
+        @if (post.content) {
+        <div class="p-2 whitespace-normal">
+            {{post.content}}
+        </div>
+        }
+        @if (post.thumbnail) {
+        <div class="relative aspect-auto bg-contain overflow-hidden">
+            <img [src]="post.thumbnail">
+        </div>
+        }
+        @else if (post.images) {
+        <div class="aspect-auto stack">
+            @for (image of post.images; track $index) {
+            <div class="relative aspect-auto bg-contain overflow-hidden">
+                <img [src]="image">
+            </div>
+            }
+        </div>
+        }
+        <div class="flex items-center px-2 py-2">
+            @for (emoji of emojis(post.likes); track $index; let i = $index;) {
+            <button class="btn btn-sm btn-circle {{emoji.color}}" [ngClass]="{'-ml-3': i > 0}">
+                <ion-icon [name]="emoji.icon"></ion-icon>
+            </button>
+            }
+            <div class="ml-2 text-base-content">
+                {{post.likes?.length| abbreviate}}
+            </div>
+            <div class="ml-auto lowercase text-base-content">
+                {{post.comments?.length | abbreviate}} {{'comments' | transloco}}
+            </div>
+            <div class="ml-2 lowercase text-base-content">
+                {{post.shares?.length | abbreviate}} {{'shares' | transloco}}
+            </div>
+        </div>
+        <div class="flex items-center gap-2 px-2">
+            @if (emoed(post)) {
+            <button id="more-emoji-{{post.id}}" long-press (press)="longPressLike(post)"
+                class="btn btn-ghost capitalize {{emoed(post)?.emoji?.color}}">
+                <ion-icon [name]="emoed(post)?.emoji?.icon"></ion-icon>
+                {{emoed(post)?.emoji?.label| transloco}}
+            </button>
+            }
+            @else {
+            <button id="more-emoji-{{post.id}}" long-press (press)="longPressLike(post)"
+                class="btn btn-ghost capitalize">
+                <ion-icon name="thumbs-up"></ion-icon>
+                {{'like' | transloco}}
+            </button>
+            }
+
+            <button class="btn btn-ghost capitalize">
+                <ion-icon name="chatbubble"></ion-icon>
+                {{'comment' | transloco}}
+            </button>
+            <button (click)="share(post)" class="ml-auto btn btn-ghost capitalize">
+                <ion-icon name="arrow-redo"></ion-icon>
+                {{'share' | transloco}}
+            </button>
+        </div>
+        @for (comment of post.comments; track $index) {
+        <div class="chat chat-start">
+            <div class="chat-image avatar">
+                <div class="w-12 h-12 rounded-full">
+                    @if (comment.avatar) {
+                    <img [src]="comment.avatar">
+                    }
+                    @else {
+                    <div class="skeleton w-full h-full"></div>
+                    }
+                </div>
+            </div>
+            <div class="chat-header">
+                <div class="font-semibold">
+                    {{comment.fullname}}
+                    @if (comment.createdDate) {
+                    <time class="ml-2 text-xs opacity-50">
+                        {{comment.createdDate | uploadTime}}
+                    </time>
+                    }
+                </div>
+            </div>
+            <div class="chat-bubble">
+                @if (comment.content) {
+                <div>
+                    {{comment.content}}
+                </div> }
+                <div class="flex gap-2">
+                    <button class="btn btn-ghost btn-circle">
+                        <ion-icon name="thumbs-up"></ion-icon>
+                    </button>
+                    <button class="btn btn-ghost btn-circle">
+                        <ion-icon name="chatbubble"></ion-icon>
+                    </button>
+                    <button class="btn btn-ghost btn-circle">
+                        <ion-icon name="arrow-redo"></ion-icon>
+                    </button>
+                </div>
+            </div>
+        </div>
+        @if (comment.replies) {
+        <div class="flex flex-col ml-12">
+            @for (reply of comment.replies; track $index) {
+            <div class="chat chat-start">
+                <div class="chat-image avatar">
+                    <div class="w-12 h-12 rounded-full">
+                        @if (reply.avatar) {
+                        <img [src]="reply.avatar">
+                        }
+                        @else {
+                        <div class="skeleton w-full h-full"></div>
+                        }
+                    </div>
+                </div>
+                <div class="chat-header">
+                    <div class="font-semibold">
+                        {{reply.fullname}}
+                        @if (reply.createdDate) {
+                        <time class="ml-2 text-xs opacity-50">
+                            {{reply.createdDate | uploadTime}}
+                        </time>
+                        }
+                    </div>
+                </div>
+                <div class="chat-bubble">
+                    @if (reply.content) {
+                    <div class="line-clamp-3">
+                        {{reply.content}}
+                    </div>
+                    }
+                    @if (reply.thumbnail) {
+                    <div class="relative aspect-auto bg-cover overflow-hidden">
+                        <img [src]="reply.thumbnail">
+                    </div>
+                    }
+                    <div class="flex gap-2">
+                        <button class="btn btn-ghost btn-circle">
+                            <ion-icon name="thumbs-up"></ion-icon>
+                        </button>
+                        <button class="btn btn-ghost btn-circle">
+                            <ion-icon name="chatbubble"></ion-icon>
+                        </button>
+                        <button class="btn btn-ghost btn-circle">
+                            <ion-icon name="arrow-redo"></ion-icon>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            }
+        </div>
+        }
+        }
+    </div>
+</ion-content>
+<ion-footer>
+    <div class="navbar bg-primary gap-2">
+        <button class="btn btn-circle btn-ghost text-primary-content">
+            <ion-icon name="camera" size="large"></ion-icon>
+        </button>
+        <label class="input input-bordered flex items-center gap-2 w-full">
+            <input type="text" class="grow"
+                placeholder="{{'comment as ' | transloco | capitalize}} {{user.fullname}}" />
+        </label>
+        <button class="btn btn-circle btn-ghost text-primary-content">
+            <ion-icon name="happy" size="large"></ion-icon>
+        </button>
+        <button class="btn btn-circle btn-ghost text-primary-content">
+            <ion-icon name="send" size="large"></ion-icon>
+        </button>
+    </div>
+</ion-footer>

@@ -1,8 +1,8 @@
 <ion-content>
     <div class="flex flex-wrap p-1 gap-1 overflow-x-auto bg-base-100">
         @for (emoji of emojis; track $index) {
-        <button class="btn btn-circle btn-ghost">
-            <ion-icon [name]="emoji.icon" class="text-{{emoji.color}}" size="large"></ion-icon>
+        <button class="btn btn-circle btn-ghost {{emoji.color}}">
+            <ion-icon [name]="emoji.icon" size="large"></ion-icon>
         </button>
         }
         <button class="btn btn-circle btn-ghost">

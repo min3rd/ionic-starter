@@ -1,31 +1,29 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, OnInit } from '@angular/core';
 import { Share } from '@capacitor/share';
 import { ActionSheetButton, PopoverController } from '@ionic/angular/standalone';
-import { takeUntil, from } from 'rxjs';
+import { from, takeUntil } from 'rxjs';
 import { BaseComponent } from 'src/app/core/base/base.component';
-import { emojisData } from 'src/app/core/mock-api/apps/feed/data';
 import { FeedService } from 'src/app/core/services/apps/feed/feed.service';
-import { Post, Like, Emoji } from 'src/app/core/services/apps/feed/feed.types';
-import { User } from 'src/app/core/services/user/user';
-import { UserService } from 'src/app/core/services/user/user.service';
+import { Emoji, Like, Post } from 'src/app/core/services/apps/feed/feed.types';
 import { ShareModule } from 'src/app/core/share/share.module';
 import { MoreEmojiComponent } from '../more-emoji/more-emoji.component';
+import { UserService } from 'src/app/core/services/user/user.service';
+import { User } from 'src/app/core/services/user/user';
 
 @Component({
-  selector: 'app-list',
+  selector: 'app-detail',
   standalone: true,
   imports: [
     CommonModule,
     ShareModule,
   ],
-  templateUrl: './list.component.html',
+  templateUrl: './detail.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ListComponent extends BaseComponent {
+export class DetailComponent extends BaseComponent implements OnInit {
   user!: User;
-  posts!: Post[];
-  likes = emojisData;
+  post!: Post;
   actionSheetButtons!: ActionSheetButton[];
   private _userService: UserService = inject(UserService);
   private _feedService: FeedService = inject(FeedService);
@@ -37,9 +35,9 @@ export class ListComponent extends BaseComponent {
       this.user = user;
       this.changeDetectorRef.markForCheck();
     });
-    this._feedService.posts$.pipe(takeUntil(this.unsubscribeAll)).subscribe(posts => {
-      if (!posts) return;
-      this.posts = posts;
+    this._feedService.post$.pipe(takeUntil(this.unsubscribeAll)).subscribe(post => {
+      if (!post) return;
+      this.post = post;
       this.changeDetectorRef.markForCheck();
     });
     this.actionSheetButtons = [

@@ -99,4 +99,8 @@ export class Endpoint {
     static feed_posts(...path: string[] | undefined[]): string {
         return this.feeds('posts', path.join('/'));
     }
+
+    static feed_posts_id(id: string | any, ...path: string[] | undefined[]): string {
+        return this.feed_posts(id, path.join('/'));
+    }
 }

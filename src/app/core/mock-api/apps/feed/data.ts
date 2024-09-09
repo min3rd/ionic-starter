@@ -3,22 +3,22 @@ import { Comment, Emoji, Like, Post, Share } from "src/app/core/services/apps/fe
 export const emojisData: Emoji[] = [
     {
         icon: 'thumbs-up',
-        color: 'primary',
+        color: 'text-primary',
         label: 'like',
     },
     {
         icon: 'heart',
-        color: 'error',
+        color: 'text-red-500',
         label: 'love',
     },
     {
         icon: 'happy',
-        color: 'info',
+        color: 'text-yellow-500',
         label: 'happy',
     },
     {
-        icon:'sad',
-        color: 'accent',
+        icon: 'sad',
+        color: 'text-blue-500',
         label: 'sad',
     }
 ];
@@ -77,31 +77,23 @@ export const commentsData: Comment[] = [
         avatar: 'assets/images/avatars/1.jpg',
         fullname: 'Cristian Torres',
         content: 'Wow, this is amazing!',
+        thumbnail: 'assets/images/thumbnails/6.jpg',
+        createdDate: '2024-09-09T12:00:00',
     },
     {
         id: '4d2e1d12-1297-4237-ae2a-b65d26932be4',
         avatar: 'assets/images/avatars/2.jpg',
         fullname: 'Alice Cuthbert',
         content: 'I agree with you!',
+        createdDate: '2024-09-01T12:00:00',
     },
     {
         id: '86477f8d-c57c-46b9-9fc1-981b744ab9e7',
         avatar: 'assets/images/avatars/3.jpg',
         fullname: 'Jhon Doe',
         content: 'I love it!',
-    },
-    {
-        id: 'c309066d-3641-4a3c-86f8-2691e1d0afd5',
-        avatar: 'assets/images/avatars/4.jpg',
-        fullname: 'Cristian Torres',
-        content: 'Me too!',
-    },
-    {
-        id: 'fb15fdb4-f2d7-4489-a6af-a337c981c280',
-        avatar: 'assets/images/avatars/5.jpg',
-        fullname: 'Alice Cuthbert',
-        content: 'I agree with you!',
-    },
+        createdDate: '2024-09-07T12:00:00',
+    }
 ];
 
 export const sharesData: Share[] = [

@@ -10,36 +10,50 @@ import { userData } from "../../common/user/data";
 })
 export class FeedMockApi extends MockApi {
     override registerHandlers(): void {
-        const posts = cloneDeep(postsData);
-        const likes = cloneDeep(likesData);
-        const comments = cloneDeep(commentsData);
-        const shares = cloneDeep(sharesData);
-        this.mockupApiService.onGet(Endpoint.feed_posts()).reply(({ request }) => {
-            return [200, posts.map(post => {
-                let likesCount = this.numbers(0, 10000);
-                let commentsCount = this.numbers(0, 10000);
-                let sharesCount = this.numbers(0, 10000);
-                post.likes = [];
-                post.comments = [];
-                post.shares = [];
+        let posts = cloneDeep(postsData);
+        let likes = cloneDeep(likesData);
+        let comments = cloneDeep(commentsData);
+        let shares = cloneDeep(sharesData);
+        posts = posts.map(post => {
+            let likesCount = this.numbers(1, 10);
+            let commentsCount = this.numbers(1, 10);
+            let sharesCount = this.numbers(1, 10);
+            post.likes = [];
+            post.comments = [];
+            post.shares = [];
 
-                while (likesCount > 0) {
-                    post.likes.push({ ...likes[Math.floor(Math.random() * likes.length)], ...{ emoji: emojisData[Math.floor(Math.random() * emojisData.length)] } });
-                    likesCount--;
+            while (likesCount > 0) {
+                post.likes.push({ ...likes[Math.floor(Math.random() * likes.length)], ...{ emoji: emojisData[Math.floor(Math.random() * emojisData.length)] } });
+                likesCount--;
+            }
+            if (Math.random() > 0.5) {
+                post.likes.push({ ...likes[Math.floor(Math.random() * likes.length)], ...{ userId: userData.id }, ...{ emoji: emojisData[Math.floor(Math.random() * emojisData.length)] } });
+            }
+            while (commentsCount > 0) {
+                let comment = cloneDeep(comments[Math.floor(Math.random() * comments.length)]);
+                comment.replies = [];
+                let replyCount = this.numbers(1, 10);
+                while (replyCount > 0) {
+                    comment.replies.push(comments[Math.floor(Math.random() * comments.length)]);
+                    replyCount--;
                 }
-                if (Math.random() > 0.5) {
-                    post.likes.push({ ...likes[Math.floor(Math.random() * likes.length)], ...{ userId: userData.id }, ...{ emoji: emojisData[Math.floor(Math.random() * emojisData.length)] } });
-                }
-                while (commentsCount > 0) {
-                    post.comments.push(comments[Math.floor(Math.random() * comments.length)]);
-                    commentsCount--;
-                }
-                while (sharesCount > 0) {
-                    post.shares.push(shares[Math.floor(Math.random() * shares.length)]);
-                    sharesCount--;
-                }
-                return post;
-            })];
+                post.comments.push(comment);
+                commentsCount--;
+            }
+            while (sharesCount > 0) {
+                post.shares.push(shares[Math.floor(Math.random() * shares.length)]);
+                sharesCount--;
+            }
+            return post;
+        })
+        this.mockupApiService.onGet(Endpoint.feed_posts()).reply(({ request }) => {
+            return [200, posts];
+        });
+
+        posts.forEach(post => {
+            this.mockupApiService.onGet(Endpoint.feed_posts_id(post.id)).reply(({ request }) => {
+                return [200, post];
+            });
         });
     }
     numbers(min: number, max: number) {

@@ -1,12 +1,12 @@
 <ion-content>
     @for (film of films; track $index) {
     <div class="flex flex-col w-full mb-2">
-        <div class="relative aspect-video bg-cover overflow-hidden" [routerLink]="['./', film.id]">
+        <a class="relative aspect-video bg-cover overflow-hidden" [routerLink]="['./', film.id]">
             <img [src]="film.thumbnail" />
             <div class="absolute bottom-2 right-2 bg-secondary text-secondary-content p-1">
                 {{film.duration}}
             </div>
-        </div>
+        </a>
         <div class="flex items-center justify-between w-full p-2">
             <div class="flex items-center gap-2">
                 <div class="avatar">

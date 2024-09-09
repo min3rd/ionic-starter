@@ -93,7 +93,7 @@
         }
         <div class="flex items-center px-2 py-2">
             @for (emoji of emojis(post.likes); track $index; let i = $index;) {
-            <button class="btn btn-sm btn-circle text-{{emoji.color}}" [ngClass]="{'-ml-3': i > 0}">
+            <button class="btn btn-sm btn-circle {{emoji.color}}" [ngClass]="{'-ml-3': i > 0}">
                 <ion-icon [name]="emoji.icon"></ion-icon>
             </button>
             }
@@ -108,15 +108,25 @@
             </div>
         </div>
         <div class="flex items-center gap-2 px-2">
+            @if (emoed(post)) {
+            <button id="more-emoji-{{post.id}}" long-press (press)="longPressLike(post)"
+                class="btn btn-ghost capitalize {{emoed(post)?.emoji?.color}}">
+                <ion-icon [name]="emoed(post)?.emoji?.icon"></ion-icon>
+                {{emoed(post)?.emoji?.label| transloco}}
+            </button>
+            }
+            @else {
             <button id="more-emoji-{{post.id}}" long-press (press)="longPressLike(post)"
                 class="btn btn-ghost capitalize">
                 <ion-icon name="thumbs-up"></ion-icon>
                 {{'like' | transloco}}
             </button>
-            <button class="btn btn-ghost capitalize">
+            }
+
+            <a [routerLink]="['./', post.id]" class="btn btn-ghost capitalize">
                 <ion-icon name="chatbubble"></ion-icon>
                 {{'comment' | transloco}}
-            </button>
+            </a>
             <button (click)="share(post)" class="ml-auto btn btn-ghost capitalize">
                 <ion-icon name="arrow-redo"></ion-icon>
                 {{'share' | transloco}}
