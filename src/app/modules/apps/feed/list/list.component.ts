@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { Share } from '@capacitor/share';
-import { PopoverController } from '@ionic/angular/standalone';
+import { ActionSheetButton, PopoverController } from '@ionic/angular/standalone';
 import { takeUntil, from } from 'rxjs';
 import { BaseComponent } from 'src/app/core/base/base.component';
 import { emojisData } from 'src/app/core/mock-api/apps/feed/data';
@@ -26,6 +26,7 @@ export class ListComponent extends BaseComponent {
   user!: User;
   posts!: Post[];
   likes = emojisData;
+  actionSheetButtons!: ActionSheetButton[];
   private _userService: UserService = inject(UserService);
   private _feedService: FeedService = inject(FeedService);
   private _popOverController: PopoverController = inject(PopoverController);
@@ -41,6 +42,48 @@ export class ListComponent extends BaseComponent {
       this.posts = posts;
       this.changeDetectorRef.markForCheck();
     });
+    this.actionSheetButtons = [
+      {
+        text: this.capitalize.translate('interested'),
+        icon: 'add-circle',
+      },
+      {
+        text: this.capitalize.translate('not interested'),
+        icon: 'remove-circle',
+      },
+      {
+        text: this.capitalize.translate('save post'),
+        icon: 'bookmark',
+      },
+      {
+        text: this.capitalize.translate('hide post'),
+        icon: 'close-circle',
+      },
+      {
+        text: this.capitalize.translate('report post'),
+        icon: 'alert-circle',
+      },
+      {
+        text: this.capitalize.translate('get notified about this post'),
+        icon: 'notifications',
+      },
+      {
+        text: this.capitalize.translate('add to favorites'),
+        icon: 'star',
+      },
+      {
+        text: this.capitalize.translate('snooze for 30 days'),
+        icon: 'time',
+      },
+      {
+        text: this.capitalize.translate('unfollow'),
+        icon: 'close-circle',
+      },
+      {
+        text: this.capitalize.translate('manage your feed'),
+        icon: 'options',
+      },
+    ];
   }
   emojis(likes: Like[] | undefined): Emoji[] {
     if (!likes) return [];
@@ -67,9 +110,8 @@ export class ListComponent extends BaseComponent {
       side: 'top',
     })).subscribe(popOver => {
       from(popOver.present()).subscribe(() => {
-
+        this.changeDetectorRef.markForCheck();
       });
     });
-
   }
 }

@@ -134,5 +134,15 @@
   "night": "ночь",
   "nord": "норд",
   "pastel": "пастель",
-  "retro": "ретро"
+  "retro": "ретро",
+  "add to favorites": "добавить в избранное",
+  "get notified about this post": "получить уведомление об этом сообщении",
+  "hide post": "скрыть сообщение",
+  "interested": "заинтересованный",
+  "manage your feed": "управлять своим каналом",
+  "not interested": "не интересно",
+  "report post": "сообщить о сообщении",
+  "save post": "сохранить пост",
+  "snooze for 30 days": "отложить на 30 дней",
+  "unfollow": "отписаться"
 }

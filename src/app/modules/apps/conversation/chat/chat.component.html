@@ -14,7 +14,8 @@
             <button class="btn btn-circle btn-ghost text-primary-content">
                 <ion-icon size="large" name="search"></ion-icon>
             </button>
-            <button id="more" class="btn btn-circle btn-ghost text-primary-content">
+            <button id="more" (click)="changeDetectorRef.markForCheck()"
+                class="btn btn-circle btn-ghost text-primary-content">
                 <ion-icon size="large" name="ellipsis-vertical"></ion-icon>
             </button>
             <ion-action-sheet trigger="more" [buttons]="actionSheetButtons"></ion-action-sheet>
@@ -39,7 +40,9 @@
         <div class="chat-bubble chat-bubble-primary">
             {{message.content}}
         </div>
-        <div class="chat-footer opacity-50">Delivered</div>
+        <div class="chat-footer opacity-50 capitalize">
+            {{'delivered' | transloco}}
+        </div>
     </div>
     }
     @else {

@@ -134,5 +134,15 @@
   "forest": "Wald",
   "garden": "Garten",
   "halloween": "Halloween",
-  "lemonade": "Limonade"
+  "lemonade": "Limonade",
+  "add to favorites": "zu den Favoriten hinzufügen",
+  "get notified about this post": "Lassen Sie sich über diesen Beitrag benachrichtigen",
+  "hide post": "Beitrag ausblenden",
+  "interested": "interessiert",
+  "manage your feed": "Verwalten Sie Ihren Feed",
+  "not interested": "nicht interessiert",
+  "report post": "Beitrag melden",
+  "save post": "Beitrag speichern",
+  "snooze for 30 days": "30 Tage lang schlafen",
+  "unfollow": "entfolgen"
 }

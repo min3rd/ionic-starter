@@ -8,17 +8,17 @@ export const emojisData: Emoji[] = [
     },
     {
         icon: 'heart',
-        color: 'red-500',
+        color: 'error',
         label: 'love',
     },
     {
         icon: 'happy',
-        color: 'orange-500',
+        color: 'info',
         label: 'happy',
     },
     {
         icon:'sad',
-        color: 'blue-500',
+        color: 'accent',
         label: 'sad',
     }
 ];

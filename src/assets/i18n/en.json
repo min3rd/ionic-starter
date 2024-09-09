@@ -134,5 +134,15 @@
   "winter": "winter",
   "dim": "dim",
   "nord": "nord",
-  "sunset": "sunset"
+  "sunset": "sunset",
+  "interested": "interested",
+  "not interested": "not interested",
+  "save post": "save post",
+  "hide post": "hide post",
+  "report post": "report post",
+  "get notified about this post": "get notified about this post",
+  "add to favorites": "add to favorites",
+  "snooze for 30 days": "snooze for 30 days",
+  "unfollow": "unfollow",
+  "manage your feed": "manage your feed"
 }

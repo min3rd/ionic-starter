@@ -15,7 +15,9 @@
                 <img [src]="user.avatar">
                 }
                 @else {
-                <div class="skeleton w-full h-full"></div>
+                <div class="skeleton w-full h-full">
+
+                </div>
                 }
             </div>
         </div>
@@ -59,9 +61,12 @@
                 }
             </div>
             <div class="ml-auto flex items-center gap-2">
-                <button class="btn btn-circle btn-ghost text-base-content">
+                <button id="actions_{{post.id}}" (click)="changeDetectorRef.markForCheck()"
+                    class="btn btn-circle btn-ghost text-base-content">
                     <ion-icon name="ellipsis-vertical" size="large"></ion-icon>
                 </button>
+                <ion-action-sheet trigger="actions_{{post.id}}" [buttons]="actionSheetButtons"></ion-action-sheet>
+
                 <button class="btn btn-circle btn-ghost text-base-content">
                     <ion-icon name="close" size="large"></ion-icon>
                 </button>

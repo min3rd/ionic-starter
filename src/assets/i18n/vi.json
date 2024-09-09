@@ -124,7 +124,7 @@
   "nord": "phía bắc",
   "pastel": "phấn màu",
   "retro": "cổ điển",
-  "shares": "cổ phiếu",
+  "shares": "chia sẻ",
   "sunset": "hoàng hôn",
   "synthwave": "sóng tổng hợp",
   "valentine": "lễ tình nhân",
@@ -134,5 +134,15 @@
   "aqua": "nước",
   "autumn": "mùa thu",
   "black": "đen",
-  "bumblebee": "con ong"
+  "bumblebee": "con ong",
+  "add to favorites": "thêm vào mục yêu thích",
+  "get notified about this post": "nhận thông báo về bài đăng này",
+  "hide post": "ẩn bài đăng",
+  "interested": "thú vị",
+  "manage your feed": "quản lý nguồn cấp dữ liệu của bạn",
+  "not interested": "không quan tâm",
+  "report post": "bài báo cáo",
+  "save post": "lưu bài viết",
+  "snooze for 30 days": "tạm dừng trong 30 ngày",
+  "unfollow": "hủy theo dõi"
 }
