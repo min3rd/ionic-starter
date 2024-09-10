@@ -144,5 +144,7 @@
   "report post": "게시물 신고",
   "save post": "게시물 저장",
   "snooze for 30 days": "30일 동안 다시 알림",
-  "unfollow": "언팔로우하다"
+  "unfollow": "언팔로우하다",
+  "/": "/",
+  "comment as ": "다음과 같이 댓글을 달다"
 }

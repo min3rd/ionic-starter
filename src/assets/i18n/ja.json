@@ -144,5 +144,7 @@
   "report post": "レポート投稿",
   "save post": "投稿を保存する",
   "snooze for 30 days": "30日間居眠りする",
-  "unfollow": "フォローを解除する"
+  "unfollow": "フォローを解除する",
+  "/": "/",
+  "comment as ": "としてコメントする"
 }

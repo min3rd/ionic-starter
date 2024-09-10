@@ -1,0 +1,70 @@
+<ion-header>
+    <div class="navbar bg-primary">
+        @if (!onSearch) {
+        <div class="navbar-start animate-fade-up animate-duration-300">
+            <button [routerLink]="['../']" class="btn btn-circle btn-ghost text-primary-content">
+                <ion-icon name="arrow-back" size="large"></ion-icon>
+            </button>
+        </div>
+        <div class="navbar-end animate-fade-up animate-duration-300">
+            <button (click)="onSearch = true; changeDetectorRef.markForCheck();"
+                class="btn btn-circle btn-ghost text-primary-content">
+                <ion-icon name="search" size="large"></ion-icon>
+            </button>
+        </div>
+        }
+        @if (onSearch) {
+        <div class="animate-fade-up animate-duration-300">
+            <button (click)="onSearch = false; changeDetectorRef.markForCheck();"
+                class="btn btn-circle btn-ghost text-primary-content">
+                <ion-icon name="arrow-back" size="large"></ion-icon>
+            </button>
+        </div>
+        <label for="" class="input flex items-center gap-2 w-full animate-fade-left animate-duration-300">
+            <input type="text" placeholder="{{'search' | transloco | capitalize}}" class="w-full">
+            <ion-icon name="search" size="large"></ion-icon>
+        </label>
+        }
+    </div>
+</ion-header>
+<ion-content>
+    @for (pair of pairs; track $index) {
+    <ion-item-sliding class="animate-fade-left animate-duration-300">
+        <ion-item-options side="start">
+            <ion-item-option>
+                <ion-icon name="star" slot="icon-only"></ion-icon>
+            </ion-item-option>
+        </ion-item-options>
+        <ion-item lines="none">
+            <div class="flex items-center gap-2 py-2 w-full">
+                <ion-icon [name]="pair.tradingCoin?.icon" size="large"></ion-icon>
+                <div>
+                    <div class="flex items-center uppercase text-base-content">
+                        <div class="font-semibold">
+                            {{pair.tradingCoin?.shortName}}
+                        </div>
+                        <div>
+                            {{'/' | transloco}}
+                        </div>
+                        <div class="font-thin text-xs">
+                            {{pair.baseCoin?.shortName}}
+                        </div>
+                    </div>
+                    <div class="capitalize">
+                        {{pair.tradingCoin?.title}}
+                    </div>
+                </div>
+                <div class="ml-auto"
+                    [ngClass]="{'text-success': (pair.lastPrice ?? 0) > (pair?.previousPrice ?? 0), 'text-error': (pair.lastPrice ?? 0) < (pair?.previousPrice ?? 0)}">
+                    {{pair.lastPrice}}
+                </div>
+            </div>
+        </ion-item>
+        <ion-item-options side="end">
+            <ion-item-option>
+                <ion-icon name="information" slot="icon-only"></ion-icon>
+            </ion-item-option>
+        </ion-item-options>
+    </ion-item-sliding>
+    }
+</ion-content>

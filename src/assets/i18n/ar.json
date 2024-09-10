@@ -144,5 +144,7 @@
   "get notified about this post": "الحصول على إشعار حول هذا المنصب",
   "hide post": "إخفاء المشاركة",
   "interested": "مهتم",
-  "manage your feed": "إدارة خلاصتك"
+  "manage your feed": "إدارة خلاصتك",
+  "/": "/",
+  "comment as ": "التعليق باسم"
 }

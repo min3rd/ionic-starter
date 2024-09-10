@@ -103,4 +103,12 @@ export class Endpoint {
     static feed_posts_id(id: string | any, ...path: string[] | undefined[]): string {
         return this.feed_posts(id, path.join('/'));
     }
+
+    static crypto_trading(...path: string[] | undefined[]): string {
+        return this.api('crypto-trading', path.join('/'));
+    }
+    
+    static crypto_trading_crypto_pairs(...path: string[] | undefined[]): string {
+        return this.crypto_trading('crypto-pairs', path.join('/'));
+    }
 }

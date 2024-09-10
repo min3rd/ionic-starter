@@ -144,5 +144,7 @@
   "report post": "informar publicación",
   "save post": "guardar publicación",
   "snooze for 30 days": "posponer durante 30 días",
-  "unfollow": "dejar de seguir"
+  "unfollow": "dejar de seguir",
+  "/": "/",
+  "comment as ": "comentar como"
 }

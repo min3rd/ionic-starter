@@ -51,4 +51,11 @@ export const appsData: App[] = [
         icon: 'newspaper',
         link: '/apps/feed',
     },
+    {
+        id: 'crypto-trading',
+        title: 'crypto trading',
+        subtitle: 'trade your crypto',
+        icon: 'logo-bitcoin',
+        link: '/apps/crypto-trading',
+    }
 ]

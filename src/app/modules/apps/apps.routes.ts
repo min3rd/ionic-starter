@@ -34,4 +34,8 @@ export const routes: Routes = [
         path: 'feed',
         loadChildren: () => import('./feed/feed.routes').then((m) => m.routes),
     },
+    {
+        path: 'crypto-trading',
+        loadChildren: () => import('./crypto-trading/crypto-trading.routes').then((m) => m.routes),
+    }
 ]
