@@ -3,6 +3,7 @@ import { CryptoTradingComponent } from "./crypto-trading.component";
 import { ListComponent } from "./list/list.component";
 import { CryptoTradingService } from "src/app/core/services/apps/crypto-trading/crypto-trading.service";
 import { inject } from "@angular/core";
+import { DetailComponent } from "./detail/detail.component";
 
 const listResolve = (route: ActivatedRouteSnapshot, state: RouterStateSnapshot) => {
     const cryptoTradingService: CryptoTradingService = inject(CryptoTradingService);
@@ -18,6 +19,10 @@ export const routes: Routes = [
                 path: '',
                 resolve: [listResolve],
                 component: ListComponent,
+            },
+            {
+                path: ':tradingCoin/:baseCoin',
+                component: DetailComponent,
             }
         ],
     }

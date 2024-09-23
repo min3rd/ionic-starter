@@ -35,8 +35,8 @@
                 <ion-icon name="star" slot="icon-only"></ion-icon>
             </ion-item-option>
         </ion-item-options>
-        <ion-item lines="none">
-            <div class="bg-base-100 flex items-center gap-2 px-2 py-4 w-full border-b">
+        <ion-item [routerLink]="['./', pair.tradingCoin?.shortName, pair.baseCoin?.shortName]" lines="none">
+            <div class="bg-base-100 flex items-center gap-2 px-2 py-4 w-full border-b border-primary">
                 <ion-icon [name]="pair.tradingCoin?.icon" size="large"></ion-icon>
                 <div>
                     <div class="flex items-center uppercase text-base-content">

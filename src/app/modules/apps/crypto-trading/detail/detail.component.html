@@ -1,0 +1,13 @@
+<ion-header>
+    <div class="navbar bg-primary">
+        <div class="navbar-start animate-fade-up animate-duration-300">
+            <a [routerLink]="['../../']" class="btn btn-circle btn-ghost text-primary-content">
+                <ion-icon name="arrow-back" size="large"></ion-icon>
+            </a>
+        </div>
+    </div>
+</ion-header>
+<ion-content>
+    <highcharts-chart [Highcharts]="highcharts" [constructorType]="'stockChart'" [options]="charts[usedIndex].hcOptions"
+        [callbackFunction]="charts[0].hcCallback" [(update)]="updateChart"></highcharts-chart>
+</ion-content>
