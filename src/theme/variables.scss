@@ -21,3 +21,41 @@ ion-item {
   --padding-start: 0;
   --padding-top: 0;
 }
+
+.highcharts-area,
+.highcharts-background {
+  fill: oklch(var(--b3));
+}
+
+.highcharts-grid-line {
+  fill: oklch(var(--p));
+  stroke: oklch(var(--p));
+}
+
+.highcharts-button .highcharts-button-box {
+  fill: oklch(var(--p));
+  color: oklch(var(--pc));
+  stroke: oklch(var(--p));
+}
+.highcharts-button-disabled .highcharts-button-box {
+  fill: oklch(var(--n));
+  color: oklch(var(--nc));
+  stroke: oklch(var(--n));
+}
+
+.highcharts-range-selector-buttons .highcharts-label text {
+  fill: oklch(var(--bc)) !important;
+}
+
+.highcharts-axis-labels text {
+  fill: oklch(var(--bc)) !important;
+}
+
+.highcharts-label-box {
+  fill: oklch(var(--p));
+  stroke-width: 0;
+}
+
+.highcharts-tooltip-box text {
+  fill: oklch(var(--pc)) !important;
+}
