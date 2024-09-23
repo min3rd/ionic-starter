@@ -16,6 +16,7 @@ export interface CryptoPair extends Base {
     low?: number
     volume?: number;
     marketCap?: number;
+    marked?: boolean;
 };
 
 export interface TradePrice extends Base {

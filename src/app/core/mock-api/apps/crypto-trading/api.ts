@@ -13,18 +13,20 @@ export class CryptoTradingMockApi extends MockApi {
         let cryptoCoins = cloneDeep(cryptoCoinsData);
         let cryptoPairs: CryptoPair[] = [];
         cryptoCoins.forEach((coin, index) => {
-            if (index % 2 === 0) {
+            cryptoCoins.forEach((baseCoin, baseIndex) => {
+                if (index === baseIndex) return;
                 cryptoPairs.push({
                     tradingCoin: coin,
-                    baseCoin: cryptoCoins[index + 1],
+                    baseCoin: baseCoin,
                     previousPrice: Math.random() * 1000,
                     lastPrice: Math.random() * 1000,
                     high: Math.random() * 1000,
                     low: Math.random() * 1000,
                     volume: Math.random() * 1000,
                     marketCap: Math.random() * 1000,
+                    marked: Math.random() > 0.5,
                 });
-            }
+            });
         });
         this.mockupApiService.onGet(Endpoint.crypto_trading_crypto_pairs()).reply(() => {
             return [200, cryptoPairs];
