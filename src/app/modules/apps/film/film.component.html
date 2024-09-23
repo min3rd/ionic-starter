@@ -24,11 +24,10 @@
                 <ion-icon size="large" name="search"></ion-icon>
             </button>
             <div class="ml-2 indicator mr-4">
-                <button [routerLink]="['/apps','film','notification']" routerDirection="forward"
-                    class="btn btn-circle btn-ghost text-primary-content">
+                <a [routerLink]="['/apps','film','notification']" class="btn btn-circle btn-ghost text-primary-content">
                     <ion-icon size="large" name="notifications">
                     </ion-icon>
-                </button>
+                </a>
                 <span
                     class="indicator-item indicator-end indicator-middle badge badge-secondary text-secondary-content font-semibold">
                     {{notifications.length}}

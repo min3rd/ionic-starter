@@ -21,7 +21,7 @@
 </ion-header>
 
 <ion-content>
-    <ion-item lines="none" class="mt-2">
+    <div class="w-full bg-base-100 px-2 py-4">
         <div class="flex w-32 h-32 rounded-md">
             @if (!form.get('avatar')?.value) {
             <ion-skeleton-text class="w-full h-full rounded-md" [animated]="true"></ion-skeleton-text>
@@ -49,97 +49,126 @@
             </div>
             }
         </div>
-    </ion-item>
+    </div>
 
     <form [formGroup]="form">
-        <ion-item lines="none" class="mt-2">
-            <ion-input formControlName="firstname" labelPlacement="stacked"
-                label="{{'firstname' | transloco | capitalize}}">
-            </ion-input>
-        </ion-item>
+        <div class="w-full bg-base-100 px-2 py-2">
+            <label class="input input-bordered flex items-center gap-2">
+                <span class="capitalize font-semibold min-w-24">
+                    {{'firstname' | transloco}}
+                </span>
+                <input formControlName="firstname" type="text" class="grow"
+                    placeholder="{{'type here' | transloco  | capitalize}}">
+            </label>
+        </div>
 
-        <ion-item lines="none" class="mt-2">
-            <ion-input formControlName="lastname" labelPlacement="stacked"
-                label="{{'lastname' | transloco | capitalize}}">
-            </ion-input>
-        </ion-item>
+        <div class="w-full bg-base-100 px-2 py-2">
+            <label class="input input-bordered flex items-center gap-2">
+                <span class="capitalize font-semibold min-w-24">
+                    {{'lastname' | transloco}}
+                </span>
+                <input formControlName="lastname" type="text" class="grow"
+                    placeholder="{{'type here' | transloco  | capitalize}}">
+            </label>
+        </div>
 
-        <ion-item lines="none" class="mt-2">
-            <ion-input formControlName="nickname" labelPlacement="stacked"
-                label="{{'nickname' | transloco | capitalize}}">
-            </ion-input>
-        </ion-item>
-
-        <ion-item-group>
-            <ion-item-divider class="mt-2">
-                <ion-label slot="start">
-                    {{'email' | transloco | capitalize}}
-                </ion-label>
+        <div class="w-full bg-base-100 px-2 py-2">
+            <label class="input input-bordered flex items-center gap-2">
+                <span class="capitalize font-semibold min-w-24">
+                    {{'nickname' | transloco}}
+                </span>
+                <input formControlName="nickname" type="text" class="grow"
+                    placeholder="{{'type here' | transloco  | capitalize}}">
+            </label>
+        </div>
+        <div class="w-full bg-base-100">
+            <div class="w-full flex items-center px-2">
+                <span class="font-semibold capitalize">
+                    {{'email' | transloco}}
+                </span>
                 <button (click)="addEmail()" class="ml-auto btn btn-circle btn-ghost text-primary">
                     <ion-icon name="add" size="large"></ion-icon>
                 </button>
-            </ion-item-divider>
-            @for (email of getEmailsFormArray(); track $index; let i = $index;) {
-            <ion-item lines="none" class="mt-2">
-                <ion-input [formControl]="email.get('email')" labelPlacement="stacked"
-                    label="{{'email' | transloco | capitalize}}">
-                </ion-input>
-                <button (click)="removeEmail(i)" class="ml-auto btn btn-circle btn-ghost text-primary">
-                    <ion-icon name="trash" size="large"></ion-icon>
-                </button>
-            </ion-item>
-            }
-        </ion-item-group>
+            </div>
 
-        <ion-item-group>
-            <ion-item-divider class="mt-2">
-                <ion-label slot="start">
-                    {{'phones' | transloco | capitalize}}
-                </ion-label>
+            @for (email of getEmailsFormArray(); track $index; let i = $index;) {
+            <div class="w-full bg-base-100 px-2 py-2">
+                <label class="input input-bordered flex items-center gap-2">
+                    <input [formControl]="email.get('email')" class="grow"
+                        placeholder="{{'email' | transloco | capitalize}}" />
+                    <button (click)="removeEmail(i)" class="ml-auto btn btn-circle btn-ghost text-primary">
+                        <ion-icon name="close" size="large"></ion-icon>
+                    </button>
+                </label>
+            </div>
+            }
+        </div>
+
+        <div class="w-full bg-base-100">
+            <div class="w-full flex items-center px-2">
+                <span class="font-semibold capitalize">
+                    {{'phones' | transloco}}
+                </span>
                 <button (click)="addPhone()" class="ml-auto btn btn-circle btn-ghost text-primary">
                     <ion-icon name="add" size="large"></ion-icon>
                 </button>
-            </ion-item-divider>
+            </div>
+
             @for (phone of getPhonesFormArray(); track $index; let i = $index;) {
-            <ion-item lines="none" class="mt-2">
-                <ion-select [formControl]="phone.get('code')" label="{{'code' | transloco | capitalize}}"
-                    label-placement="stacked" interface="action-sheet" class="min-w-32">
+            <div class="w-full bg-base-100 px-2 py-2">
+                <label class="input input-bordered flex items-center gap-2">
+                    <ion-select [formControl]="phone.get('code')" interface="action-sheet"
+                        placeholder="{{'country' | transloco | capitalize}}">
+                        @for (country of countries; track $index) {
+                        <ion-select-option [value]="country.code">
+                            {{country.name | transloco | capitalize}} (+{{country.code}})
+                        </ion-select-option>
+                        }
+                    </ion-select>
+                    <input [formControl]="phone.get('number')" class="grow"
+                        placeholder="{{'phone number' | transloco | capitalize}}" />
+                    <button (click)="removePhone(i)" class="ml-auto btn btn-circle btn-ghost text-primary">
+                        <ion-icon name="close" size="large"></ion-icon>
+                    </button>
+                </label>
+            </div>
+            }
+        </div>
+
+        <div class="w-full bg-base-100 px-2 py-2">
+            <label class="input input-bordered flex items-center gap-2">
+                <span class="capitalize font-semibold min-w-24">
+                    {{'address' | transloco}}
+                </span>
+                <input formControlName="address" type="text" class="grow"
+                    placeholder="{{'type here' | transloco  | capitalize}}">
+            </label>
+        </div>
+
+        <div class="w-full bg-base-100 px-2 py-2">
+            <label class="w-full input input-bordered flex items-center gap-2">
+                <span class="capitalize font-semibold min-w-24">
+                    {{'city' | transloco}}
+                </span>
+                <input formControlName="city" type="text" class="grow"
+                    placeholder="{{'type here' | transloco  | capitalize}}">
+            </label>
+        </div>
+
+        <div class="w-full bg-base-100 px-2 py-2">
+            <label class="w-full input input-bordered flex items-center gap-2">
+                <span class="capitalize font-semibold min-w-24">
+                    {{'country' | transloco}}
+                </span>
+                <ion-select formControlName="country" [selectedText]="form.get('country')?.value?.name"
+                    interface="action-sheet">
                     @for (country of countries; track $index) {
-                    <ion-select-option [value]="country.code">
-                        {{country.name | transloco | capitalize}} (+{{country.code}})
+                    <ion-select-option [value]="country">
+                        {{country.name | transloco | capitalize}}
                     </ion-select-option>
                     }
                 </ion-select>
-
-                <ion-input [formControl]="phone.get('number')" labelPlacement="stacked"
-                    label="{{'number' | transloco | capitalize}}" class="ml-4">
-                </ion-input>
-
-                <button (click)="removePhone(i)" class="ml-auto btn btn-circle btn-ghost text-primary">
-                    <ion-icon name="trash" size="large"></ion-icon>
-                </button>
-            </ion-item>
-            }
-        </ion-item-group>
-
-        <ion-item lines="none" class="mt-2">
-            <ion-input formControlName="address" labelPlacement="stacked"
-                label="{{'address' | transloco | capitalize}}">
-            </ion-input>
-        </ion-item>
-        <ion-item lines="none" class="mt-2">
-            <ion-input formControlName="city" labelPlacement="stacked" label="{{'city' | transloco | capitalize}}">
-            </ion-input>
-        </ion-item>
-        <ion-item lines="none" class="mt-2">
-            <ion-select formControlName="country" [selectedText]="form.get('country')?.value?.name"
-                label="{{'country' | transloco | capitalize}}" label-placement="stacked" interface="action-sheet">
-                @for (country of countries; track $index) {
-                <ion-select-option [value]="country">
-                    {{country.name | transloco | capitalize}}
-                </ion-select-option>
-                }
-            </ion-select>
-        </ion-item>
+            </label>
+        </div>
     </form>
 </ion-content>

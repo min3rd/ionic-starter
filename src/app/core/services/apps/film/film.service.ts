@@ -26,7 +26,7 @@ export class FilmService extends BaseService {
   get channel$(): Observable<Channel> {
     return this._channel.asObservable();
   }
-  notifications(): Observable<Notification[]> {
+  notifications(): Observable<Notification[]> {  
     return this.httpClient.get<Notification[]>(Endpoint.films_notifications()).pipe(tap(notifications => {
       this._notifications.next(notifications);
     }));

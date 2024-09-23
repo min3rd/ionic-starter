@@ -15,8 +15,8 @@
 
 <ion-content>
     @if (addressBook) {
-    <ion-item lines="none" class="mt-2">
-        <div class="flex items-start gap-2">
+    <ion-item lines="none">
+        <div class="w-full bg-base-100 flex items-start gap-2 px-2 py-4">
             <div class="flex w-32 h-32 rounded-md">
                 @if (!addressBook.avatar) {
                 <ion-skeleton-text class="w-full h-full rounded-md" [animated]="true"></ion-skeleton-text>
@@ -55,29 +55,33 @@
         </div>
     </ion-item>
 
-    <ion-item-divider class="mt-4">
+    <ion-item-divider>
         {{'email' | transloco | capitalize}}
     </ion-item-divider>
 
     @for (email of addressBook.emails; track $index) {
-    <ion-item lines="none" class="mt-2">
-        <ion-icon name="mail" class="text-primary"></ion-icon>
-        <ion-label class="ml-2">
-            {{email.email}}
-        </ion-label>
+    <ion-item lines="none">
+        <div class="w-full bg-base-100 flex items-center gap-2 px-2 py-4">
+            <ion-icon name="mail" class="text-primary"></ion-icon>
+            <ion-label class="ml-2">
+                {{email.email}}
+            </ion-label>
+        </div>
     </ion-item>
     }
 
-    <ion-item-divider class="mt-4">
+    <ion-item-divider>
         {{'phone' | transloco | capitalize}}
     </ion-item-divider>
 
     @for (phone of addressBook.phones; track $index) {
-    <ion-item lines="none" class="mt-2">
-        <ion-icon name="call" class="text-primary"></ion-icon>
-        <ion-label class="ml-2">
-            (+{{phone.code}}) {{phone.number}}
-        </ion-label>
+    <ion-item lines="none">
+        <div class="w-full bg-base-100 flex items-center gap-2 px-2 py-4">
+            <ion-icon name="call" class="text-primary"></ion-icon>
+            <ion-label class="ml-2">
+                (+{{phone.code}}) {{phone.number}}
+            </ion-label>
+        </div>
     </ion-item>
     }
     }

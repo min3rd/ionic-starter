@@ -28,7 +28,8 @@
     <progress class="progress progress-primary" [value]="currentStep + 1" [max]="(course.totalSteps ?? 1)"></progress>
     <div class="navbar bg-primary">
         <div class="navbar-start animate-fade-up animate-duration-300">
-            <button (click)="menuController.open()" class="btn btn-circle btn-ghost text-primary-content">
+            <button (click)="menuController.open(); changeDetectorRef.markForCheck();"
+                class="btn btn-circle btn-ghost text-primary-content">
                 <ion-icon name="menu" size="large"></ion-icon>
             </button>
             <ion-label class="text-primary-content">
@@ -49,7 +50,7 @@
     </div>
 </ion-footer>
 
-<ion-menu type="overlay" contentId="main-content">
+<ion-menu type="overlay" contentId="main-content" (ionDidClose)="changeDetectorRef.markForCheck();">
     <ion-header>
         <div class="navbar bg-primary">
             <div class="navbar-start animate-fade-up animate-duration-300">

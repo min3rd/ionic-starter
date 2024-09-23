@@ -1,7 +1,16 @@
+<ion-header>
+    <div class="navbar bg-primary">
+        <div class="navbar-start animate-fade-up animate-duration-300">
+            <a [routerLink]="['../']" class="btn btn-circle btn-ghost text-primary-content">
+                <ion-icon name="arrow-back" size="large"></ion-icon>
+            </a>
+        </div>
+    </div>
+</ion-header>
 <ion-content>
     @if (user) {
     <ion-item lines="none" class="animate-fade-left animate-duration-300">
-        <div class="flex py-2 items-start gap-2">
+        <div class="flex px-2 py-4 items-start gap-2">
             @if (user.avatar) {
             <ion-avatar>
                 <img class="max-h-full" [src]="user.avatar" [alt]="user.email" />
@@ -23,7 +32,7 @@
     </ion-item>
     }
     <a routerDirection="forward" [routerLink]="['/user', 'profile']" class="animate-fade-left animate-duration-300">
-        <div class="flex items-center gap-2 px-4 py-4">
+        <div class="bg-base-100 flex items-center gap-2 px-4 py-4">
             <ion-icon name="person"></ion-icon>
             <div>
                 {{'profile' | transloco | capitalize}}
@@ -32,7 +41,7 @@
     </a>
     <a routerDirection="forward" [routerLink]="['/user', 'change-password']"
         class="animate-fade-left animate-duration-300">
-        <div class="flex items-center gap-2 px-4 py-4">
+        <div class="bg-base-100 flex items-center gap-2 px-4 py-4">
             <ion-icon name="key"></ion-icon>
             <div>
                 {{'change password' | transloco | capitalize}}
@@ -42,7 +51,7 @@
 
 
     <a routerDirection="forward" [routerLink]="['/user', 'language']" class="animate-fade-left animate-duration-300">
-        <div class="flex items-center gap-2 px-4 py-4">
+        <div class="bg-base-100 flex items-center gap-2 px-4 py-4">
             <ion-icon name="language"></ion-icon>
             <div>
                 {{'language' | transloco | capitalize}}
@@ -52,7 +61,7 @@
 
     <a routerDirection="forward" [routerLink]="['/user', 'theme-configurator']"
         class="animate-fade-left animate-duration-300">
-        <div class="flex items-center gap-2 px-4 py-4">
+        <div class="bg-base-100 flex items-center gap-2 px-4 py-4">
             <ion-icon name="color-palette"></ion-icon>
             <div>
                 {{'theme configurator' | transloco | capitalize}}
@@ -60,8 +69,8 @@
         </div>
     </a>
 
-    <a (click)="signOut()" class="animate-fade-left animate-duration-300">
-        <div class="flex items-center gap-2 px-4 py-4">
+    <a [routerLink]="['/user', 'sign-out']" class="animate-fade-left animate-duration-300">
+        <div class="bg-base-100 flex items-center gap-2 px-4 py-4">
             <ion-icon name="log-out"></ion-icon>
             <div>
                 {{'sign out' | transloco | capitalize}}

@@ -8,7 +8,7 @@
     </div>
 </ion-header>
 <ion-content>
-    <div class="bg-base-100 py-2 mb-2">
+    <div class="bg-base-300 py-2 mb-2">
         <div class="flex items-center px-2 gap-2">
             <div class="avatar">
                 <div class="w-12 h-12 rounded-full">
@@ -133,12 +133,12 @@
                     }
                 </div>
             </div>
-            <div class="chat-bubble">
+            <div class="chat-bubble chat-bubble-secondary text-secondary-content">
                 @if (comment.content) {
                 <div>
                     {{comment.content}}
                 </div> }
-                <div class="flex gap-2">
+                <div class="flex gap-2 py-2">
                     <button class="btn btn-ghost btn-circle">
                         <ion-icon name="thumbs-up"></ion-icon>
                     </button>
@@ -175,7 +175,7 @@
                         }
                     </div>
                 </div>
-                <div class="chat-bubble">
+                <div class="chat-bubble chat-bubble-accent text-accent-content">
                     @if (reply.content) {
                     <div class="line-clamp-3">
                         {{reply.content}}
@@ -186,7 +186,7 @@
                         <img [src]="reply.thumbnail">
                     </div>
                     }
-                    <div class="flex gap-2">
+                    <div class="flex gap-2 py-2">
                         <button class="btn btn-ghost btn-circle">
                             <ion-icon name="thumbs-up"></ion-icon>
                         </button>

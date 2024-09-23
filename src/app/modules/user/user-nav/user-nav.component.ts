@@ -6,7 +6,6 @@ import { UserService } from 'src/app/core/services/user/user.service';
 import { ShareModule } from 'src/app/core/share/share.module';
 import { ChangePasswordComponent } from '../change-password/change-password.component';
 import { ProfileComponent } from '../profile/profile.component';
-import { AuthService } from 'src/app/core/auth/auth.service';
 import { User } from 'src/app/core/services/user/user';
 
 @Component({
@@ -22,7 +21,6 @@ import { User } from 'src/app/core/services/user/user';
 export class UserNavComponent extends BaseComponent implements OnInit {
   user!: User;
   private _userService: UserService = inject(UserService);
-  private _authService:AuthService = inject(AuthService);
   changePasswordComponent = ChangePasswordComponent;
   profileComponent = ProfileComponent;
   override ngOnInit(): void {
@@ -34,8 +32,5 @@ export class UserNavComponent extends BaseComponent implements OnInit {
       this.user = user;
       this.changeDetectorRef.markForCheck();
     });
-  }
-  signOut(){
-    this._authService.signOut();
   }
 }

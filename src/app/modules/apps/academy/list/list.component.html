@@ -2,7 +2,7 @@
     @if (courses && courses.length) {
     <div class="flex flex-col md:flex-wrap">
         @for (course of courses; track $index) {
-        <ion-card class="bg-base-100">
+        <ion-card class="bg-base-300 text-base-content">
             <ion-card-header>
                 <div class="flex items-center justify-between">
                     <div class="badge badge-outline badge-primary">
@@ -18,7 +18,7 @@
                 <ion-card-title class="text-primary">
                     {{course.title}}
                 </ion-card-title>
-                <ion-card-subtitle>
+                <ion-card-subtitle class="text-base-content">
                     {{course.description}}
                 </ion-card-subtitle>
             </ion-card-header>

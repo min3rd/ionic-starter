@@ -2,11 +2,22 @@
 // http://ionicframework.com/docs/theming/
 ion-item,
 ion-content {
-  --background: oklch(var(--b3));
+  --background: oklch(var(--b1));
   --color: oklch(var(--bc));
 }
 
 ion-item-divider {
   --background: oklch(var(--b1));
   --color: oklch(var(--bc));
+}
+
+ion-item {
+  --inner-padding-bottom: 0;
+  --inner-padding-end: 0;
+  --inner-padding-start: 0;
+  --inner-padding-top: 0;
+  --padding-bottom: 0;
+  --padding-end: 0;
+  --padding-start: 0;
+  --padding-top: 0;
 }

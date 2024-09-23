@@ -20,20 +20,18 @@
 </ion-header>
 <ion-content>
     @if (user.avatar) {
-    <ion-item lines="none" class="mt-4">
-        <div class="flex items-center justify-between w-full">
+    <ion-item lines="none">
+        <div class="flex items-center justify-between w-full px-2 py-4">
             <ion-avatar>
                 <img [src]="user.avatar" [alt]="user.avatar" class="h-full">
             </ion-avatar>
-
-
         </div>
     </ion-item>
     }
 
     @if (user.fullname) {
     <ion-item lines="none" class="animate-fade-left animate-duration-300">
-        <div class="grid grid-cols-12 items-center gap-2 py-4 w-full">
+        <div class="px-2 py-4 grid grid-cols-12 items-center gap-2 py-4 w-full">
             <div class="col-span-3 font-semibold">
                 {{'fullname' | transloco | capitalize}}
             </div>
@@ -46,7 +44,7 @@
 
     @if (user.email) {
     <ion-item lines="none" class="animate-fade-left animate-duration-300">
-        <div class="grid grid-cols-12 items-center gap-2 py-4 w-full">
+        <div class="px-2 py-4 grid grid-cols-12 items-center gap-2 py-4 w-full">
             <div class="col-span-3 font-semibold">
                 {{'email' | transloco | capitalize}}
             </div>
@@ -59,7 +57,7 @@
 
     @if (user.phone) {
     <ion-item lines="none" class="animate-fade-left animate-duration-300">
-        <div class="grid grid-cols-12 items-center gap-2 py-4 w-full">
+        <div class="px-2 py-4 grid grid-cols-12 items-center gap-2 py-4 w-full">
             <div class="col-span-3 font-semibold">
                 {{'phone' | transloco | capitalize}}
             </div>
@@ -72,7 +70,7 @@
 
     @if (user.address) {
     <ion-item lines="none" class="animate-fade-left animate-duration-300">
-        <div class="grid grid-cols-12 items-center gap-2 py-4 w-full">
+        <div class="px-2 py-4 grid grid-cols-12 items-center gap-2 py-4 w-full">
             <div class="col-span-3 font-semibold">
                 {{'address' | transloco | capitalize}}
             </div>
@@ -85,7 +83,7 @@
 
     @if (user.city) {
     <ion-item lines="none" class="animate-fade-left animate-duration-300">
-        <div class="grid grid-cols-12 items-center gap-2 py-4 w-full">
+        <div class="px-2 py-4 grid grid-cols-12 items-center gap-2 py-4 w-full">
             <div class="col-span-3 font-semibold">
                 {{'city' | transloco | capitalize}}
             </div>
@@ -98,7 +96,7 @@
 
     @if (user.country) {
     <ion-item lines="none" class="animate-fade-left animate-duration-300">
-        <div class="grid grid-cols-12 items-center gap-2 py-4 w-full">
+        <div class="px-2 py-4 grid grid-cols-12 items-center gap-2 py-4 w-full">
             <div class="col-span-3 font-semibold">
                 {{'country' | transloco | capitalize}}
             </div>

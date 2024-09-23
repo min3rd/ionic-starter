@@ -3,7 +3,7 @@
         @if (apps) {
         @for (app of apps; track $index; let i = $index;) {
         <div [routerLink]="[app.link]" routerDirection="forward"
-            class="card bg-base-100 text-base-content animate-flip-down animate-duration-700">
+            class="card bg-neutral text-neutral-content animate-flip-down animate-duration-700">
             <div class="card-body">
                 <ion-icon name="{{app.icon}}" size="large"></ion-icon>
                 <div class="card-title">
@@ -17,7 +17,7 @@
                 </div>
                 }
                 <div class="card-actions justify-end">
-                    <button class="btn btn-primary btn-circle">
+                    <button class="btn btn-primary text-primary-content btn-circle">
                         <ion-icon name="chevron-forward"></ion-icon>
                     </button>
                 </div>

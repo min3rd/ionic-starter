@@ -8,7 +8,7 @@
     </div>
 </ion-header>
 <ion-content>
-    <div class="flex gap-2 p-2">
+    <div class="flex gap-2 px-2 py-4">
         <div class="avatar">
             <div class="w-12 h-12 rounded-full">
                 @if (user.avatar) {
@@ -21,15 +21,16 @@
                 }
             </div>
         </div>
-        <textarea class="textarea w-full"
+        <textarea class="textarea textarea-bordered w-full"
             placeholder="{{'what your feeling today' | transloco | capitalize}}"></textarea>
+
         <button class="btn btn-circle btn-ghost text-base-content">
             <ion-icon name="images" size="large"></ion-icon>
         </button>
     </div>
 
     @for (post of posts; track $index) {
-    <div class="bg-base-100 py-2 mb-2">
+    <div class="bg-base-300 card text-base-content px-2 py-4 mb-2">
         <div class="flex items-center px-2 gap-2">
             <div class="avatar">
                 <div class="w-12 h-12 rounded-full">

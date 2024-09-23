@@ -30,6 +30,17 @@ const channelResolve = (route: ActivatedRouteSnapshot, state: RouterStateSnapsho
 
 export const routes: Routes = [
     {
+        path: 'notification',
+        pathMatch: 'full',
+        resolve: [notificationResolve],
+        component: NotificationComponent,
+    },
+    {
+        path: 'channels/:channelId',
+        resolve: [channelResolve],
+        component: ChannelComponent,
+    },
+    {
         path: '',
         component: FilmComponent,
         resolve: [notificationResolve],
@@ -45,16 +56,5 @@ export const routes: Routes = [
                 component: DetailComponent,
             }
         ],
-    },
-    {
-        path: 'notification',
-        pathMatch: 'full',
-        resolve: [notificationResolve],
-        component: NotificationComponent,
-    },
-    {
-        path: 'channels/:channelId',
-        resolve: [channelResolve],
-        component: ChannelComponent,
     },
 ];
