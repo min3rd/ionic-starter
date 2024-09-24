@@ -1,16 +1,45 @@
 <ion-content>
-    <ion-item lines="none">
+    <div class="w-full flex px-2 py-4 justify-center">
         <ion-avatar>
             <img src="assets/icon/favicon.png" alt="" srcset="">
         </ion-avatar>
-    </ion-item>
-    <ion-item lines="none">
-        <h1 class="text-2xl font-semibold py-4">
+    </div>
+    <div class="w-full flex justify-center">
+        <h1 class="text-2xl font-semibold">
             {{'sign up' | transloco | capitalize}}
         </h1>
-    </ion-item>
+    </div>
+    <div class="w-full flex items-center gap-2 px-2 py-4 justify-center">
+        <span>
+            {{'already have an account' | transloco | capitalize}}
+        </span>
+        <a [routerLink]="['/sign-in']" class="font-semibold text-primary">
+            {{'sign in here' | transloco | capitalize}}
+        </a>
+    </div>
+
+    <div class="flex flex-col w-full p-2 gap-2">
+        <button class="btn border w-full">
+            <ion-icon name="logo-google"></ion-icon>
+            <span>
+                {{'sign up with Google' | transloco | capitalize}}
+            </span>
+        </button>
+    </div>
+
+    <div class="px-2">
+        <div class="divider">
+            {{'or' | transloco | capitalize}}
+        </div>
+    </div>
+
     <form [formGroup]="form">
         <div class="w-full p-2">
+            <div class="label">
+                <span class="label-text">
+                    {{'email' | transloco | capitalize}}
+                </span>
+            </div>
             <label class="w-full input input-bordered flex items-center gap-2">
                 <ion-icon name="person"></ion-icon>
                 <input formControlName="email" type="email" class="grow"
@@ -19,6 +48,11 @@
         </div>
 
         <div class="w-full p-2">
+            <div class="label">
+                <span class="label-text">
+                    {{'password' | transloco | capitalize}}
+                </span>
+            </div>
             <label class="w-full input input-bordered flex items-center gap-2">
                 <ion-icon name="key"></ion-icon>
                 <input formControlName="password" type="password" name="" id="" class="grow"
@@ -27,6 +61,11 @@
         </div>
 
         <div class="w-full p-2">
+            <div class="label">
+                <span class="label-text">
+                    {{'confirm password' | transloco | capitalize}}
+                </span>
+            </div>
             <label class="w-full input input-bordered flex items-center gap-2">
                 <ion-icon name="key"></ion-icon>
                 <input formControlName="confirmPassword" type="password" name="" id="" class="grow"
@@ -34,13 +73,25 @@
             </label>
         </div>
 
+        <div class="w-full p-2">
+            <label class="label cursor-pointer">
+                <div class="label-text flex items-center gap-2">
+                    <span>
+                        {{'i accept the' | transloco | capitalize}}
+                    </span>
+                    <a href="#" class="text-primary font-semibold">
+                        {{'terms and conditions' | transloco | capitalize}}
+                    </a>
+                </div>
+                <input type="checkbox" checked="checked" class="checkbox" />
+            </label>
+        </div>
+
     </form>
-    <div class="w-full flex flex-col gap-2 p-2">
+
+    <div class="w-full flex flex-col gap-2 px-2 py-4">
         <button class="btn btn-primary w-full">
             {{'sign up' | transloco | capitalize}}
-        </button>
-        <button [routerLink]="['/sign-in']" class="btn btn-secondary w-full">
-            {{'sign in' | transloco | capitalize}}
         </button>
     </div>
 </ion-content>

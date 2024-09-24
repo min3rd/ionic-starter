@@ -150,5 +150,15 @@
   "type here": "ここに入力してください",
   "crypto trading": "暗号通貨取引",
   "love": "愛",
-  "trade your crypto": "暗号通貨を取引する"
+  "trade your crypto": "暗号通貨を取引する",
+  "dont have an account yet": "まだアカウントをお持ちでない場合は、",
+  "sign up here": "ここにサインアップしてください",
+  "sign in with Google": "Googleでサインインする",
+  "or": "または",
+  "already have an account": "すでにアカウントをお持ちですか?",
+  "sign in here": "ここにサインインしてください",
+  "sign up with Google": "Google に登録する",
+  "i accept the": "私はそれを受け入れます",
+  "terms and conditions": "利用規約",
+  "forgot password": "パスワードをお忘れですか"
 }

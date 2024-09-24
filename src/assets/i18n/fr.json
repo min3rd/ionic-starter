@@ -150,5 +150,15 @@
   "type here": "tapez ici",
   "crypto trading": "commerce de cryptomonnaies",
   "love": "amour",
-  "trade your crypto": "échangez votre crypto"
+  "trade your crypto": "échangez votre crypto",
+  "dont have an account yet": "Vous n'avez pas encore de compte ?",
+  "sign up here": "inscrivez-vous ici",
+  "sign in with Google": "connectez-vous avec Google",
+  "or": "ou",
+  "already have an account": "Vous avez déjà un compte ?",
+  "sign in here": "connectez-vous ici",
+  "sign up with Google": "inscrivez-vous avec Google",
+  "i accept the": "j'accepte le",
+  "terms and conditions": "termes et conditions",
+  "forgot password": "mot de passe oublié"
 }
