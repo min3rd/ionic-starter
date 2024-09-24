@@ -24,38 +24,142 @@ ion-item {
 
 .highcharts-area,
 .highcharts-background {
-  fill: oklch(var(--b3));
+  fill: oklch(var(--b1));
 }
 
 .highcharts-grid-line {
+  fill: oklch(var(--b2));
+  stroke: oklch(var(--b2));
+}
+
+.highcharts-button-pressed,
+.highcharts-button-hover {
+  .highcharts-button-box {
+    fill: oklch(var(--p)) !important;
+  }
+  text {
+    fill: oklch(var(--pc)) !important;
+  }
+}
+
+.highcharts-button-normal {
+  .highcharts-button-box {
+    fill: oklch(var(--b1)) !important;
+  }
+  text {
+    fill: oklch(var(--bc)) !important;
+  }
+}
+
+.highcharts-button-disabled {
+  .highcharts-button-box {
+    fill: oklch(var(--b3)) !important;
+  }
+  text {
+    fill: oklch(var(--bc)) !important;
+  }
+}
+
+.highcharts-range-selector-group {
+  .highcharts-range-label {
+    text {
+      fill: oklch(var(--bc)) !important;
+    }
+  }
+
+  .highcharts-range-input {
+    .highcharts-label-box {
+      fill: oklch(var(--b1));
+      stroke: oklch(var(--p));
+    }
+    text {
+      fill: oklch(var(--bc)) !important;
+    }
+  }
+}
+
+.highcharts-candlestick-series .highcharts-point-up {
   fill: oklch(var(--p));
+}
+
+.highcharts-candlestick-series .highcharts-point-down {
+  fill: oklch(var(--s));
+}
+
+.highcharts-scrollbar {
+  .highcharts-scrollbar-track {
+    stroke: oklch(var(--p));
+  }
+  .highcharts-scrollbar-thumb {
+    fill: oklch(var(--p));
+  }
+}
+
+.highcharts-navigator {
+  .highcharts-navigator-outline {
+    stroke: oklch(var(--b2));
+  }
+
+  .highcharts-navigator-handle {
+    fill: oklch(var(--p));
+    stroke: oklch(var(--pc));
+  }
+}
+
+.highcharts-range-selector-group {
+  .highcharts-range-selector-buttons {
+    .highcharts-label {
+      text {
+        fill: oklch(var(--bc)) !important;
+      }
+    }
+  }
+}
+
+.highcharts-axis {
+  .highcharts-tick {
+    stroke: oklch(var(--p));
+  }
+  .highcharts-axis-line {
+    stroke: oklch(var(--p));
+  }
+}
+
+.highcharts-crosshair {
   stroke: oklch(var(--p));
 }
 
-.highcharts-button .highcharts-button-box {
+.highcharts-tooltip {
+  .highcharts-tooltip-box {
+    .highcharts-label-box {
+      fill: oklch(var(--p));
+      stroke-width: 0;
+    }
+    text {
+      fill: oklch(var(--pc));
+    }
+  }
+}
+
+.highcharts-axis-labels {
+  text {
+    fill: oklch(var(--bc)) !important;
+  }
+}
+
+.highcharts-navigator-xaxis {
+  .highcharts-text-outline {
+    stroke: oklch(var(--p));
+  }
+  text {
+    fill: oklch(var(--pc)) !important;
+  }
+}
+
+.highcharts-navigator-series {
   fill: oklch(var(--p));
-  color: oklch(var(--pc));
-  stroke: oklch(var(--p));
-}
-.highcharts-button-disabled .highcharts-button-box {
-  fill: oklch(var(--n));
-  color: oklch(var(--nc));
-  stroke: oklch(var(--n));
-}
 
-.highcharts-range-selector-buttons .highcharts-label text {
-  fill: oklch(var(--bc)) !important;
-}
-
-.highcharts-axis-labels text {
-  fill: oklch(var(--bc)) !important;
-}
-
-.highcharts-label-box {
-  fill: oklch(var(--p));
-  stroke-width: 0;
-}
-
-.highcharts-tooltip-box text {
-  fill: oklch(var(--pc)) !important;
+  .highcharts-graph {
+    stroke: oklch(var(--p));
+  }
 }
