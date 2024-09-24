@@ -23,6 +23,9 @@ HDragPanes(Highcharts);
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DetailComponent extends BaseComponent implements OnInit {
+  tradingCoinShortName: string = 'BTC';
+  baseCoinShortName: string = 'USDT';
+  
   Highcharts: typeof Highcharts = Highcharts;
   chartOptions: Highcharts.Options = {
     credits: {
@@ -31,10 +34,15 @@ export class DetailComponent extends BaseComponent implements OnInit {
     series: [{
       data: ohlcData,
       type: 'candlestick',
-      name: 'USD to EUR',
+      name: `${this.tradingCoinShortName}/${this.baseCoinShortName}`,
     }]
   };
   override ngOnInit(): void {
     super.ngOnInit();
+    this.activatedRoute.params.subscribe((params: any) => {
+      this.tradingCoinShortName = params.tradingCoin;
+      this.baseCoinShortName = params.baseCoin;
+      this.changeDetectorRef.detectChanges();
+    });
   }
 }
