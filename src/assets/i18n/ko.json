@@ -160,5 +160,17 @@
   "sign up with Google": "Google에 가입",
   "i accept the": "나는 그것을 받아들인다",
   "terms and conditions": "이용 약관",
-  "forgot password": "비밀번호를 잊어버렸습니다"
+  "forgot password": "비밀번호를 잊어버렸습니다",
+  "currency": "$",
+  "buy price": "구매 가격",
+  "amount": "양",
+  "available": "사용 가능",
+  "buy": "구입하다",
+  "sell price": "판매 가격",
+  "sell amount": "판매 금액",
+  "sell": "팔다",
+  "buy amount": "구매 금액",
+  "total": "총",
+  "open orders": "공개 주문",
+  "trigger orders": "발동 명령"
 }

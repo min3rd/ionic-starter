@@ -160,5 +160,17 @@
   "sign up with Google": "regístrate con google",
   "i accept the": "acepto el",
   "terms and conditions": "Términos y condiciones",
-  "forgot password": "Has olvidado tu contraseña"
+  "forgot password": "Has olvidado tu contraseña",
+  "currency": "$",
+  "buy price": "precio de compra",
+  "amount": "cantidad",
+  "available": "disponible",
+  "buy": "comprar",
+  "sell price": "precio de venta",
+  "sell amount": "cantidad de venta",
+  "sell": "vender",
+  "buy amount": "cantidad de compra",
+  "total": "total",
+  "open orders": "pedidos abiertos",
+  "trigger orders": "órdenes de activación"
 }

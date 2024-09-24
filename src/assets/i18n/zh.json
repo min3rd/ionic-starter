@@ -160,5 +160,17 @@
   "sign up with Google": "与谷歌注册",
   "i accept the": "我接受",
   "terms and conditions": "条款和条件",
-  "forgot password": "忘记密码"
+  "forgot password": "忘记密码",
+  "currency": "$",
+  "buy price": "购买价格",
+  "amount": "数量",
+  "available": "可用的",
+  "buy": "买",
+  "sell price": "售价",
+  "sell amount": "卖出金额",
+  "sell": "卖",
+  "buy amount": "购买金额",
+  "total": "全部的",
+  "open orders": "未结订单",
+  "trigger orders": "触发订单"
 }

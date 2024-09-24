@@ -160,5 +160,17 @@
   "sign up with Google": "đăng ký với Google",
   "i accept the": "tôi chấp nhận",
   "terms and conditions": "điều khoản và điều kiện",
-  "forgot password": "quên mật khẩu"
+  "forgot password": "quên mật khẩu",
+  "currency": "$",
+  "buy price": "giá mua",
+  "amount": "số lượng",
+  "available": "available",
+  "buy": "mua",
+  "sell price": "giá bán",
+  "sell amount": "số tiền bán",
+  "sell": "bán",
+  "buy amount": "mua số lượng",
+  "total": "tổng cộng",
+  "open orders": "mở lệnh",
+  "trigger orders": "lệnh kích hoạt"
 }

@@ -4,6 +4,17 @@
             <a [routerLink]="['../../']" class="btn btn-circle btn-ghost text-primary-content">
                 <ion-icon name="arrow-back" size="large"></ion-icon>
             </a>
+            <ion-title class="flex items-center uppercase gap-1 text-primary-content">
+                <span class="text-xl font-semibold">
+                    {{tradingCoinShortName}}
+                </span>
+                <span>
+                    {{'/' | transloco}}
+                </span>
+                <span>
+                    {{baseCoinShortName}}
+                </span>
+            </ion-title>
         </div>
     </div>
 </ion-header>
@@ -12,5 +23,66 @@
         <highcharts-chart [Highcharts]="Highcharts" [constructorType]="'stockChart'" [options]="chartOptions"
             style="width: 100%; height: 400px; display: block;">
         </highcharts-chart>
+    </div>
+    <div class="grid grid-cols-2 items-center">
+        <div class="flex flex-col p-2 gap-2">
+            <div class="flex items-center gap-2">
+                <div class="text-base-content">
+                    {{'available' | transloco | capitalize}}
+                </div>
+                <div class="text-xl text-primary font-semibold">
+                    {{90000 | currency: 'USD'}}
+                </div>
+            </div>
+            <label class="input input-bordered w-full flex items-center gap-2">
+                <input type="text" class="" placeholder="{{'buy price' | transloco | capitalize}}">
+            </label>
+            <label class="input input-bordered w-full flex items-center gap-2">
+                <input type="text" class="" placeholder="{{'buy amount' | transloco | capitalize}}">
+            </label>
+            <input type="range" min="0" max="100" value="25" class="range range-primary" step="25" />
+            <label class="input input-bordered w-full flex items-center gap-2">
+                <input type="text" class="" placeholder="{{'total' | transloco | capitalize}}">
+            </label>
+            <button class="btn btn-primary uppercase">
+                {{'buy' | transloco}}
+            </button>
+        </div>
+        <div class="flex flex-col p-2 gap-2">
+            <div class="flex items-center gap-2">
+                <div class="text-base-content">
+                    {{'available' | transloco | capitalize}}
+                </div>
+                <div class="text-xl text-primary font-semibold">
+                    {{90000 | currency: 'USD'}}
+                </div>
+            </div>
+            <label class="input input-bordered w-full flex items-center gap-2">
+                <input type="text" class="" placeholder="{{'sell price' | transloco | capitalize}}">
+            </label>
+            <label class="input input-bordered w-full flex items-center gap-2">
+                <input type="text" class="" placeholder="{{'sell amount' | transloco | capitalize}}">
+            </label>
+            <input type="range" min="0" max="100" value="25" class="range range-secondary" step="25" />
+            <label class="input input-bordered w-full flex items-center gap-2">
+                <input type="text" class="" placeholder="{{'total' | transloco | capitalize}}">
+            </label>
+            <button class="btn btn-secondary uppercase">
+                {{'sell' | transloco}}
+            </button>
+        </div>
+    </div>
+    <div class="w-full px-2">
+        <div role="tablist" class="tabs tabs-boxed">
+            <a role="tab" class="tab tab-active">
+                {{'open orders' | transloco | capitalize}}
+            </a>
+            <a role="tab" class="tab">
+                {{'trigger orders' | transloco | capitalize}}
+            </a>
+            <a role="tab" class="tab">
+                {{'history' | transloco | capitalize}}
+            </a>
+        </div>
     </div>
 </ion-content>

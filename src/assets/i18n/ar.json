@@ -160,5 +160,17 @@
   "sign up with Google": "قم بالتسجيل مع جوجل",
   "i accept the": "أنا أقبل",
   "terms and conditions": "الشروط والأحكام",
-  "forgot password": "هل نسيت كلمة السر"
+  "forgot password": "هل نسيت كلمة السر",
+  "currency": "$",
+  "buy price": "سعر الشراء",
+  "amount": "كمية",
+  "available": "متاح",
+  "buy": "يشتري",
+  "sell price": "سعر البيع",
+  "sell amount": "بيع المبلغ",
+  "sell": "يبيع",
+  "buy amount": "شراء المبلغ",
+  "total": "المجموع",
+  "open orders": "أوامر مفتوحة",
+  "trigger orders": "أوامر الزناد"
 }

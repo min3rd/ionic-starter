@@ -160,5 +160,17 @@
   "sign up with Google": "Google'a kaydol",
   "i accept the": "kabul ediyorum",
   "terms and conditions": "Şartlar ve koşullar",
-  "forgot password": "Parolanızı mı unuttunuz"
+  "forgot password": "Parolanızı mı unuttunuz",
+  "currency": "$",
+  "buy price": "satın alma fiyatı",
+  "amount": "miktar",
+  "available": "mevcut",
+  "buy": "satın almak",
+  "sell price": "satış fiyatı",
+  "sell amount": "satış tutarı",
+  "sell": "satmak",
+  "buy amount": "satın alma tutarı",
+  "total": "toplam",
+  "open orders": "açık siparişler",
+  "trigger orders": "emirleri tetiklemek"
 }

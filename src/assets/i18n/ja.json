@@ -160,5 +160,17 @@
   "sign up with Google": "Google に登録する",
   "i accept the": "私はそれを受け入れます",
   "terms and conditions": "利用規約",
-  "forgot password": "パスワードをお忘れですか"
+  "forgot password": "パスワードをお忘れですか",
+  "currency": "$",
+  "buy price": "購入価格",
+  "amount": "額",
+  "available": "利用可能",
+  "buy": "買う",
+  "sell price": "販売価格",
+  "sell amount": "販売額",
+  "sell": "売る",
+  "buy amount": "購入金額",
+  "total": "合計",
+  "open orders": "オープンオーダー",
+  "trigger orders": "トリガー注文"
 }

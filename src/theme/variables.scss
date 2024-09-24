@@ -137,6 +137,7 @@ ion-item {
     }
     text {
       fill: oklch(var(--pc));
+      color: oklch(var(--pc));
     }
   }
 }

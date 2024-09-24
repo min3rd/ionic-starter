@@ -160,5 +160,17 @@
   "sign up with Google": "зарегистрируйтесь через Google",
   "i accept the": "я принимаю",
   "terms and conditions": "условия и положения",
-  "forgot password": "Забыли пароль"
+  "forgot password": "Забыли пароль",
+  "currency": "$",
+  "buy price": "цена покупки",
+  "amount": "количество",
+  "available": "доступный",
+  "buy": "купить",
+  "sell price": "цена продажи",
+  "sell amount": "сумма продажи",
+  "sell": "продавать",
+  "buy amount": "сумма покупки",
+  "total": "общий",
+  "open orders": "открытые ордера",
+  "trigger orders": "триггерные ордера"
 }

@@ -160,5 +160,18 @@
   "sign up with Google": "sign up with Google",
   "i accept the": "i accept the",
   "terms and conditions": "terms and conditions",
-  "forgot password": "forgot password"
+  "forgot password": "forgot password",
+  "currency": "$",
+  "buy price": "buy price",
+  "amount": "amount",
+  "available": "available",
+  "buy": "buy",
+  "sell price": "sell price",
+  "sell amount": "sell amount",
+  "sell": "sell",
+  "buy amount": "buy amount",
+  "total": "total",
+  "open orders": "open orders",
+  "trigger orders": "trigger orders",
+  "history": "history"
 }
