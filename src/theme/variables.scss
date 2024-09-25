@@ -132,12 +132,12 @@ ion-item {
 .highcharts-tooltip {
   .highcharts-tooltip-box {
     .highcharts-label-box {
-      fill: oklch(var(--p));
+      fill: oklch(var(--b3));
       stroke-width: 0;
     }
     text {
-      fill: oklch(var(--pc));
-      color: oklch(var(--pc));
+      fill: oklch(var(--bc));
+      color: oklch(var(--bc));
     }
   }
 }

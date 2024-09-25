@@ -7,9 +7,11 @@ import { ohlcData } from 'src/app/core/mock-api/apps/crypto-trading/data';
 import * as Highcharts from 'highcharts/highstock';
 import HAccessibility from "highcharts/modules/accessibility";
 import HDragPanes from "highcharts/modules/drag-panes";
+import HStockTools from "highcharts/modules/stock-tools";
 
 HAccessibility(Highcharts);
 HDragPanes(Highcharts);
+HStockTools(Highcharts);
 
 @Component({
   selector: 'app-detail',
@@ -25,7 +27,7 @@ HDragPanes(Highcharts);
 export class DetailComponent extends BaseComponent implements OnInit {
   tradingCoinShortName: string = 'BTC';
   baseCoinShortName: string = 'USDT';
-  
+
   Highcharts: typeof Highcharts = Highcharts;
   chartOptions: Highcharts.Options = {
     credits: {
