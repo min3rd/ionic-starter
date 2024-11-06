@@ -129,11 +129,11 @@ In Angular, you can create new components or views using either the Angular CLI 
 1. Open your project in Visual Studio Code.
 2. Open the Command Palette (`Ctrl+Shift+P`) and type `Angular Schematics: generate a file`.
 
-   ![Angular Schematics Extension: angular-schematics-generate-a-file.png](/docs/images/angular-schematics-generate-a-file.png)
+   ![Angular Schematics Extension: angular-schematics-generate-a-file.png](/images/angular-schematics-generate-a-file.png)
 
 3. Follow the prompts to specify the name and path for your new component.
 
-   ![Angular Schematics Extension: angular-schematics-generate-a-file-component.png](/docs/images/angular-schematics-generate-a-file-component.png)
+   ![Angular Schematics Extension: angular-schematics-generate-a-file-component.png](/images/angular-schematics-generate-a-file-component.png)
 
 By using these methods, you can quickly scaffold new components or views in your Angular project, streamlining your development process.
 
