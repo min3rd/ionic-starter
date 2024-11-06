@@ -3,19 +3,20 @@
 Welcome to the Ionic Starter Project! This project is built using the latest Ionic Framework (8+) and integrates Tailwind CSS with the DaisyUI plugin for a seamless and modern UI experience. Additionally, it includes custom Highcharts for advanced data visualization.
 
 ## Table of Contents
+
 - [Features](#features)
 - [Getting Started](#getting-started)
-   - [Prerequisites](#prerequisites)
-   - [Installation](#installation)
-   - [Running the Project](#running-the-project)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
+  - [Running the Project](#running-the-project)
 - [Customization](#customization)
-   - [Tailwind CSS and DaisyUI](#tailwind-css-and-daisyui)
-   - [Highcharts](#highcharts)
+  - [Tailwind CSS and DaisyUI](#tailwind-css-and-daisyui)
+  - [Highcharts](#highcharts)
 - [Contributing](#contributing)
 - [License](#license)
 - [Development Environment](#development-environment)
-   - [Recommended VSCode Extensions](#recommended-vscode-extensions)
-   - [Mindset for Multiplatform Development](#mindset-for-multiplatform-development)
+  - [Recommended VSCode Extensions](#recommended-vscode-extensions)
+  - [Mindset for Multiplatform Development](#mindset-for-multiplatform-development)
 - [Creating New Components or Views](#creating-new-components-or-views)
 - [Creating New Modules](#creating-new-modules)
 - [Using RxJS for Data Control](#using-rxjs-for-data-control)
@@ -75,10 +76,6 @@ Follow these steps to set up and run the project:
 ### Tailwind CSS and DaisyUI
 
 Tailwind CSS and DaisyUI are pre-configured in the project. You can customize the styles in the `tailwind.config.js` and `daisyui.config.js` files.
-
-### Highcharts
-
-Custom Highcharts configurations can be found in the `src/highcharts` directory. Modify these files to suit your data visualization needs.
 
 ## Contributing
 
@@ -164,54 +161,54 @@ Each module should have the following structure:
 2.  **Generate Module Files**:
     Use the Angular CLI to generate the necessary files. Replace `module-name` with your module's name.
 
-        ```sh
-        ng generate module modules/module-name
-        ng generate component modules/module-name/parent-component
-        ng generate component modules/module-name/list-component
-        ng generate component modules/module-name/detail-component
-        ng generate service modules/module-name/module-name
-        ```
+      ```sh
+      ng generate module modules/module-name
+      ng generate component modules/module-name/parent-component
+      ng generate component modules/module-name/list-component
+      ng generate component modules/module-name/detail-component
+      ng generate service modules/module-name/module-name
+      ```
 
 3.  **Extend BaseComponent**:
     Ensure that all components extend from `BaseComponent`. Modify the component classes as follows:
 
-        ```typescript
-        import { BaseComponent } from 'src/app/base/base.component';
+    ```typescript
+    import { BaseComponent } from 'src/app/base/base.component';
 
-        export class ParentComponent extends BaseComponent { ... }
-        export class ListComponent extends BaseComponent { ... }
-        export class DetailComponent extends BaseComponent { ... }
-        ```
+    export class ParentComponent extends BaseComponent { ... }
+    export class ListComponent extends BaseComponent { ... }
+    export class DetailComponent extends BaseComponent { ... }
+    ```
 
 4.  **Declare Module Routing**:
     In `module-name.routes.ts`, declare the routes for the module:
 
-        ```typescript
-        import { Routes } from '@angular/router';
-        import { ParentComponent } from './parent-component/parent-component.component';
-        import { ListComponent } from './list-component/list-component.component';
-        import { DetailComponent } from './detail-component/detail-component.component';
+      ```typescript
+      import { Routes } from '@angular/router';
+      import { ParentComponent } from './parent-component/parent-component.component';
+      import { ListComponent } from './list-component/list-component.component';
+      import { DetailComponent } from './detail-component/detail-component.component';
 
-        export const ModuleNameRoutes: Routes = [
-            { path: '', component: ParentComponent },
-            { path: 'list', component: ListComponent },
-            { path: 'detail/:id', component: DetailComponent }
-        ];
-        ```
+      export const ModuleNameRoutes: Routes = [
+         { path: '', component: ParentComponent },
+         { path: 'list', component: ListComponent },
+         { path: 'detail/:id', component: DetailComponent }
+      ];
+      ```
 
 5.  **Declare Services**:
     In `module-name.service.ts`, declare the services and data used in the module:
 
-        ```typescript
-        import { Injectable } from '@angular/core';
+      ```typescript
+      import { Injectable } from '@angular/core';
 
-        @Injectable({
-            providedIn: 'root'
-        })
-        export class ModuleNameService {
-            // Service logic here
-        }
-        ```
+      @Injectable({
+         providedIn: 'root'
+      })
+      export class ModuleNameService {
+         // Service logic here
+      }
+      ```
 
 By following these steps, you can create well-structured and maintainable modules in your Ionic and Angular project.
 
