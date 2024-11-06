@@ -3,23 +3,28 @@
 Welcome to the Ionic Starter Project! This project is built using the latest Ionic Framework (8+) and integrates Tailwind CSS with the DaisyUI plugin for a seamless and modern UI experience. Additionally, it includes custom Highcharts for advanced data visualization.
 
 ## Table of Contents
-
 - [Features](#features)
 - [Getting Started](#getting-started)
-  - [Prerequisites](#prerequisites)
-  - [Installation](#installation)
-  - [Running the Project](#running-the-project)
+   - [Prerequisites](#prerequisites)
+   - [Installation](#installation)
+   - [Running the Project](#running-the-project)
 - [Customization](#customization)
-  - [Tailwind CSS and DaisyUI](#tailwind-css-and-daisyui)
-  - [Highcharts](#highcharts)
+   - [Tailwind CSS and DaisyUI](#tailwind-css-and-daisyui)
+   - [Highcharts](#highcharts)
 - [Contributing](#contributing)
 - [License](#license)
 - [Development Environment](#development-environment)
-  - [Recommended VSCode Extensions](#recommended-vscode-extensions)
-  - [Mindset for Multiplatform Development](#mindset-for-multiplatform-development)
+   - [Recommended VSCode Extensions](#recommended-vscode-extensions)
+   - [Mindset for Multiplatform Development](#mindset-for-multiplatform-development)
 - [Creating New Components or Views](#creating-new-components-or-views)
 - [Creating New Modules](#creating-new-modules)
 - [Using RxJS for Data Control](#using-rxjs-for-data-control)
+- [Using Resolve to Get and Control Data Before User Reaches the View](#using-resolve-to-get-and-control-data-before-user-reaches-the-view)
+- [Building APK from Ionic Framework](#building-apk-from-ionic-framework)
+- [Building APK from Android Studio](#building-apk-from-android-studio)
+- [Building iOS App from Ionic Framework](#building-ios-app-from-ionic-framework)
+- [Acknowledgements](#acknowledgements)
+- [Author](#author)
 
 ## Features
 
