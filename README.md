@@ -11,7 +11,6 @@ Welcome to the Ionic Starter Project! This project is built using the latest Ion
   - [Running the Project](#running-the-project)
 - [Customization](#customization)
   - [Tailwind CSS and DaisyUI](#tailwind-css-and-daisyui)
-  - [Highcharts](#highcharts)
 - [Contributing](#contributing)
 - [License](#license)
 - [Development Environment](#development-environment)
@@ -25,6 +24,7 @@ Welcome to the Ionic Starter Project! This project is built using the latest Ion
 - [Building APK from Android Studio](#building-apk-from-android-studio)
 - [Building iOS App from Ionic Framework](#building-ios-app-from-ionic-framework)
 - [Acknowledgements](#acknowledgements)
+- [Repo Activity](#repo-activity)
 - [Author](#author)
 
 ## Features
@@ -472,6 +472,9 @@ We would like to extend our gratitude to the following technologies and their co
 
 Thank you to all the contributors and maintainers of these projects for their hard work and dedication. Your efforts have significantly contributed to the success of this project.
 
+## Repo Activity
+![Alt](https://repobeats.axiom.co/api/embed/db5dbc3fbd29d5c508b5999d3a65eab7d15f0463.svg "Repobeats analytics image")
+
 ## Author
 
 This project is maintained by Minh Nguyen. If you have any questions or feedback, feel free to reach out:
@@ -480,3 +483,9 @@ This project is maintained by Minh Nguyen. If you have any questions or feedback
 - Email: [min6th@gmail.com](mailto:min6th@gmail.com)
 
 Contributions, suggestions, and feedback are always welcome!
+
+<a href="https://github.com/min3rd/ionic-starter/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=min3rd/ionic-starter" />
+</a>
+
+Made with [contrib.rocks](https://contrib.rocks).
