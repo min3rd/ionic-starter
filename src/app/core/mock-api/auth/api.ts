@@ -2,9 +2,7 @@ import { Injectable } from "@angular/core";
 import { MockApi } from "../mock-api";
 import { Endpoint } from "../../constants/endpoint";
 import { adminCredential, user, userCredential } from "./data";
-import { Utf8 } from "crypto-es/lib/core";
-import { HmacSHA256 } from "crypto-es/lib/sha256";
-import { Base64 } from "crypto-es/lib/enc-base64";
+import { Utf8, HmacSHA256, Base64 } from "crypto-es";
 
 @Injectable({
     providedIn: 'root'
